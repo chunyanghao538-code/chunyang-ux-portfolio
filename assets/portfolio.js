@@ -1,17 +1,27 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   const markIn = (el) => el.classList.add("in");
 
+  const targets = () =>
+    Array.from(document.querySelectorAll(".reveal, .case-gallery figure"));
+
   if (reduce) {
-    document.querySelectorAll(".reveal, .case-gallery figure").forEach(markIn);
+    targets().forEach(markIn);
     return;
   }
 
-  // Hero reveals on load
-  requestAnimationFrame(() => {
-    document.querySelectorAll(".pf-hero .reveal").forEach(markIn);
-  });
+  // Immediate: hero + anything already in view
+  const revealNow = () => {
+    targets().forEach((el) => {
+      if (el.closest(".pf-hero") || el.closest(".case-hero") || el.closest(".case-top")) {
+        markIn(el);
+        return;
+      }
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) markIn(el);
+    });
+  };
+  requestAnimationFrame(revealNow);
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -22,12 +32,13 @@
         }
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    { rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
   );
 
-  document.querySelectorAll(".reveal:not(.pf-hero .reveal), .case-gallery figure").forEach((el) => io.observe(el));
+  targets().forEach((el) => {
+    if (!el.classList.contains("in")) io.observe(el);
+  });
 
-  // Smooth hash scroll for in-page nav
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener("click", (e) => {
       const id = a.getAttribute("href");
