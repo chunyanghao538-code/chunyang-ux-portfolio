@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIANCE OS · B端企业财务工作台 | 郝春阳作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/workbench.css" />
+  <link rel="stylesheet" href="assets/portfolio.css" />
+</head>
+<body>
+  <header class="pf-nav">
+    <a class="pf-brand" href="index.html">
+      <b>郝春阳</b>
+      <span>FIANCE OS</span>
+    </a>
+    <nav>
+      <a href="index.html#works">作品集</a>
+      <a href="#background">背景</a>
+      <a href="#demo" class="on">产品演示</a>
+      <a href="#pages">全页</a>
+      <a href="finance-app.html">水象钱包</a>
+    </nav>
+    <a class="pf-cta" href="#demo">打开工作台演示</a>
+  </header>
+
+  <main>
+    <div class="case-top" style="padding-bottom:0">
+      <a class="case-back" href="index.html#works"><i>←</i> 返回作品集</a>
+    </div>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="kicker">郝春阳 · 产品体验设计</p>
+        <h1><span class="brand-italic">FIANCE</span> <span class="os">os</span></h1>
+        <p class="hero-sub">B端企业财务工作台</p>
+        <p class="hero-lead">把应收、应付、费用、发票、对账里零散的日常动作，收成财务人员每天能直接开工的统一任务出口——少找页面，多做闭环。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#demo">体验产品演示</a>
+          <a class="btn ghost" href="#pages">浏览完整案例页</a>
+        </div>
+        <ul class="hero-meta">
+          <li><b>设计师</b>郝春阳</li>
+          <li><b>类型</b>B 端 · 财务 SaaS</li>
+          <li><b>产出</b>IA · 工作台 · 待办 · 风险闭环</li>
+        </ul>
+      </div>
+      <figure class="hero-visual">
+        <img src="assets/case/p01-cover.jpg" alt="FIANCE OS B端企业财务工作台设计封面" />
+      </figure>
+    </section>
+
+    <!-- 项目背景 -->
+    <section class="section" id="background">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 · 项目背景</p>
+          <h2>项目背景</h2>
+          <p>复杂的财务工作需要一个统一的任务出口。信息散落在应收、应付、发票等模块，财务人员频繁切换任务，难以形成闭环。</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>常规财务人员工作流</h3>
+          <div class="flow-row">
+            <span>收到任务</span><i>→</i><span>审核报销</span><i>→</i><span>处理付款</span><i>→</i><span>确认收款</span>
+          </div>
+          <div class="flow-row muted">
+            <span>银行对账</span><i>→</i><span>处理异常</span><i>→</i><span>月末结账</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>三大痛点</h3>
+          <ol class="pain-list">
+            <li><b>01 信息分散</b>应收、应付、发票分属不同模块</li>
+            <li><b>02 任务分散</b>需手动寻找任务并自行判断优先级</li>
+            <li><b>03 流程断裂</b>处理、对账、结账缺少连续链路</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="core-banner">
+        <span>核心问题</span>
+        <p>问题并不是缺少财务数据，而是缺少一个连接「数据、任务与业务流程」的统一工作入口。</p>
+      </div>
+
+      <figure class="page-shot">
+        <img src="assets/case/p02-background.jpg" alt="项目背景完整设计页" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- 用户与痛点 -->
+    <section class="section alt" id="users">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 · 用户与痛点</p>
+          <h2>核心用户与业务痛点</h2>
+          <p>核心执行用户是财务专员：日常审批、付款处理、应收跟进、异常处理；目标是快速完成当日任务并保证业务准确闭环。</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <article class="card mini">
+          <h3>任务发现困难</h3>
+          <p>需进入多个页面才能找到待办。</p>
+        </article>
+        <article class="card mini">
+          <h3>优先级难判断</h3>
+          <p>任务量大，缺少清晰决策依据。</p>
+        </article>
+        <article class="card mini">
+          <h3>信息获取成本高</h3>
+          <p>频繁切换页面导致上下文丢失。</p>
+        </article>
+        <article class="card mini">
+          <h3>状态追踪困难</h3>
+          <p>难以持续跟踪审批与收付款进度。</p>
+        </article>
+      </div>
+
+      <figure class="page-shot">
+        <img src="assets/case/p03-users.jpg" alt="核心用户与业务痛点页" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- 流程重构 -->
+    <section class="section" id="process">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 · 流程重构</p>
+          <h2>业务流程重构</h2>
+          <p>统一任务驱动工作流：通过工作台连接业务模块，将财务任务从发现到闭环形成完整业务链。</p>
+        </div>
+      </div>
+
+      <div class="chain">
+        <div><b>发现任务</b><span>发现待办 · 识别风险</span></div>
+        <div><b>判断优先级</b><span>评估风险 · 规划顺序</span></div>
+        <div><b>执行处理</b><span>状态跟踪 · 结果确认</span></div>
+        <div><b>业务闭环</b><span>审批 / 收付 / 对账</span></div>
+        <div><b>数据沉淀</b><span>分析报表 · 辅助决策</span></div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>应收管理</h3>
+          <p>应收生成 · 催收跟进 · 客户回款 · 银行对账 · 核销完成</p>
+        </article>
+        <article class="card">
+          <h3>应付管理</h3>
+          <p>付款申请 · 审批 · 付款执行 · 发票匹配 · 账务处理</p>
+        </article>
+        <article class="card">
+          <h3>费用管理</h3>
+          <p>费用申请 · 审核 · 报销支付 · 凭证生成 → 月结 / 分析</p>
+        </article>
+      </div>
+
+      <div class="core-banner accent">
+        <span>核心结论</span>
+        <p>将传统模块化财务系统，转变为以任务为中心的工作模式。</p>
+      </div>
+
+      <figure class="page-shot">
+        <img src="assets/case/p04-process.jpg" alt="业务流程重构页" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- 产品演示：Web 适配可交互工作台 -->
+    <section class="section alt" id="demo">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">04 · 产品演示</p>
+          <h2>产品演示 · Web 适配工作台</h2>
+          <p>左侧导航对齐原型信息架构；各模块为 Web 适配交互页（非原图照搬），可自由探索或按路径 A–D 引导体验。</p>
+        </div>
+      </div>
+
+      <div class="demo-flows" role="tablist" aria-label="演示路径">
+        <button type="button" class="flow-chip on" data-flow="free" role="tab" aria-selected="true">
+          <b>自由探索</b><span>侧栏切换 · 卡片下钻 · 抽屉操作</span>
+        </button>
+        <button type="button" class="flow-chip" data-flow="approve" role="tab">
+          <b>路径 A · 待办审批</b><span>工作台 → 待办 → 抽屉审批</span>
+        </button>
+        <button type="button" class="flow-chip" data-flow="riskloop" role="tab">
+          <b>路径 B · 风险闭环</b><span>风险发现 → 核查 → 应收催收</span>
+        </button>
+        <button type="button" class="flow-chip" data-flow="closeout" role="tab">
+          <b>路径 C · 月结推进</b><span>月结进度 → 阻塞项 → 完成关账</span>
+        </button>
+        <button type="button" class="flow-chip" data-flow="expense" role="tab">
+          <b>路径 D · 报销审核</b><span>费用管理 → 报销列表 → 审核通过</span>
+        </button>
+      </div>
+
+      <div class="demo-guide" id="demo-guide" hidden>
+        <ol id="guide-steps"></ol>
+        <p id="guide-hint"></p>
+      </div>
+
+      <div class="fos" id="product">
+        <header class="fos-top">
+          <div class="fos-top-left">
+            <img class="fos-logo-img" src="assets/fiance-os-logo-light.png?v=2" alt="FIANCE OS" />
+            <div class="fos-ticker">台风临汉公告：因近日台风天气，本月月结窗口将于 9 月 5 日关闭 · 请提前完成对账差异清理</div>
+          </div>
+          <div class="fos-search">搜索任务 / 单据 / 客户 / 风险 ID</div>
+          <div class="fos-top-right">
+            <span class="fos-ico" title="帮助">?</span>
+            <span class="fos-ico" title="语言">中</span>
+            <span class="fos-ico" title="通知">3</span>
+            <div class="fos-user">
+              <span class="fos-avatar">春</span>
+              <div>
+                <b>郝春阳</b>
+                <small>财务专员</small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="fos-body">
+          <aside class="fos-side" id="fos-side">
+            <div class="fos-side-group">
+              <div class="fos-nav-label">工作台</div>
+              <button type="button" class="fos-nav child active" data-panel="home">我的工作台</button>
+              <button type="button" class="fos-nav child" data-panel="todo">待办中心</button>
+              <button type="button" class="fos-nav child" data-panel="risk">风险中心</button>
+            </div>
+            <div class="fos-side-group">
+              <div class="fos-nav-label">业务管理</div>
+              <div class="fos-nav parent open">应收管理</div>
+              <button type="button" class="fos-nav child deep" data-panel="ar">总览</button>
+              <button type="button" class="fos-nav child deep" data-panel="arLedger">账款</button>
+              <button type="button" class="fos-nav child deep" data-panel="arCustomer">客户</button>
+              <button type="button" class="fos-nav child deep" data-panel="arCollect">催收任务</button>
+              <div class="fos-nav parent open">应付管理</div>
+              <button type="button" class="fos-nav child deep" data-panel="ap">总览</button>
+              <button type="button" class="fos-nav child deep" data-panel="apLedger">账款</button>
+              <button type="button" class="fos-nav child deep" data-panel="apVendor">供应商</button>
+              <div class="fos-nav parent open">费用管理</div>
+              <button type="button" class="fos-nav child deep" data-panel="expense" data-guide="expense-1">报销审核</button>
+              <button type="button" class="fos-nav child deep" data-panel="expenseDetail">明细</button>
+              <button type="button" class="fos-nav child deep" data-panel="expenseAlloc">分摊</button>
+              <div class="fos-nav parent open">发票管理</div>
+              <button type="button" class="fos-nav child deep" data-panel="invoice">列表</button>
+              <button type="button" class="fos-nav child deep" data-panel="invoiceAbnormal">异常</button>
+            </div>
+            <div class="fos-side-group">
+              <div class="fos-nav-label">资金 / 结账 / 分析</div>
+              <button type="button" class="fos-nav child" data-panel="fund">资金管理</button>
+              <button type="button" class="fos-nav child" data-panel="close" data-guide="closeout-1">核算结账</button>
+              <button type="button" class="fos-nav child" data-panel="analytics">财务分析</button>
+            </div>
+            <div class="fos-side-foot">
+              <span>在线支持</span>
+              <span>退出登陆</span>
+            </div>
+          </aside>
+
+          <div class="fos-main">
+            <div class="fos-crumb" id="fos-crumb">工作台 / 我的工作台</div>
+            <div id="panel-body" class="fos-panel"></div>
+          </div>
+
+          <aside class="fos-drawer" id="drawer" hidden>
+            <div class="fos-drawer-head">
+              <div>
+                <h4 id="drawer-title">审批详情</h4>
+                <p id="drawer-id">PAY-2310-089</p>
+              </div>
+              <button type="button" class="fos-x" id="drawer-close" aria-label="关闭">✕</button>
+            </div>
+            <div id="drawer-body" class="fos-drawer-body"></div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" hidden></div>
+
+      <div class="rationale">
+        <article><b>01 任务聚合</b><span>工作台汇总待处理 / 待审核 / 待付款 / 待收款 / 待对账，减少跨模块查找。</span></article>
+        <article><b>02 风险前置</b><span>风险中心分层展示高/中/低风险，支持核查单与处置建议。</span></article>
+        <article><b>03 业务闭环</b><span>从风险发现进入应收总览，完成催收跟进与状态闭环。</span></article>
+      </div>
+    </section>
+
+    <!-- PDF 全页 -->
+    <section class="section" id="pages">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">05 · 完整案例页</p>
+          <h2>完整案例页（来自 PDF）</h2>
+          <p>以下为《b端财务工作台页面.pdf》对应分页，按原作品集顺序展示。</p>
+        </div>
+      </div>
+
+      <div class="page-gallery">
+        <figure>
+          <img src="assets/case/p05-workbench.jpg" alt="工作台设计页" loading="lazy" />
+          <figcaption>05 · 工作台设计 — 任务聚合 / 风险前置 / 快速进入</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case/p06-todo.jpg" alt="待办中心设计页" loading="lazy" />
+          <figcaption>06 · 待办中心 — 任务筛选 · 抽屉审批 · 状态追踪</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case/p07-risk.jpg" alt="风险中心设计页" loading="lazy" />
+          <figcaption>07 · 风险中心 — 高中低风险分层 · 处置建议 · 处置轨迹</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case/p08-loop.jpg" alt="风险处理闭环页" loading="lazy" />
+          <figcaption>08 · 风险处理闭环 — 发现 → 详情 → 跟进 → 状态闭环</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case/p09-system.jpg" alt="设计系统组件页" loading="lazy" />
+          <figcaption>09 · 设计系统 — 统一状态表达 · 高密度可读 · 场景复用</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 总结 -->
+    <section class="section alt" id="summary">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">06 · 总结</p>
+          <h2>页面总结</h2>
+          <p>从「信息碎片」到「业务闭环」——为财务人员打造统一工作入口，让数据、任务与流程重新连起来。</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>统一入口</h3>
+          <p>工作台成为每日起点，待办与风险不再散落在多个模块。</p>
+        </article>
+        <article class="card">
+          <h3>任务驱动</h3>
+          <p>发现 → 优先级 → 执行 → 闭环 → 沉淀，形成可追踪链路。</p>
+        </article>
+        <article class="card">
+          <h3>组件复用</h3>
+          <p>状态、筛选、抽屉、图表组件统一，支撑高密度财务信息阅读。</p>
+        </article>
+      </div>
+
+      <figure class="page-shot">
+        <img src="assets/case/p10-summary.jpg" alt="页面总结" loading="lazy" />
+      </figure>
+    </section>
+  </main>
+
+  <section class="related" style="padding-top:8px">
+    <h3>同一作品集中的其他项目</h3>
+    <div class="related-grid">
+      <a href="finance-app.html"><s>C 端 · 金融 App</s><b>水象钱包</b></a>
+      <a href="xiangcheng.html"><s>品牌视觉</s><b>襄承品牌设计</b></a>
+      <a href="splatoon3.html"><s>游戏 UI</s><b>斯普拉遁 3 界面</b></a>
+    </div>
+  </section>
+
+  <footer class="pf-foot">
+    <div>
+      <b>郝春阳</b>
+      <p style="margin-top:6px">FIANCE OS · 产品体验设计作品集</p>
+    </div>
+    <p><a href="index.html">返回作品集首页</a></p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/portfolio.js"></script>
+</body>
+</html>
