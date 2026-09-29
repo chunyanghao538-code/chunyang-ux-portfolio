@@ -294,10 +294,14 @@ em { font-style: normal; color: var(--orange); }
   max-width: 980px; margin: 0 auto;
   padding: 8px 28px 56px;
 }
-.case-gallery figure,
-#poster {
+.case-gallery figure {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
   scroll-margin-top: 96px;
 }
+#poster { scroll-margin-top: 96px; }
 .case-gallery figure.in {
   opacity: 1; transform: translateY(0);
 }
