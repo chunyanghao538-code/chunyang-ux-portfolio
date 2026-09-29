@@ -4,41 +4,47 @@
     quota: {
       src: "assets/works/finance/proto/quota.png",
       title: "额度中心",
-      hint: "点击橙色「立即借款」进入激活额度",
-      hotspot: "hs-main-cta",
-      next: "activate",
+      hint: "点橙色卡内「立即借款」进入激活；或点底部福利条去绑卡",
+      spots: [
+        { cls: "hs-quota-cta", action: "activate", label: "立即借款" },
+        { cls: "hs-quota-banner", action: "bindcard", label: "绑定银行卡福利" },
+      ],
       back: null,
     },
     activate: {
       src: "assets/works/finance/proto/activate.png",
       title: "激活额度",
-      hint: "完成手机验证与身份认证后，点「下一步：人脸识别」进入确认借款",
-      hotspot: "hs-activate-cta",
-      next: "confirm",
+      hint: "点「下一步：人脸识别」进入确认借款（热区避开底部导航）",
+      spots: [
+        { cls: "hs-activate-cta", action: "confirm", label: "下一步：人脸识别" },
+      ],
       back: "quota",
     },
     confirm: {
       src: "assets/works/finance/proto/confirm.png",
       title: "确认借款",
-      hint: "调节金额后，点「确认借款并放款」进入绑卡",
-      hotspot: "hs-confirm-cta",
-      next: "bindcard",
+      hint: "点「确认借款并放款」进入绑定银行卡",
+      spots: [
+        { cls: "hs-confirm-cta", action: "bindcard", label: "确认借款并放款" },
+      ],
       back: "activate",
     },
     bindcard: {
       src: "assets/works/finance/proto/bindcard.png",
       title: "绑定银行卡",
-      hint: "填写卡号与验证码后，点「同意协议并绑定」查看放款结果",
-      hotspot: "hs-bind-cta",
-      next: "success",
+      hint: "点「同意协议并绑定」查看放款成功",
+      spots: [
+        { cls: "hs-bind-cta", action: "success", label: "同意协议并绑定" },
+      ],
       back: "confirm",
     },
     success: {
       src: "assets/works/finance/proto/success.png",
       title: "放款成功",
-      hint: "闭环完成。可点左侧步骤回到额度中心重新体验",
-      hotspot: null,
-      next: null,
+      hint: "闭环完成。点「查看账单」回额度中心，或左侧步骤重走流程",
+      spots: [
+        { cls: "hs-success-bill", action: "quota", label: "查看账单" },
+      ],
       back: "bindcard",
     },
   };
@@ -59,11 +65,11 @@
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = `phone-hotspot ${cls}`;
-    btn.dataset.action = action;
     btn.setAttribute("aria-label", label);
-    btn.addEventListener("click", () => {
-      if (action === "next" && meta[current].next) show(meta[current].next);
-      if (action === "back" && meta[current].back) show(meta[current].back);
+    btn.title = label;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (meta[action] || order.includes(action)) show(action);
     });
     screen.appendChild(btn);
   };
@@ -79,19 +85,23 @@
       btn.classList.toggle("on", btn.dataset.screen === id);
     });
     clearHotspots();
-    if (m.back) addHotspot("hs-back", "back", "返回上一屏");
-    if (m.hotspot) addHotspot(m.hotspot, "next", "下一步");
+    if (m.back) addHotspot("hs-back", m.back, "返回上一屏");
+    (m.spots || []).forEach((s) => addHotspot(s.cls, s.action, s.label));
   };
 
   steps.forEach((btn) => {
     btn.addEventListener("click", () => show(btn.dataset.screen));
   });
 
-  // keyboard
   document.addEventListener("keydown", (e) => {
     const i = order.indexOf(current);
     if (e.key === "ArrowRight" && i < order.length - 1) show(order[i + 1]);
     if (e.key === "ArrowLeft" && i > 0) show(order[i - 1]);
+  });
+
+  // After image loads, ensure layout uses natural height
+  img.addEventListener("load", () => {
+    screen.style.aspectRatio = "auto";
   });
 
   show("quota");
