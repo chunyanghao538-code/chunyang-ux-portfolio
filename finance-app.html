@@ -10,15 +10,22 @@
   <link rel="stylesheet" href="assets/portfolio.css" />
 </head>
 <body class="tone-finance">
+  <div class="pf-top"><div class="pf-jump" aria-label="作品直达">
+    <a href="fiance-os.html">FIANCE OS</a><span class="dot" aria-hidden="true"></span>
+    <a class="on" href="finance-app.html">水象钱包</a><span class="dot" aria-hidden="true"></span>
+    <a href="xiangcheng.html">襄承品牌</a><span class="dot" aria-hidden="true"></span>
+    <a href="splatoon3.html">斯普拉遁 3</a>
+  </div>
+
   <header class="pf-nav">
-    <a class="pf-brand" href="index.html"><b>郝春阳</b><span>PRODUCT EXPERIENCE</span></a>
+    <a class="pf-brand" href="index.html"><b>郝春阳</b><span>水象钱包</span></a>
     <nav>
-      <a href="index.html#works">作品</a>
-      <a href="fiance-os.html">FIANCE OS</a>
-      <a class="on" href="finance-app.html">水象钱包</a>
+      <a href="index.html">首页</a>
+      <a class="on" href="#proto">原型演示</a>
+      <a href="#gallery">作品集页</a>
     </nav>
-    <a class="pf-cta" href="index.html#works">全部作品</a>
-  </header>
+    <a class="pf-cta" href="#proto">体验借款流程</a>
+  </header></div>
 
   <div class="case-top">
     <a class="case-back" href="index.html#works"><i>←</i> 返回作品集</a>
@@ -26,35 +33,69 @@
 
   <header class="case-hero">
     <div class="case-hero-copy reveal">
-      <p class="eyebrow">C 端 · 金融 App</p>
+      <p class="eyebrow">C 端 · 金融 App · 主色 #FF7034</p>
       <h1>水象钱包</h1>
-      <p class="lead">面向借贷用户的移动端流程设计：额度中心、激活、确认借款、绑卡到放款成功——把高焦虑路径收成可预期的步骤与反馈。</p>
+      <p class="lead">依据 Figma「个人页面 → 作品集制作 → 金融 APP 页面」原型还原：额度中心 → 激活额度 → 确认借款 → 绑定银行卡 → 放款成功。橙色主色贯穿关键路径与反馈。</p>
       <ul class="case-meta">
-        <li><b>类型</b>移动端 UI / 流程</li>
-        <li><b>产出</b>关键路径页 · 作品集叙事</li>
-        <li><b>关注</b>信任感 · 步骤清晰 · 结果确认</li>
+        <li><b>类型</b>移动端原型 / 流程</li>
+        <li><b>主色</b>暖橙 #FF7034</li>
+        <li><b>路径</b>额度 · 激活 · 借款 · 绑卡 · 放款</li>
       </ul>
       <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="#gallery">浏览页面</a>
-        <a class="btn ghost" href="fiance-os.html">相关：B 端财务工作台</a>
+        <a class="btn primary" href="#proto">打开原型演示</a>
+        <a class="btn ghost" href="#gallery">浏览作品集页</a>
       </div>
     </div>
     <figure class="case-cover reveal reveal-delay-1">
-      <img src="assets/works/finance/cover.jpg" alt="水象钱包作品扉页" />
+      <img src="assets/works/finance/proto/quota.png" alt="水象钱包 · 额度中心原型" />
     </figure>
   </header>
 
-  <p class="case-note reveal">金融产品的界面不仅是「好看」，更是让用户在关键节点知道自己处在哪一步、下一步要做什么、失败时如何回来。下列页面按作品集顺序展开。</p>
+  <section class="pf-section" id="proto" style="padding-top:12px">
+    <div class="pf-head reveal">
+      <p class="eyebrow">PROTOTYPE</p>
+      <h2>金融 APP 原型演示</h2>
+      <p>点击左侧步骤或手机内热区，按原型流程走通借款闭环。</p>
+    </div>
+
+    <div class="proto-demo">
+      <aside class="proto-rail reveal">
+        <h3>流程步骤</h3>
+        <p>对应 Figma 金融 APP 页面关键屏，热区对齐主按钮与返回。</p>
+        <ol class="proto-steps" id="proto-steps">
+          <li><button type="button" class="on" data-screen="quota"><s>01</s><b>额度中心</b></button></li>
+          <li><button type="button" data-screen="activate"><s>02</s><b>激活额度</b></button></li>
+          <li><button type="button" data-screen="confirm"><s>03</s><b>确认借款</b></button></li>
+          <li><button type="button" data-screen="bindcard"><s>04</s><b>绑定银行卡</b></button></li>
+          <li><button type="button" data-screen="success"><s>05</s><b>放款成功</b></button></li>
+        </ol>
+      </aside>
+
+      <div class="proto-stage reveal reveal-delay-1">
+        <div class="phone-shell">
+          <div class="phone-screen" id="phone-screen">
+            <img id="proto-img" src="assets/works/finance/proto/quota.png" alt="额度中心" />
+            <button type="button" class="phone-hotspot hs-back" data-action="back" aria-label="返回" hidden></button>
+            <button type="button" class="phone-hotspot hs-main-cta" data-action="next" aria-label="立即借款"></button>
+          </div>
+        </div>
+        <p class="proto-hint" id="proto-hint">当前：<b>额度中心</b> — 点击「立即借款」进入激活额度</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="case-note reveal">下列为作品集叙事页（非原型照搬），用于说明场景与设计判断；上方演示才是 Figma 原型路径。</p>
 
   <section class="case-gallery" id="gallery">
-    <figure><img src="assets/works/finance/p01.png" alt="水象钱包第一页" loading="lazy" /><figcaption>01 · 开篇与产品定位</figcaption></figure>
-    <figure><img src="assets/works/finance/p02.png" alt="金融第二页" loading="lazy" /><figcaption>02 · 流程与场景拆解</figcaption></figure>
-    <figure><img src="assets/works/finance/p03.png" alt="金融第三页" loading="lazy" /><figcaption>03 · 额度中心</figcaption></figure>
-    <figure><img src="assets/works/finance/p04.png" alt="金融第四页" loading="lazy" /><figcaption>04 · 激活额度</figcaption></figure>
-    <figure><img src="assets/works/finance/p05.png" alt="金融第五页" loading="lazy" /><figcaption>05 · 确认借款</figcaption></figure>
-    <figure><img src="assets/works/finance/p06.png" alt="金融第六页" loading="lazy" /><figcaption>06 · 绑定银行卡</figcaption></figure>
-    <figure><img src="assets/works/finance/p07.png" alt="金融第七页" loading="lazy" /><figcaption>07 · 放款与结果反馈</figcaption></figure>
-    <figure><img src="assets/works/finance/p08.png" alt="金融第八页" loading="lazy" /><figcaption>08 · 页面总结与延展</figcaption></figure>
+    <figure><img src="assets/works/finance/cover.jpg" alt="水象钱包扉页" loading="lazy" /><figcaption>作品集扉页</figcaption></figure>
+    <figure><img src="assets/works/finance/p01.png" alt="水象钱包第一页" loading="lazy" /><figcaption>01 · 开篇与定位</figcaption></figure>
+    <figure><img src="assets/works/finance/p02.png" alt="金融第二页" loading="lazy" /><figcaption>02 · 流程拆解</figcaption></figure>
+    <figure><img src="assets/works/finance/p03.png" alt="金融第三页" loading="lazy" /><figcaption>03 · 额度相关</figcaption></figure>
+    <figure><img src="assets/works/finance/p04.png" alt="金融第四页" loading="lazy" /><figcaption>04 · 激活相关</figcaption></figure>
+    <figure><img src="assets/works/finance/p05.png" alt="金融第五页" loading="lazy" /><figcaption>05 · 借款确认</figcaption></figure>
+    <figure><img src="assets/works/finance/p06.png" alt="金融第六页" loading="lazy" /><figcaption>06 · 绑卡</figcaption></figure>
+    <figure><img src="assets/works/finance/p07.png" alt="金融第七页" loading="lazy" /><figcaption>07 · 放款反馈</figcaption></figure>
+    <figure><img src="assets/works/finance/p08.png" alt="金融第八页" loading="lazy" /><figcaption>08 · 总结</figcaption></figure>
   </section>
 
   <section class="related">
@@ -67,9 +108,11 @@
   </section>
 
   <footer class="pf-foot">
-    <div><b>郝春阳</b><p style="margin-top:6px">产品体验设计作品集 · 2026</p></div>
+    <div><b>郝春阳</b><p style="margin-top:6px">水象钱包 · 金融 App</p></div>
     <p><a href="index.html">返回首页</a></p>
   </footer>
+
   <script src="assets/portfolio.js"></script>
+  <script src="assets/finance-proto.js"></script>
 </body>
 </html>
