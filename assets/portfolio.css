@@ -471,14 +471,26 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   background: color-mix(in srgb, var(--blue) 24%, transparent);
 }
 
-/* Hotspots tuned to Figma exports — keep clear of bottom tab labels (~0–11%) */
-.hs-back { left: 1.5%; top: 5.2%; width: 11%; height: 4.2%; }
-.hs-quota-cta { left: 15%; right: 15%; top: 28.5%; height: 4.2%; border-radius: 999px; }
-.hs-quota-banner { left: 5%; right: 5%; top: 78%; height: 5.5%; }
-.hs-activate-cta { left: 7%; right: 7%; top: 72%; height: 5.2%; }
-.hs-confirm-cta { left: 7%; right: 7%; bottom: 3.5%; height: 6%; }
-.hs-bind-cta { left: 7%; right: 7%; bottom: 11%; height: 6%; }
-.hs-success-bill { left: 6%; width: 42%; bottom: 13.5%; height: 5.2%; }
+/* Hotspots — percentages measured from Figma PNG pixel scans */
+.hs-back { left: 0; top: 4.6%; width: 12%; height: 4.8%; }
+/* 额度中心 · 立即借款（白底胶囊，卡内底部） */
+.hs-quota-cta {
+  left: 26%; right: 26%; top: 32.2%; height: 3.4%;
+  border-radius: 999px;
+}
+/* 额度中心 · 绑定银行卡福利条 */
+.hs-quota-banner { left: 4%; right: 4%; top: 86%; height: 5.2%; }
+/* 激活额度 · 下一步：人脸识别（避开底栏约 90%+） */
+.hs-activate-cta { left: 6.5%; right: 6.5%; top: 69.8%; height: 5.9%; border-radius: 14px; }
+/* 确认借款 · 确认借款并放款 */
+.hs-confirm-cta { left: 6.5%; right: 6.5%; top: 91.7%; height: 5.2%; border-radius: 14px; }
+/* 确认借款 · 收款账户（可改绑卡） */
+.hs-confirm-account { left: 4.5%; right: 4.5%; top: 74.8%; height: 6.4%; border-radius: 12px; }
+/* 绑定银行卡 · 同意协议并绑定 */
+.hs-bind-cta { left: 6.5%; right: 6.5%; top: 80%; height: 5.4%; border-radius: 14px; }
+/* 放款成功 · 查看账单 / 立即还款 */
+.hs-success-bill { left: 5%; width: 43%; top: 78.7%; height: 5.5%; border-radius: 14px; }
+.hs-success-repay { left: 51%; right: 4.5%; top: 78.7%; height: 5.5%; border-radius: 14px; }
 
 .proto-hint {
   font-size: 13px; color: var(--text-2); text-align: center;
