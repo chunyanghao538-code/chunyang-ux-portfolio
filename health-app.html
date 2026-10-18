@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>健康伙伴 · 轻量健康 App | 郝春阳作品集</title>
+  <meta name="description" content="健康伙伴：三日探索记录原型——引导、录入方式、睡眠/饮食/运动、语音、画像与作息提醒。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/portfolio.css" />
+</head>
+<body class="tone-health">
+  <div class="pf-top"><div class="pf-jump" aria-label="作品直达">
+    <a href="fiance-os.html">FIANCE OS</a><span class="dot" aria-hidden="true"></span>
+    <a href="finance-app.html">水象钱包</a><span class="dot" aria-hidden="true"></span>
+    <a class="on" href="health-app.html">健康伙伴</a><span class="dot" aria-hidden="true"></span>
+    <a href="xiangcheng.html">襄承品牌</a><span class="dot" aria-hidden="true"></span>
+    <a href="splatoon3.html">斯普拉遁 3</a>
+  </div>
+
+  <header class="pf-nav">
+    <a class="pf-brand" href="index.html"><b>郝春阳</b><span>健康伙伴</span></a>
+    <nav>
+      <a href="index.html">首页</a>
+      <a class="on" href="#proto">原型演示</a>
+      <a href="#gallery">作品集页</a>
+    </nav>
+    <a class="pf-cta" href="#proto">体验三日记录</a>
+  </header></div>
+
+  <div class="case-top">
+    <a class="case-back" href="index.html#works"><i>←</i> 返回作品集</a>
+  </div>
+
+  <header class="case-hero">
+    <div class="case-hero-copy reveal">
+      <p class="eyebrow">C 端 · 健康 App · 主色 #B8E600</p>
+      <h1>健康伙伴</h1>
+      <p class="lead">依据 Figma「个人页面 → 健康伙伴 app」高保真原型还原：三日探索引导 → 记录方式 → 今日首页 → 睡眠 / 饮食 / 运动 → 语音核对 → 画像与作息提醒。酸檬绿主色贯穿主按钮与进度反馈。</p>
+      <ul class="case-meta">
+        <li><b>类型</b>移动端原型 / 轻量记录</li>
+        <li><b>主色</b>酸檬绿 #B8E600</li>
+        <li><b>路径</b>引导 · 录入 · 画像 · 提醒</li>
+      </ul>
+      <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="#proto">打开原型演示</a>
+        <a class="btn ghost" href="#gallery">浏览作品集页</a>
+      </div>
+    </div>
+    <figure class="case-cover reveal reveal-delay-1">
+      <img src="assets/works/health/proto/home.png" alt="健康伙伴 · 今日首页原型" />
+    </figure>
+  </header>
+
+  <section class="pf-section" id="proto" style="padding-top:12px">
+    <div class="pf-head reveal">
+      <p class="eyebrow">PROTOTYPE</p>
+      <h2>健康伙伴原型演示</h2>
+      <p>点击左侧步骤或手机内热区，按 Figma 原型走通三日记录闭环；含时间选择与记录完成弹窗，语音与设备授权为旁路入口。</p>
+    </div>
+
+    <div class="proto-demo">
+      <aside class="proto-rail reveal">
+        <h3>流程步骤</h3>
+        <p>热区对齐主按钮、返回、底栏与关键跳转链接；左右方向键可切换主路径。</p>
+        <ol class="proto-steps" id="proto-steps">
+          <li><button type="button" class="on" data-screen="onboarding"><s>01</s><b>三日探索引导</b></button></li>
+          <li><button type="button" data-screen="method"><s>02</s><b>选择记录方式</b></button></li>
+          <li><button type="button" data-screen="auth"><s>03</s><b>设备授权</b></button></li>
+          <li><button type="button" data-screen="home"><s>04</s><b>今日首页</b></button></li>
+          <li><button type="button" data-screen="sleep"><s>05</s><b>睡眠记录</b></button></li>
+          <li><button type="button" data-screen="popTime"><s>06</s><b>时间选择弹窗</b></button></li>
+          <li><button type="button" data-screen="diet"><s>07</s><b>饮食记录</b></button></li>
+          <li><button type="button" data-screen="exercise"><s>08</s><b>运动录入</b></button></li>
+          <li><button type="button" data-screen="popDone"><s>09</s><b>记录完成弹窗</b></button></li>
+          <li><button type="button" data-screen="voice"><s>10</s><b>语音录入</b></button></li>
+          <li><button type="button" data-screen="voiceConfirm"><s>11</s><b>语音确认</b></button></li>
+          <li><button type="button" data-screen="homeDone"><s>12</s><b>记录完成</b></button></li>
+          <li><button type="button" data-screen="portraitGap"><s>13</s><b>画像不足</b></button></li>
+          <li><button type="button" data-screen="homeReady"><s>14</s><b>三日完成</b></button></li>
+          <li><button type="button" data-screen="portrait"><s>15</s><b>三日画像</b></button></li>
+          <li><button type="button" data-screen="remind"><s>16</s><b>作息提醒</b></button></li>
+        </ol>
+      </aside>
+
+      <div class="proto-stage reveal reveal-delay-1">
+        <div class="phone-shell">
+          <div class="phone-screen" id="phone-screen">
+            <img id="proto-img" src="assets/works/health/proto/onboarding.png" alt="三日探索引导" />
+          </div>
+        </div>
+        <p class="proto-hint" id="proto-hint">当前：<b>三日探索引导</b> — 点「开始体验」进入选择记录方式</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="case-note reveal">下列为作品集叙事页（非原型照搬），用于说明场景与设计判断；上方演示才是 Figma 高保真原型路径。</p>
+
+  <section class="case-gallery" id="gallery">
+    <figure><img src="assets/works/health/cover.jpg" alt="健康伙伴扉页" loading="lazy" /><figcaption>作品集扉页</figcaption></figure>
+    <figure><img src="assets/works/health/p01.jpg" alt="健康伙伴第二页" loading="lazy" /><figcaption>01 · 说明与任务流</figcaption></figure>
+    <figure><img src="assets/works/health/p02.jpg" alt="健康伙伴第三页" loading="lazy" /><figcaption>02 · 首页路径与反馈</figcaption></figure>
+    <figure><img src="assets/works/health/p03.jpg" alt="健康伙伴第四页" loading="lazy" /><figcaption>03 · 录入方式</figcaption></figure>
+    <figure><img src="assets/works/health/p04.jpg" alt="健康伙伴第五页" loading="lazy" /><figcaption>04 · 记录细节</figcaption></figure>
+    <figure><img src="assets/works/health/p05.jpg" alt="健康伙伴第六页" loading="lazy" /><figcaption>05 · 画像与提醒</figcaption></figure>
+    <figure><img src="assets/works/health/p06.jpg" alt="健康伙伴第七页" loading="lazy" /><figcaption>06 · 总结</figcaption></figure>
+  </section>
+
+  <section class="related">
+    <h3>继续浏览</h3>
+    <div class="related-grid">
+      <a href="finance-app.html"><s>金融 App</s><b>水象钱包</b></a>
+      <a href="fiance-os.html"><s>B 端 · 财务 SaaS</s><b>FIANCE OS 工作台</b></a>
+      <a href="xiangcheng.html"><s>品牌视觉</s><b>襄承品牌设计</b></a>
+      <a href="splatoon3.html"><s>游戏 UI</s><b>斯普拉遁 3 界面</b></a>
+    </div>
+  </section>
+
+  <footer class="pf-foot">
+    <div><b>郝春阳</b><p style="margin-top:6px">健康伙伴 · 轻量健康 App</p></div>
+    <p><a href="index.html">返回首页</a></p>
+  </footer>
+
+  <script src="assets/portfolio.js"></script>
+  <script src="assets/health-proto.js"></script>
+</body>
+</html>

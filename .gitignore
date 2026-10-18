@@ -2,3 +2,9 @@
 .DS_Store
 *.log
 .preview/
+assets/works/health/proto/_src/
+assets/works/health/proto/_crops/
+assets/works/health/proto/_bands/
+assets/works/health/proto/_*.ps1
+assets/works/health/proto/sheet-time-card.png
+assets/works/health/proto/sheet-time-clean.png
