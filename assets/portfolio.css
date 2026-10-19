@@ -533,7 +533,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-auth-skip { left: 5.1%; right: 5.1%; top: 84.2%; height: 5.2%; border-radius: 999px; }
 
 .hs-hp-home-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
-.hs-hp-home-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
+.hs-hp-home-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-home-sleep-card { left: 4.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
 .hs-hp-home-diet-card { left: 35.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
 .hs-hp-home-ex-card { left: 66.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
@@ -568,7 +568,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-ex-save { left: 4.4%; right: 4.4%; top: 91%; height: 4.9%; border-radius: 999px; }
 
 .hs-hp-done-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
-.hs-hp-done-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
+.hs-hp-done-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-done-sleep { left: 4%; right: 4%; top: 54.5%; height: 7%; border-radius: 16px; }
 .hs-hp-done-diet { left: 4%; right: 4%; top: 62.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-done-ex { left: 4%; right: 4%; top: 71%; height: 8%; border-radius: 16px; }
@@ -576,7 +576,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-done-voice { left: 18%; right: 18%; top: 88%; height: 3.2%; }
 
 .hs-hp-ready-portrait { left: 55%; right: 8%; top: 34%; height: 4.5%; border-radius: 999px; }
-.hs-hp-ready-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
+.hs-hp-ready-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-ready-sleep { left: 4%; right: 4%; top: 54.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ready-diet { left: 4%; right: 4%; top: 62.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-ready-ex { left: 4%; right: 4%; top: 71%; height: 8%; border-radius: 16px; }
