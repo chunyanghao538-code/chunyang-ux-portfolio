@@ -108,7 +108,7 @@
     exercise: {
       src: "assets/works/health/proto/exercise.png",
       title: "运动录入",
-      hint: "点「保存记录」→ 首页完成态；可回睡眠/饮食卡；语音条 → 语音录入",
+      hint: "点「保存记录」→ 记录完成弹窗；可回睡眠/饮食卡；语音条 → 语音录入",
       spots: [
         { cls: "hs-hp-ex-sleep-row", to: "sleep", label: "睡眠记录" },
         { cls: "hs-hp-ex-diet-row", to: "diet", label: "饮食记录" },
