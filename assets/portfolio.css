@@ -520,86 +520,89 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-success-bill { left: 5%; width: 43%; top: 78.7%; height: 5.5%; border-radius: 14px; }
 .hs-success-repay { left: 51%; right: 4.5%; top: 78.7%; height: 5.5%; border-radius: 14px; }
 
-/* ——— 健康伙伴 hotspots（585×1266 像素扫描校准） ——— */
+/* ——— 健康伙伴 hotspots（Figma「健康伙伴app原型」390×844 校准） ——— */
 .hs-hp-skip { right: 2%; top: 5%; width: 16%; height: 4.2%; }
-.hs-hp-onboard-cta { left: 6.2%; right: 5.1%; top: 88.3%; height: 5.3%; border-radius: 999px; }
+.hs-hp-onboard-cta { left: 5.1%; right: 5.1%; top: 88.3%; height: 5.5%; border-radius: 999px; }
 .hs-hp-onboard-privacy { left: 22%; right: 22%; top: 94.2%; height: 3.2%; }
 
 .hs-hp-method-device { left: 5.1%; right: 5.1%; top: 14%; height: 31%; border-radius: 22px; }
 .hs-hp-method-manual { left: 4.1%; right: 4.1%; top: 48.3%; height: 25.8%; border-radius: 22px; }
-.hs-hp-method-cta { left: 6.5%; right: 5.1%; top: 87.2%; height: 5.5%; border-radius: 999px; }
+.hs-hp-method-cta { left: 5.1%; right: 5.1%; top: 87.2%; height: 5.5%; border-radius: 999px; }
 
-.hs-hp-auth-cta { left: 6.5%; right: 5.1%; top: 77.7%; height: 5.5%; border-radius: 999px; }
-.hs-hp-auth-skip { left: 6.5%; right: 5.1%; top: 84.2%; height: 5.2%; border-radius: 999px; }
+.hs-hp-auth-cta { left: 5.1%; right: 5.1%; top: 77.7%; height: 5.5%; border-radius: 999px; }
+.hs-hp-auth-skip { left: 5.1%; right: 5.1%; top: 84.2%; height: 5.2%; border-radius: 999px; }
 
-.hs-hp-home-progress { left: 68%; right: 4%; top: 38.5%; height: 3%; }
-.hs-hp-home-connect { left: 68%; right: 4%; top: 49.5%; height: 3.5%; }
-.hs-hp-home-sleep-card { left: 4%; width: 44%; top: 55%; height: 17%; border-radius: 18px; }
-.hs-hp-home-cta { left: 4.1%; right: 4.4%; top: 73.9%; height: 4.8%; border-radius: 999px; }
-.hs-hp-home-voice { left: 4.1%; right: 4.4%; top: 80%; height: 4.7%; border-radius: 999px; }
+.hs-hp-home-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
+.hs-hp-home-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
+.hs-hp-home-sleep-card { left: 4.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
+.hs-hp-home-diet-card { left: 35.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
+.hs-hp-home-ex-card { left: 66.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
+.hs-hp-home-cta { left: 4.4%; right: 4.1%; top: 80.2%; height: 4.9%; border-radius: 999px; }
+.hs-hp-home-voice { left: 8%; right: 8%; top: 86%; height: 3.6%; }
 
 .hs-hp-tab-today { left: 8%; width: 24%; top: 91%; height: 7%; }
 .hs-hp-tab-portrait { left: 38%; width: 24%; top: 91%; height: 7%; }
 .hs-hp-tab-mine { left: 68%; width: 24%; top: 91%; height: 7%; }
 
-.hs-hp-sleep-bedtime { left: 8%; right: 8%; top: 28%; height: 6.2%; border-radius: 14px; }
-.hs-hp-sleep-wake { left: 8%; right: 8%; top: 36%; height: 6.2%; border-radius: 14px; }
+.hs-hp-sleep-bedtime { left: 8%; right: 8%; top: 28.5%; height: 6.5%; border-radius: 14px; }
+.hs-hp-sleep-wake { left: 8%; right: 8%; top: 36.5%; height: 6.5%; border-radius: 14px; }
 .hs-hp-record-diet-row { left: 4.5%; right: 4.5%; top: 66%; height: 7%; border-radius: 16px; }
 .hs-hp-record-ex-row { left: 4.5%; right: 4.5%; top: 74.5%; height: 7%; border-radius: 16px; }
 .hs-hp-record-voice { left: 4.5%; right: 4.5%; top: 82.5%; height: 4.5%; border-radius: 999px; }
-.hs-hp-record-save { left: 5.5%; right: 4.1%; top: 89.1%; height: 4.7%; border-radius: 999px; }
+.hs-hp-record-save { left: 4.4%; right: 4.1%; top: 89%; height: 4.9%; border-radius: 999px; }
 
-/* 弹窗：时间选择 / 记录完成 */
-.hs-hp-time-cancel { left: 5%; width: 16%; top: 56.5%; height: 3.8%; }
-.hs-hp-time-confirm { left: 14%; right: 11%; top: 81%; height: 6.2%; border-radius: 999px; }
-.hs-hp-popdone-view { left: 18%; right: 14%; top: 78.5%; height: 5.6%; border-radius: 999px; }
-.hs-hp-popdone-home { left: 30%; right: 30%; top: 86.5%; height: 3.6%; }
+/* 弹窗：时间选择 / 记录完成 / 睡前提醒（画框下方 sheet） */
+.hs-hp-time-cancel { left: 4%; width: 14%; top: 56.5%; height: 3.6%; }
+.hs-hp-time-confirm { left: 0.5%; right: 0.5%; top: 91.6%; height: 5.1%; border-radius: 999px; }
+.hs-hp-popdone-view { left: 5.6%; right: 5%; top: 85.5%; height: 5.8%; border-radius: 999px; }
+.hs-hp-popdone-home { left: 28%; right: 28%; top: 93%; height: 3.4%; }
 
 .hs-hp-diet-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-diet-ex-row { left: 4.5%; right: 4.5%; top: 78%; height: 6.5%; border-radius: 16px; }
 .hs-hp-diet-voice { left: 4.8%; right: 5%; top: 85.8%; height: 3.9%; border-radius: 999px; }
-.hs-hp-diet-save { left: 6.5%; right: 3.1%; top: 92.1%; height: 4.8%; border-radius: 999px; }
+.hs-hp-diet-save { left: 5.6%; right: 2.8%; top: 92.1%; height: 4.9%; border-radius: 999px; }
 
 .hs-hp-ex-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ex-diet-row { left: 4.5%; right: 4.5%; top: 22.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ex-voice { left: 5.3%; right: 5%; top: 85.5%; height: 3.8%; border-radius: 999px; }
-.hs-hp-ex-save { left: 5.5%; right: 4.4%; top: 91%; height: 4.8%; border-radius: 999px; }
+.hs-hp-ex-save { left: 4.4%; right: 4.4%; top: 91%; height: 4.9%; border-radius: 999px; }
 
-.hs-hp-done-progress { left: 55%; right: 4%; top: 36.5%; height: 3.4%; }
-.hs-hp-done-connect { left: 68%; right: 4%; top: 49.5%; height: 3.5%; }
+.hs-hp-done-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
+.hs-hp-done-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
 .hs-hp-done-sleep { left: 4%; right: 4%; top: 54.5%; height: 7%; border-radius: 16px; }
 .hs-hp-done-diet { left: 4%; right: 4%; top: 62.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-done-ex { left: 4%; right: 4%; top: 71%; height: 8%; border-radius: 16px; }
-.hs-hp-done-modify { left: 5.1%; right: 4.1%; top: 82.3%; height: 4.7%; border-radius: 999px; }
-.hs-hp-done-voice { left: 18%; right: 18%; top: 87.5%; height: 3.2%; }
+.hs-hp-done-modify { left: 4.4%; right: 4.1%; top: 82.2%; height: 4.9%; border-radius: 999px; }
+.hs-hp-done-voice { left: 18%; right: 18%; top: 88%; height: 3.2%; }
 
 .hs-hp-ready-portrait { left: 55%; right: 8%; top: 34%; height: 4.5%; border-radius: 999px; }
-.hs-hp-ready-connect { left: 68%; right: 4%; top: 49.5%; height: 3.5%; }
+.hs-hp-ready-connect { left: 66%; right: 5%; top: 61%; height: 3.2%; }
 .hs-hp-ready-sleep { left: 4%; right: 4%; top: 54.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ready-diet { left: 4%; right: 4%; top: 62.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-ready-ex { left: 4%; right: 4%; top: 71%; height: 8%; border-radius: 16px; }
-.hs-hp-ready-modify { left: 5.1%; right: 4.1%; top: 82.3%; height: 4.7%; border-radius: 999px; }
-.hs-hp-ready-voice { left: 18%; right: 18%; top: 87.5%; height: 3.2%; }
+.hs-hp-ready-modify { left: 4.4%; right: 4.1%; top: 82.2%; height: 4.9%; border-radius: 999px; }
+.hs-hp-ready-voice { left: 18%; right: 18%; top: 88%; height: 3.2%; }
 
 .hs-hp-gap-diet { left: 6.5%; right: 6%; top: 48.5%; height: 7%; border-radius: 16px; }
 .hs-hp-gap-sleep { left: 6.5%; right: 6%; top: 56.5%; height: 8.5%; border-radius: 16px; }
-.hs-hp-gap-cta { left: 6.1%; right: 5.5%; top: 77.1%; height: 5.3%; border-radius: 999px; }
+.hs-hp-gap-cta { left: 5.1%; right: 5.1%; top: 77%; height: 5.5%; border-radius: 999px; }
 .hs-hp-gap-view { left: 6.5%; right: 5.5%; top: 84%; height: 5%; border-radius: 999px; }
 
 .hs-hp-portrait-sleep-edit { left: 70%; right: 5%; top: 33%; height: 3.6%; }
 .hs-hp-portrait-ex-edit { left: 70%; right: 5%; top: 68%; height: 3.6%; }
-.hs-hp-portrait-remind { left: 35%; right: 26%; top: 82.6%; height: 4.2%; }
+.hs-hp-portrait-remind { left: 5.9%; width: 35%; top: 72.9%; height: 3.7%; }
 
-.hs-hp-voice-finish { left: 5.1%; right: 5.1%; top: 86.6%; height: 5.3%; border-radius: 999px; }
-.hs-hp-voice-cancel { left: 20%; right: 20%; top: 93%; height: 3.4%; }
+.hs-hp-voice-finish { left: 8%; right: 6%; top: 86.5%; height: 5.2%; border-radius: 999px; }
+.hs-hp-voice-cancel { left: 28%; right: 28%; top: 94%; height: 3.2%; }
 
-.hs-hp-vconfirm-diet { left: 5%; right: 5%; top: 78.5%; height: 7%; border-radius: 16px; }
-.hs-hp-vconfirm-retry { left: 5%; width: 32%; top: 89.4%; height: 5.4%; border-radius: 999px; }
-.hs-hp-vconfirm-save { left: 39%; right: 5%; top: 89.4%; height: 5.4%; border-radius: 999px; }
+.hs-hp-vconfirm-diet { left: 5.6%; right: 8.5%; top: 58.3%; height: 5.7%; border-radius: 16px; }
+.hs-hp-vconfirm-retry { left: 5%; width: 32%; top: 89.2%; height: 5.7%; border-radius: 999px; }
+.hs-hp-vconfirm-save { left: 39%; right: 5%; top: 89.2%; height: 5.7%; border-radius: 999px; }
 
-.hs-hp-remind-set { left: 7.2%; right: 3.4%; top: 77.6%; height: 5.4%; border-radius: 999px; }
-.hs-hp-remind-edit { left: 7.2%; right: 3.4%; top: 84.5%; height: 5%; border-radius: 999px; }
-.hs-hp-remind-later { left: 28%; right: 28%; top: 91%; height: 3%; }
+.hs-hp-remind-close { right: 4%; top: 57%; width: 10%; height: 4%; }
+.hs-hp-remind-set { left: 5%; right: 5%; top: 87.2%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-edit { left: 28%; right: 28%; top: 92.5%; height: 3.4%; }
+.hs-hp-remind-later { left: 28%; right: 28%; top: 92.5%; height: 3.4%; }
 
 .proto-hint {
   font-size: 13px; color: var(--text-2); text-align: center;
