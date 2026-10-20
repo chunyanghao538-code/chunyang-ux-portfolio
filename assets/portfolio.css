@@ -465,22 +465,29 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   display: flex; flex-direction: column; align-items: center; gap: 14px;
 }
 .phone-shell {
-  width: min(100%, 340px);
+  width: min(100%, 420px);
   background: #1a1a1a;
-  border-radius: 36px;
-  padding: 10px;
+  border-radius: 42px;
+  padding: 11px;
   box-shadow: 0 24px 50px rgba(20, 35, 59, 0.18);
 }
 .phone-screen {
   position: relative;
-  border-radius: 28px;
+  border-radius: 32px;
   overflow: hidden;
   background: #f5f5f5;
+  aspect-ratio: 390 / 844;
 }
 .phone-screen img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 .phone-hotspot {
   position: absolute; border: 0; padding: 0; margin: 0;
@@ -497,6 +504,14 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 }
 .phone-hotspot:active {
   background: color-mix(in srgb, var(--blue) 24%, transparent);
+}
+.phone-hotspot.is-on {
+  box-shadow: inset 0 0 0 2px #7a5cff;
+  background: color-mix(in srgb, #7a5cff 16%, transparent);
+}
+.tone-health .phone-hotspot.is-on {
+  box-shadow: inset 0 0 0 2px #6bb800;
+  background: color-mix(in srgb, #b8e600 28%, transparent);
 }
 
 /* Hotspots — percentages measured from Figma PNG pixel scans */
@@ -522,6 +537,9 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 /* ——— 健康伙伴 hotspots（Figma「健康伙伴app原型」390×844 校准） ——— */
 .hs-hp-skip { right: 2%; top: 5%; width: 16%; height: 4.2%; }
+.hs-hp-onboard-card1 { left: 4%; right: 5.5%; top: 45.5%; height: 8.8%; border-radius: 16px; }
+.hs-hp-onboard-card2 { left: 4%; right: 5.5%; top: 56.2%; height: 8.8%; border-radius: 16px; }
+.hs-hp-onboard-card3 { left: 4%; right: 5.5%; top: 66.8%; height: 8.8%; border-radius: 16px; }
 .hs-hp-onboard-cta { left: 5.1%; right: 5.1%; top: 88.3%; height: 5.5%; border-radius: 999px; }
 .hs-hp-onboard-privacy { left: 22%; right: 22%; top: 94.2%; height: 3.2%; }
 
@@ -532,7 +550,8 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-auth-cta { left: 5.1%; right: 5.1%; top: 77.7%; height: 5.5%; border-radius: 999px; }
 .hs-hp-auth-skip { left: 5.1%; right: 5.1%; top: 84.2%; height: 5.2%; border-radius: 999px; }
 
-.hs-hp-home-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
+/* 查看进度：绿卡底部右侧文案（2x 扫描校准） */
+.hs-hp-home-progress { left: 68%; right: 3.5%; top: 39%; height: 3.2%; }
 .hs-hp-home-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-home-sleep-card { left: 4.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
 .hs-hp-home-diet-card { left: 35.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
@@ -544,30 +563,54 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-tab-portrait { left: 38%; width: 24%; top: 91%; height: 7%; }
 .hs-hp-tab-mine { left: 68%; width: 24%; top: 91%; height: 7%; }
 
-.hs-hp-sleep-bedtime { left: 8%; right: 8%; top: 28.5%; height: 6.5%; border-radius: 14px; }
-.hs-hp-sleep-wake { left: 8%; right: 8%; top: 36.5%; height: 6.5%; border-radius: 14px; }
+.hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.5%; height: 7.6%; border-radius: 14px; }
+.hs-hp-sleep-wake { left: 5%; right: 5%; top: 37.4%; height: 8.4%; border-radius: 14px; }
+.hs-hp-sleep-feel1 { left: 8%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
+.hs-hp-sleep-feel2 { left: 36.5%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
+.hs-hp-sleep-feel3 { left: 65%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-record-diet-row { left: 4.5%; right: 4.5%; top: 66%; height: 7%; border-radius: 16px; }
 .hs-hp-record-ex-row { left: 4.5%; right: 4.5%; top: 74.5%; height: 7%; border-radius: 16px; }
 .hs-hp-record-voice { left: 4.5%; right: 4.5%; top: 82.5%; height: 4.5%; border-radius: 999px; }
 .hs-hp-record-save { left: 4.4%; right: 4.1%; top: 89%; height: 4.9%; border-radius: 999px; }
 
-/* 弹窗：时间选择 / 记录完成 / 睡前提醒（画框下方 sheet） */
-.hs-hp-time-cancel { left: 4%; width: 14%; top: 56.5%; height: 3.6%; }
-.hs-hp-time-confirm { left: 0.5%; right: 0.5%; top: 91.6%; height: 5.1%; border-radius: 999px; }
-.hs-hp-popdone-view { left: 5.6%; right: 5%; top: 85.5%; height: 5.8%; border-radius: 999px; }
+/* 弹窗：时间选择 / 记录完成 / 睡前提醒（底栏 sheet，贴合手机宽） */
+.hs-hp-time-cancel { left: 4%; width: 14%; top: 56.8%; height: 3.6%; }
+.hs-hp-time-confirm { left: 5%; right: 5%; top: 91.6%; height: 5.2%; border-radius: 999px; }
+.hs-hp-popdone-view { left: 5.6%; right: 5%; top: 85.5%; height: 5.7%; border-radius: 999px; }
 .hs-hp-popdone-home { left: 28%; right: 28%; top: 93%; height: 3.4%; }
 
 .hs-hp-diet-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7.5%; border-radius: 16px; }
+.hs-hp-diet-meal1 { left: 6%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
+.hs-hp-diet-meal2 { left: 36%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
+.hs-hp-diet-meal3 { left: 66%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
+.hs-hp-diet-ate { left: 6%; width: 43%; top: 42.5%; height: 3.6%; border-radius: 14px; }
+.hs-hp-diet-skip { left: 51%; width: 43%; top: 42.5%; height: 3.6%; border-radius: 14px; }
+.hs-hp-diet-cat1 { left: 6%; width: 43%; top: 46%; height: 3.8%; border-radius: 14px; }
+.hs-hp-diet-cat2 { left: 51%; width: 43%; top: 46%; height: 3.8%; border-radius: 14px; }
+.hs-hp-diet-cat3 { left: 6%; width: 43%; top: 50%; height: 3.8%; border-radius: 14px; }
+.hs-hp-diet-cat4 { left: 51%; width: 43%; top: 50%; height: 3.8%; border-radius: 14px; }
+.hs-hp-diet-cat5 { left: 6%; width: 43%; top: 54%; height: 4.4%; border-radius: 14px; }
+.hs-hp-diet-cat6 { left: 51%; width: 43%; top: 54%; height: 4.4%; border-radius: 14px; }
 .hs-hp-diet-ex-row { left: 4.5%; right: 4.5%; top: 78%; height: 6.5%; border-radius: 16px; }
 .hs-hp-diet-voice { left: 4.8%; right: 5%; top: 85.8%; height: 3.9%; border-radius: 999px; }
 .hs-hp-diet-save { left: 5.6%; right: 2.8%; top: 92.1%; height: 4.9%; border-radius: 999px; }
 
 .hs-hp-ex-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ex-diet-row { left: 4.5%; right: 4.5%; top: 22.5%; height: 7%; border-radius: 16px; }
+.hs-hp-ex-yes { left: 6%; width: 43%; top: 31.6%; height: 3.4%; border-radius: 14px; }
+.hs-hp-ex-no { left: 51%; width: 43%; top: 31.6%; height: 3.4%; border-radius: 14px; }
+.hs-hp-ex-type1 { left: 6%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-type2 { left: 36%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-type3 { left: 66%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-type4 { left: 6%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-type5 { left: 36%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-type6 { left: 66%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
+.hs-hp-ex-minus { left: 18%; width: 14%; top: 61%; height: 4.2%; border-radius: 999px; }
+.hs-hp-ex-plus { left: 68%; width: 14%; top: 61%; height: 4.2%; border-radius: 999px; }
 .hs-hp-ex-voice { left: 5.3%; right: 5%; top: 85.5%; height: 3.8%; border-radius: 999px; }
 .hs-hp-ex-save { left: 4.4%; right: 4.4%; top: 91%; height: 4.9%; border-radius: 999px; }
 
-.hs-hp-done-progress { left: 62%; right: 6%; top: 38%; height: 3.2%; }
+.hs-hp-done-progress { left: 68%; right: 5%; top: 40.6%; height: 3%; }
 .hs-hp-done-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-done-sleep { left: 4%; right: 4%; top: 54.5%; height: 7%; border-radius: 16px; }
 .hs-hp-done-diet { left: 4%; right: 4%; top: 62.5%; height: 7.5%; border-radius: 16px; }
@@ -599,10 +642,110 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-vconfirm-retry { left: 5%; width: 32%; top: 89.2%; height: 5.7%; border-radius: 999px; }
 .hs-hp-vconfirm-save { left: 39%; right: 5%; top: 89.2%; height: 5.7%; border-radius: 999px; }
 
-.hs-hp-remind-close { right: 4%; top: 57%; width: 10%; height: 4%; }
-.hs-hp-remind-set { left: 5%; right: 5%; top: 87.2%; height: 4.5%; border-radius: 999px; }
-.hs-hp-remind-edit { left: 28%; right: 28%; top: 92.5%; height: 3.4%; }
-.hs-hp-remind-later { left: 28%; right: 28%; top: 92.5%; height: 3.4%; }
+.hs-hp-remind-close { right: 4%; top: 58%; width: 10%; height: 4%; }
+.hs-hp-remind-toggle { left: 72%; width: 18%; top: 65%; height: 5%; border-radius: 999px; }
+.hs-hp-remind-rep1 { left: 8%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-rep2 { left: 37%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-rep3 { left: 66%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-set { left: 5%; right: 5%; top: 88.3%; height: 4.2%; border-radius: 999px; }
+.hs-hp-remind-edit { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
+.hs-hp-remind-later { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
+
+/* 时间滚轮（叠在弹窗滚轮区，可滚动/点击） */
+.hp-time-picker {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 63%;
+  height: 26%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  padding: 6px 4px 2px;
+  box-shadow: 0 6px 18px rgba(20, 20, 40, 0.06);
+  pointer-events: auto;
+}
+.hp-wheels {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 0.7fr;
+  gap: 6px;
+  position: relative;
+  pointer-events: auto;
+  min-height: 0;
+}
+.hp-wheel-hi {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 36px;
+  margin-top: -18px;
+  border-radius: 10px;
+  background: rgba(180, 170, 255, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+.hp-wheel-col {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+}
+.hp-wheel-list {
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+}
+.hp-wheel-list::-webkit-scrollbar { display: none; }
+.hp-wheel-item {
+  height: 36px;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(40, 40, 50, 0.35);
+  user-select: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.hp-wheel-item.on {
+  color: #1a1a22;
+  font-weight: 700;
+  font-size: 16px;
+}
+.hp-time-summary {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #6b6b78;
+  pointer-events: none;
+}
+.hp-duration-badge {
+  position: absolute;
+  left: 36%;
+  right: 36%;
+  top: 60.6%;
+  height: 4.2%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a22;
+  pointer-events: none;
+}
 
 .proto-hint {
   font-size: 13px; color: var(--text-2); text-align: center;
