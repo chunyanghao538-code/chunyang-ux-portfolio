@@ -574,8 +574,8 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-tab-portrait { left: 38%; width: 24%; top: 91%; height: 7%; }
 .hs-hp-tab-mine { left: 68%; width: 24%; top: 91%; height: 7%; }
 
-.hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.5%; height: 7.6%; border-radius: 14px; }
-.hs-hp-sleep-wake { left: 5%; right: 5%; top: 37.4%; height: 8.4%; border-radius: 14px; }
+.hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 31.8%; height: 5.2%; border-radius: 14px; }
+.hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.8%; height: 5.2%; border-radius: 14px; }
 .hs-hp-sleep-feel1 { left: 8%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-sleep-feel2 { left: 36.5%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-sleep-feel3 { left: 65%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
@@ -663,61 +663,42 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-remind-edit { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 .hs-hp-remind-later { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 
-/* 时间弹窗标题：随入睡/起床入口切换 */
-.hp-time-title {
-  position: absolute;
-  left: 22%;
-  right: 22%;
-  top: 60.1%;
-  height: 2.9%;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  font-family: "Noto Sans SC", "Source Sans 3", sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #1a1a22;
-  background: #fff;
-  pointer-events: none;
-}
-
-/* 时间滚轮（叠在弹窗滚轮区，可滚动/拖拽/点击） */
+/* 时间滚轮：5 行视口，加粗选中行与紫色框同高且垂直居中对齐 */
 .hp-time-picker {
   position: absolute;
-  left: 3%;
-  right: 3%;
-  top: 68.2%;
-  height: 17.6%;
+  left: 4%;
+  right: 4%;
+  top: 72.2%;
+  height: 17.2%;
   z-index: 5;
   display: flex;
   flex-direction: column;
   background: #fff;
-  border-radius: 16px;
-  padding: 4px 2px 0;
+  border-radius: 14px;
+  padding: 0;
   pointer-events: auto;
   touch-action: pan-y;
   box-shadow: none;
+  overflow: hidden;
 }
 .hp-wheels {
   flex: 1;
   display: grid;
   grid-template-columns: 1.35fr 0.7fr 0.7fr;
-  gap: 4px;
+  gap: 2px;
   position: relative;
   pointer-events: auto;
   min-height: 0;
+  height: 100%;
 }
 .hp-wheel-hi {
   position: absolute;
-  left: 2%; right: 2%;
+  left: 3%; right: 3%;
   top: 50%;
   height: 40px;
   margin-top: -20px;
   border-radius: 12px;
-  background: rgba(170, 160, 255, 0.28);
+  background: rgba(170, 160, 255, 0.30);
   pointer-events: none;
   z-index: 0;
 }
@@ -736,7 +717,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   scrollbar-width: none;
   touch-action: pan-y;
   cursor: grab;
-  mask-image: linear-gradient(transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
 .hp-wheel-list:active { cursor: grabbing; }
 .hp-wheel-list::-webkit-scrollbar { display: none; width: 0; height: 0; }
@@ -757,6 +738,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   color: rgba(40, 40, 50, 0.32);
   user-select: none;
   flex: 0 0 40px;
+  line-height: 40px;
 }
 .hp-wheel-item.on {
   color: #1a1a22;
@@ -764,17 +746,12 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   font-size: 17px;
 }
 .hp-wheel-spacer {
-  height: 40px;
-  flex: 0 0 40px;
+  height: 80px;
+  flex: 0 0 80px;
   pointer-events: none;
 }
 .hp-time-summary {
-  margin: 2px 0 0;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #5a5a6a;
-  pointer-events: none;
+  display: none;
 }
 .hp-duration-badge {
   position: absolute;

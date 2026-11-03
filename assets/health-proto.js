@@ -91,8 +91,9 @@
     },
     popTime: {
       src: "assets/works/health/proto/pop-time.png",
+      srcWake: "assets/works/health/proto/pop-time-wake.png",
       title: "时间选择弹窗",
-      hint: "标题随入口显示「入睡时间」或「起床时间」；滚动滚轮后点「确认时间」回睡眠记录",
+      hint: "点入睡/起床会打开对应标题弹窗；滚动滚轮（加粗项对齐紫框）后点「确认时间」",
       spots: [
         { cls: "hs-hp-time-cancel", to: "sleep", label: "取消" },
         { cls: "hs-hp-time-confirm", to: "sleep", label: "确认时间" },
@@ -276,9 +277,7 @@
   let timeTitle = "入睡时间";
 
   const clearHotspots = () => {
-    screen
-      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-time-title, .hp-duration-badge")
-      .forEach((el) => el.remove());
+    screen.querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge").forEach((el) => el.remove());
   };
 
   const go = (id) => {
@@ -341,24 +340,51 @@
     screen.appendChild(btn);
   };
 
-  const buildWheel = (items, selected, onChange) => {
+  const buildWheel = (items, selected, onChange, getItemH, hiEl) => {
     const col = document.createElement("div");
     col.className = "hp-wheel-col";
     const list = document.createElement("div");
     list.className = "hp-wheel-list";
-    const itemH = 40;
-    const pad = document.createElement("div");
-    pad.className = "hp-wheel-spacer";
-    pad.style.height = `${itemH * 2}px`;
-    pad.style.flex = `0 0 ${itemH * 2}px`;
-    list.appendChild(pad.cloneNode());
+    const topPad = document.createElement("div");
+    topPad.className = "hp-wheel-spacer";
+    const botPad = document.createElement("div");
+    botPad.className = "hp-wheel-spacer";
+    const itemNodes = [];
+    const syncMetrics = () => {
+      const itemH = getItemH();
+      const padH = Math.max(0, (list.clientHeight - itemH) / 2);
+      [topPad, botPad].forEach((sp) => {
+        sp.style.height = `${padH}px`;
+        sp.style.flex = `0 0 ${padH}px`;
+      });
+      itemNodes.forEach((el) => {
+        el.style.height = `${itemH}px`;
+        el.style.flex = `0 0 ${itemH}px`;
+        el.style.lineHeight = `${itemH}px`;
+      });
+      if (hiEl) {
+        hiEl.style.height = `${itemH}px`;
+        hiEl.style.marginTop = `${-itemH / 2}px`;
+      }
+      return itemH;
+    };
+    list.appendChild(topPad);
     const apply = (i, smooth) => {
+      const itemH = syncMetrics();
       const idx = Math.max(0, Math.min(items.length - 1, i));
-      list.querySelectorAll(".hp-wheel-item").forEach((el, j) => el.classList.toggle("on", j === idx));
+      itemNodes.forEach((el, j) => el.classList.toggle("on", j === idx));
       onChange(idx);
       updateTimeSummary();
       list.scrollTo({ top: idx * itemH, behavior: smooth ? "smooth" : "auto" });
       return idx;
+    };
+    const indexFromScroll = () => {
+      const itemH = getItemH() || 1;
+      return Math.round(list.scrollTop / itemH);
+    };
+    const paintOnFromScroll = () => {
+      const idx = Math.max(0, Math.min(items.length - 1, indexFromScroll()));
+      itemNodes.forEach((el, j) => el.classList.toggle("on", j === idx));
     };
     items.forEach((text, i) => {
       const item = document.createElement("button");
@@ -371,8 +397,9 @@
         apply(i, true);
       });
       list.appendChild(item);
+      itemNodes.push(item);
     });
-    list.appendChild(pad);
+    list.appendChild(botPad);
     col.appendChild(list);
 
     let dragging = false;
@@ -384,8 +411,9 @@
         e.preventDefault();
         e.stopPropagation();
         list.scrollTop += e.deltaY;
+        paintOnFromScroll();
         window.clearTimeout(list._t);
-        list._t = window.setTimeout(() => apply(Math.round(list.scrollTop / itemH), true), 60);
+        list._t = window.setTimeout(() => apply(indexFromScroll(), true), 60);
       },
       { passive: false }
     );
@@ -399,20 +427,23 @@
       if (!dragging) return;
       e.preventDefault();
       list.scrollTop = startScroll - (e.clientY - startY);
+      paintOnFromScroll();
     });
     const endDrag = () => {
       if (!dragging) return;
       dragging = false;
-      apply(Math.round(list.scrollTop / itemH), true);
+      apply(indexFromScroll(), true);
     };
     list.addEventListener("pointerup", endDrag);
     list.addEventListener("pointercancel", endDrag);
     list.addEventListener("scroll", () => {
+      paintOnFromScroll();
       if (dragging) return;
       window.clearTimeout(list._t);
-      list._t = window.setTimeout(() => apply(Math.round(list.scrollTop / itemH), true), 80);
+      list._t = window.setTimeout(() => apply(indexFromScroll(), true), 80);
     });
     requestAnimationFrame(() => {
+      const itemH = syncMetrics();
       list.scrollTop = selected * itemH;
       apply(selected, false);
     });
@@ -426,34 +457,33 @@
   };
 
   const mountTimePicker = () => {
-    const title = document.createElement("div");
-    title.className = "hp-time-title";
-    title.textContent = timeTitle;
-    screen.appendChild(title);
-
     const wrap = document.createElement("div");
     wrap.className = "hp-time-picker";
     wrap.innerHTML =
       '<div class="hp-wheels"><div class="hp-wheel-hi" aria-hidden="true"></div></div><p class="hp-time-summary"></p>';
     const wheels = wrap.querySelector(".hp-wheels");
+    const hiEl = wrap.querySelector(".hp-wheel-hi");
     // 起床默认偏早晨，入睡默认偏夜间
-    if (timeTitle === "起床时间" && timeSel.hour >= 18) {
+    if (timeTitle === "起床时间") {
       timeSel = { date: timeSel.date, hour: 7, min: 6 };
-    } else if (timeTitle === "入睡时间" && timeSel.hour < 12) {
+    } else {
       timeSel = { date: timeSel.date, hour: 23, min: 6 };
     }
+    const getItemH = () => Math.max(28, Math.round(wheels.clientHeight / 5));
+    const mk = (arr, sel, set) =>
+      buildWheel(arr, sel, set, getItemH, hiEl);
     wheels.appendChild(
-      buildWheel(dates, timeSel.date, (i) => {
+      mk(dates, timeSel.date, (i) => {
         timeSel.date = i;
       })
     );
     wheels.appendChild(
-      buildWheel(hours, timeSel.hour, (i) => {
+      mk(hours, timeSel.hour, (i) => {
         timeSel.hour = i;
       })
     );
     wheels.appendChild(
-      buildWheel(mins, timeSel.min, (i) => {
+      mk(mins, timeSel.min, (i) => {
         timeSel.min = i;
       })
     );
@@ -474,9 +504,12 @@
     if (!meta[id]) return;
     current = id;
     const m = meta[id];
-    img.src = m.src;
-    img.alt = m.title;
-    hint.innerHTML = `当前：<b>${m.title}</b> — ${m.hint}`;
+    // 起床入口用带「起床时间」顶栏标题的弹窗图；入睡用默认图
+    const useWake = id === "popTime" && timeTitle === "起床时间" && m.srcWake;
+    img.src = useWake ? m.srcWake : m.src;
+    img.alt = id === "popTime" ? timeTitle : m.title;
+    const titleLabel = id === "popTime" ? timeTitle : m.title;
+    hint.innerHTML = `当前：<b>${titleLabel}</b> — ${m.hint}`;
     steps.forEach((btn) => {
       btn.classList.toggle("on", btn.dataset.screen === id);
     });
