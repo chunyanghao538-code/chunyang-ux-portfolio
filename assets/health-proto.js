@@ -75,7 +75,7 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "睡眠感受三选一（默认「一般」）；选中样式与「一般」一致",
+      hint: "点睡眠感受三选一，选中样式与「一般」一致",
       spots: [
         { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
         { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
