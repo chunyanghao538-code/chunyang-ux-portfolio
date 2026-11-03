@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103z",
+      src: "assets/works/health/proto/diet.png?v=20261103z2",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -318,13 +318,14 @@
     if (current !== "diet") return;
     const sx = screen.clientWidth / DIET_NAT.w;
     const sy = screen.clientHeight / DIET_NAT.h;
+    if (!(sx > 0) || !(sy > 0)) return;
     DIET_BOXES.forEach(([cls, x, y, w, h]) => {
       const el = screen.querySelector(`.${cls}`);
       if (!el) return;
-      el.style.left = `${(x * sx).toFixed(2)}px`;
-      el.style.top = `${(y * sy).toFixed(2)}px`;
-      el.style.width = `${(w * sx).toFixed(2)}px`;
-      el.style.height = `${(h * sy).toFixed(2)}px`;
+      el.style.setProperty("left", `${(x * sx).toFixed(2)}px`);
+      el.style.setProperty("top", `${(y * sy).toFixed(2)}px`);
+      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`);
+      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`);
     });
   };
 
@@ -586,10 +587,9 @@
     if (id === "sleep") mountSleepValues();
     if (id === "exercise") mountDurationBadge();
     if (id === "diet") {
-      const apply = () => layoutDietHotspots();
-      if (img.complete) apply();
-      else img.addEventListener("load", apply, { once: true });
-      requestAnimationFrame(apply);
+      layoutDietHotspots();
+      requestAnimationFrame(layoutDietHotspots);
+      img.addEventListener("load", layoutDietHotspots, { once: true });
     }
   };
 
