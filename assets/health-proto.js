@@ -342,12 +342,18 @@
     col.className = "hp-wheel-col";
     const list = document.createElement("div");
     list.className = "hp-wheel-list";
-    const itemH = 36;
-    const apply = (i) => {
+    const itemH = 40;
+    const pad = document.createElement("div");
+    pad.className = "hp-wheel-spacer";
+    pad.style.height = `${itemH * 2}px`;
+    pad.style.flex = `0 0 ${itemH * 2}px`;
+    list.appendChild(pad.cloneNode());
+    const apply = (i, smooth) => {
       const idx = Math.max(0, Math.min(items.length - 1, i));
       list.querySelectorAll(".hp-wheel-item").forEach((el, j) => el.classList.toggle("on", j === idx));
       onChange(idx);
       updateTimeSummary();
+      list.scrollTo({ top: idx * itemH, behavior: smooth ? "smooth" : "auto" });
       return idx;
     };
     items.forEach((text, i) => {
@@ -355,21 +361,56 @@
       item.type = "button";
       item.className = "hp-wheel-item" + (i === selected ? " on" : "");
       item.textContent = text;
-      item.dataset.i = String(i);
       item.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        list.scrollTo({ top: apply(i) * itemH, behavior: "smooth" });
+        apply(i, true);
       });
       list.appendChild(item);
     });
+    list.appendChild(pad);
     col.appendChild(list);
+
+    let dragging = false;
+    let startY = 0;
+    let startScroll = 0;
+    list.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        list.scrollTop += e.deltaY;
+        window.clearTimeout(list._t);
+        list._t = window.setTimeout(() => apply(Math.round(list.scrollTop / itemH), true), 60);
+      },
+      { passive: false }
+    );
+    list.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      startY = e.clientY;
+      startScroll = list.scrollTop;
+      list.setPointerCapture(e.pointerId);
+    });
+    list.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      list.scrollTop = startScroll - (e.clientY - startY);
+    });
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      apply(Math.round(list.scrollTop / itemH), true);
+    };
+    list.addEventListener("pointerup", endDrag);
+    list.addEventListener("pointercancel", endDrag);
     list.addEventListener("scroll", () => {
+      if (dragging) return;
       window.clearTimeout(list._t);
-      list._t = window.setTimeout(() => apply(Math.round(list.scrollTop / itemH)), 80);
+      list._t = window.setTimeout(() => apply(Math.round(list.scrollTop / itemH), true), 80);
     });
     requestAnimationFrame(() => {
       list.scrollTop = selected * itemH;
+      apply(selected, false);
     });
     return col;
   };
@@ -383,7 +424,8 @@
   const mountTimePicker = () => {
     const wrap = document.createElement("div");
     wrap.className = "hp-time-picker";
-    wrap.innerHTML = '<div class="hp-wheels"><div class="hp-wheel-hi" aria-hidden="true"></div></div><p class="hp-time-summary"></p>';
+    wrap.innerHTML =
+      '<div class="hp-wheels"><div class="hp-wheel-hi" aria-hidden="true"></div></div><p class="hp-time-summary"></p>';
     const wheels = wrap.querySelector(".hp-wheels");
     wheels.appendChild(
       buildWheel(dates, timeSel.date, (i) => {
@@ -400,6 +442,8 @@
         timeSel.min = i;
       })
     );
+    wrap.addEventListener("click", (e) => e.stopPropagation());
+    wrap.addEventListener("wheel", (e) => e.stopPropagation(), { passive: false });
     screen.appendChild(wrap);
     updateTimeSummary();
   };
