@@ -21,239 +21,239 @@
   const meta = {
     onboarding: {
       src: "assets/works/health/proto/onboarding.png",
-      title: "ä¸‰æ—¥æ¢ç´¢å¼•å¯¼",
-      hint: "ç‚¹åŠŸèƒ½å¡ç‰‡æˆ–ã€Œå¼€å§‹ä½“éªŒã€â†’ é€‰æ‹©è®°å½•æ–¹å¼ï¼›ä¹Ÿå¯ç‚¹å³ä¸Šã€Œè·³è¿‡ã€",
+      title: "ÈıÈÕÌ½Ë÷Òıµ¼",
+      hint: "µã¹¦ÄÜ¿¨Æ¬»ò¡¸¿ªÊ¼ÌåÑé¡¹¡ú Ñ¡Ôñ¼ÇÂ¼·½Ê½£»Ò²¿ÉµãÓÒÉÏ¡¸Ìø¹ı¡¹",
       spots: [
-        { cls: "hs-hp-skip", to: "method", label: "è·³è¿‡" },
-        { cls: "hs-hp-onboard-card1", to: "method", label: "è½»é‡è®°å½•" },
-        { cls: "hs-hp-onboard-card2", to: "method", label: "æ¯æ—¥è·å¾—åé¦ˆ" },
-        { cls: "hs-hp-onboard-card3", to: "method", label: "æ‰¾åˆ°ä¸€ä¸ªå°æ”¹å˜" },
-        { cls: "hs-hp-onboard-cta", to: "method", label: "å¼€å§‹ä½“éªŒ" },
-        { cls: "hs-hp-onboard-privacy", to: "method", label: "äº†è§£æ•°æ®ä½¿ç”¨æ–¹å¼" },
+        { cls: "hs-hp-skip", to: "method", label: "Ìø¹ı" },
+        { cls: "hs-hp-onboard-card1", to: "method", label: "ÇáÁ¿¼ÇÂ¼" },
+        { cls: "hs-hp-onboard-card2", to: "method", label: "Ã¿ÈÕ»ñµÃ·´À¡" },
+        { cls: "hs-hp-onboard-card3", to: "method", label: "ÕÒµ½Ò»¸öĞ¡¸Ä±ä" },
+        { cls: "hs-hp-onboard-cta", to: "method", label: "¿ªÊ¼ÌåÑé" },
+        { cls: "hs-hp-onboard-privacy", to: "method", label: "ÁË½âÊı¾İÊ¹ÓÃ·½Ê½" },
       ],
       back: null,
     },
     method: {
       src: "assets/works/health/proto/method.png",
-      title: "é€‰æ‹©è®°å½•æ–¹å¼",
-      hint: "ç‚¹ã€Œè¿æ¥è®¾å¤‡ã€å¡ â†’ æˆæƒï¼›ç‚¹ã€Œæ‰‹åŠ¨è®°å½•ã€æˆ–åº•éƒ¨æŒ‰é’® â†’ ä»Šæ—¥é¦–é¡µ",
+      title: "Ñ¡Ôñ¼ÇÂ¼·½Ê½",
+      hint: "µã¡¸Á¬½ÓÉè±¸¡¹¿¨ ¡ú ÊÚÈ¨£»µã¡¸ÊÖ¶¯¼ÇÂ¼¡¹»òµ×²¿°´Å¥ ¡ú ½ñÈÕÊ×Ò³",
       spots: [
-        { cls: "hs-hp-method-device", to: "auth", label: "è¿æ¥è®¾å¤‡" },
-        { cls: "hs-hp-method-manual", to: "home", label: "æ‰‹åŠ¨è®°å½•" },
-        { cls: "hs-hp-method-cta", to: "home", label: "ä½¿ç”¨æ‰‹åŠ¨è®°å½•" },
+        { cls: "hs-hp-method-device", to: "auth", label: "Á¬½ÓÉè±¸" },
+        { cls: "hs-hp-method-manual", to: "home", label: "ÊÖ¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-method-cta", to: "home", label: "Ê¹ÓÃÊÖ¶¯¼ÇÂ¼" },
       ],
       back: "onboarding",
     },
     auth: {
       src: "assets/works/health/proto/auth.png",
-      title: "è¿æ¥å¥åº·æ•°æ®",
-      hint: "ç‚¹ã€Œå‰å¾€ç³»ç»Ÿæˆæƒã€æˆ–ã€Œæš‚ä¸è¿æ¥ï¼Œæ‰‹åŠ¨è®°å½•ã€â†’ ä»Šæ—¥é¦–é¡µ",
+      title: "Á¬½Ó½¡¿µÊı¾İ",
+      hint: "µã¡¸Ç°ÍùÏµÍ³ÊÚÈ¨¡¹»ò¡¸Ôİ²»Á¬½Ó£¬ÊÖ¶¯¼ÇÂ¼¡¹¡ú ½ñÈÕÊ×Ò³",
       spots: [
-        { cls: "hs-hp-auth-cta", to: "home", label: "å‰å¾€ç³»ç»Ÿæˆæƒ" },
-        { cls: "hs-hp-auth-skip", to: "home", label: "æš‚ä¸è¿æ¥ï¼Œæ‰‹åŠ¨è®°å½•" },
+        { cls: "hs-hp-auth-cta", to: "home", label: "Ç°ÍùÏµÍ³ÊÚÈ¨" },
+        { cls: "hs-hp-auth-skip", to: "home", label: "Ôİ²»Á¬½Ó£¬ÊÖ¶¯¼ÇÂ¼" },
       ],
       back: "method",
     },
     home: {
       src: "assets/works/health/proto/home.png",
-      title: "ä»Šæ—¥é¦–é¡µ",
-      hint: "ç‚¹ã€ŒæŸ¥çœ‹è¿›åº¦ã€â†’ ç”»åƒï¼›ã€Œå¼€å§‹ä»Šæ—¥è®°å½•ã€æˆ–ä¸‰å¡è¿›å…¥å½•å…¥ï¼›ã€Œå»è¿æ¥ã€â†’ æˆæƒ",
+      title: "½ñÈÕÊ×Ò³",
+      hint: "µã¡¸²é¿´½ø¶È¡¹¡ú »­Ïñ£»¡¸¿ªÊ¼½ñÈÕ¼ÇÂ¼¡¹»òÈı¿¨½øÈëÂ¼Èë£»¡¸È¥Á¬½Ó¡¹¡ú ÊÚÈ¨",
       spots: [
-        { cls: "hs-hp-home-progress", to: "portraitGap", label: "æŸ¥çœ‹è¿›åº¦" },
-        { cls: "hs-hp-home-connect", to: "auth", label: "å»è¿æ¥" },
-        { cls: "hs-hp-home-sleep-card", to: "sleep", label: "ç¡çœ å¾…è®°å½•" },
-        { cls: "hs-hp-home-diet-card", to: "diet", label: "é¥®é£Ÿå¾…è®°å½•" },
-        { cls: "hs-hp-home-ex-card", to: "exercise", label: "è¿åŠ¨å¾…è®°å½•" },
-        { cls: "hs-hp-home-cta", to: "sleep", label: "å¼€å§‹ä»Šæ—¥è®°å½•" },
-        { cls: "hs-hp-home-voice", to: "voice", label: "è¯­éŸ³æ•´ç†è®°å½•" },
-        { cls: "hs-hp-tab-today on", to: "home", label: "ä»Šæ—¥" },
-        { cls: "hs-hp-tab-portrait", to: "portraitGap", label: "ç”»åƒ" },
-        { cls: "hs-hp-tab-mine", to: "home", label: "æˆ‘çš„" },
+        { cls: "hs-hp-home-progress", to: "portraitGap", label: "²é¿´½ø¶È" },
+        { cls: "hs-hp-home-connect", to: "auth", label: "È¥Á¬½Ó" },
+        { cls: "hs-hp-home-sleep-card", to: "sleep", label: "Ë¯Ãß´ı¼ÇÂ¼" },
+        { cls: "hs-hp-home-diet-card", to: "diet", label: "ÒûÊ³´ı¼ÇÂ¼" },
+        { cls: "hs-hp-home-ex-card", to: "exercise", label: "ÔË¶¯´ı¼ÇÂ¼" },
+        { cls: "hs-hp-home-cta", to: "sleep", label: "¿ªÊ¼½ñÈÕ¼ÇÂ¼" },
+        { cls: "hs-hp-home-voice", to: "voice", label: "ÓïÒôÕûÀí¼ÇÂ¼" },
+        { cls: "hs-hp-tab-today on", to: "home", label: "½ñÈÕ" },
+        { cls: "hs-hp-tab-portrait", to: "portraitGap", label: "»­Ïñ" },
+        { cls: "hs-hp-tab-mine", to: "home", label: "ÎÒµÄ" },
       ],
       back: "method",
     },
     sleep: {
       src: "assets/works/health/proto/sleep.png",
-      title: "ç¡çœ è®°å½•",
-      hint: "è®°å½•æ—¶æ®µ = èµ·åºŠ âˆ’ å…¥ç¡ï¼›ç‚¹å…¥ç¡/èµ·åºŠæ‰“å¼€é€‰æ‹©å™¨ï¼Œç¡®è®¤åæ—¶æ®µè‡ªåŠ¨æ›´æ–°",
+      title: "Ë¯Ãß¼ÇÂ¼",
+      hint: "¼ÇÂ¼Ê±¶Î = Æğ´² ? ÈëË¯£»µãÈëË¯/Æğ´²´ò¿ªÑ¡ÔñÆ÷£¬È·ÈÏºóÊ±¶Î×Ô¶¯¸üĞÂ",
       spots: [
-        { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "å…¥ç¡æ—¶é—´" },
-        { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "èµ·åºŠæ—¶é—´" },
-        { cls: "hs-hp-sleep-feel1", toggle: "feel", label: "æœ‰ç²¾ç¥" },
-        { cls: "hs-hp-sleep-feel2", toggle: "feel", label: "ä¸€èˆ¬", on: true },
-        { cls: "hs-hp-sleep-feel3", toggle: "feel", label: "ç–²æƒ«" },
-        { cls: "hs-hp-record-diet-row", to: "diet", label: "é¥®é£Ÿè®°å½•" },
-        { cls: "hs-hp-record-ex-row", to: "exercise", label: "è¿åŠ¨è®°å½•" },
-        { cls: "hs-hp-record-voice", to: "voice", label: "è¯­éŸ³æ•´ç†" },
-        { cls: "hs-hp-record-save", to: "diet", label: "ä¿å­˜è®°å½•" },
+        { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "ÈëË¯Ê±¼ä" },
+        { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "Æğ´²Ê±¼ä" },
+        { cls: "hs-hp-sleep-feel1", toggle: "feel", label: "ÓĞ¾«Éñ" },
+        { cls: "hs-hp-sleep-feel2", toggle: "feel", label: "Ò»°ã", on: true },
+        { cls: "hs-hp-sleep-feel3", toggle: "feel", label: "Æ£±¹" },
+        { cls: "hs-hp-record-diet-row", to: "diet", label: "ÒûÊ³¼ÇÂ¼" },
+        { cls: "hs-hp-record-ex-row", to: "exercise", label: "ÔË¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-record-voice", to: "voice", label: "ÓïÒôÕûÀí" },
+        { cls: "hs-hp-record-save", to: "diet", label: "±£´æ¼ÇÂ¼" },
       ],
       back: "home",
     },
     popTime: {
       src: "assets/works/health/proto/pop-time.png",
-      title: "æ—¶é—´é€‰æ‹©",
-      hint: "æ»šåŠ¨æ»šè½®é€‰æ‹©æ—¥æœŸä¸æ—¶é—´ï¼Œç‚¹ã€Œç¡®è®¤æ—¶é—´ã€å›ç¡çœ è®°å½•",
+      title: "Ê±¼äÑ¡Ôñ",
+      hint: "¹ö¶¯¹öÂÖÑ¡ÔñÈÕÆÚÓëÊ±¼ä£¬µã¡¸È·ÈÏÊ±¼ä¡¹»ØË¯Ãß¼ÇÂ¼",
       spots: [
-        { cls: "hs-hp-time-cancel", to: "sleep", label: "å–æ¶ˆ" },
-        { cls: "hs-hp-time-confirm", action: "confirmTime", label: "ç¡®è®¤æ—¶é—´" },
+        { cls: "hs-hp-time-cancel", to: "sleep", label: "È¡Ïû" },
+        { cls: "hs-hp-time-confirm", action: "confirmTime", label: "È·ÈÏÊ±¼ä" },
       ],
       back: "sleep",
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103z5",
-      title: "é¥®é£Ÿè®°å½•",
-      hint: "æ—©é¤/åˆ/æ™šå¯åˆ‡æ¢ï¼›ã€Œåƒäº†ã€ä¸è°·è–¯/é±¼è‚‰è›‹/å¥¶è±†é»˜è®¤é€‰ä¸­ï¼›ç±»åˆ«å¯å¤šé€‰ï¼›ä¿å­˜ â†’ è¿åŠ¨",
+      src: "assets/works/health/proto/diet.png?v=20261103z6",
+      title: "ÒûÊ³¼ÇÂ¼",
+      hint: "Ôç²Í/Îç/Íí¿ÉÇĞ»»£»¡¸³ÔÁË¡¹Óë¹ÈÊí/ÓãÈâµ°/ÄÌ¶¹Ä¬ÈÏÑ¡ÖĞ£»Àà±ğ¿É¶àÑ¡£»±£´æ ¡ú ÔË¶¯",
       spots: [
-        { cls: "hs-hp-diet-sleep-row", to: "sleep", label: "ç¡çœ è®°å½•" },
-        { cls: "hs-hp-diet-meal1", toggle: "meal", label: "æ—©é¤", on: true },
-        { cls: "hs-hp-diet-meal2", toggle: "meal", label: "åˆé¤" },
-        { cls: "hs-hp-diet-meal3", toggle: "meal", label: "æ™šé¤" },
-        { cls: "hs-hp-diet-ate", toggle: "ate", label: "åƒäº†", on: true },
-        { cls: "hs-hp-diet-skip", toggle: "ate", label: "æœªåƒè¿™é¤" },
-        { cls: "hs-hp-diet-cat1", toggle: "cat", multi: true, label: "è°·è–¯ä¸»é£Ÿç±»", on: true },
-        { cls: "hs-hp-diet-cat2", toggle: "cat", multi: true, label: "è”¬èœç±»" },
-        { cls: "hs-hp-diet-cat3", toggle: "cat", multi: true, label: "æ°´æœç±»" },
-        { cls: "hs-hp-diet-cat4", toggle: "cat", multi: true, label: "é±¼è‚‰è›‹ç±»", on: true },
-        { cls: "hs-hp-diet-cat5", toggle: "cat", multi: true, label: "å¥¶åŠè±†ç±»", on: true },
-        { cls: "hs-hp-diet-cat6", toggle: "cat", multi: true, label: "åšæœç±»" },
-        { cls: "hs-hp-diet-ex-row", to: "exercise", label: "è¿åŠ¨è®°å½•" },
-        { cls: "hs-hp-diet-voice", to: "voice", label: "è¯­éŸ³æ•´ç†" },
-        { cls: "hs-hp-diet-save", to: "exercise", label: "ä¿å­˜è®°å½•" },
+        { cls: "hs-hp-diet-sleep-row", to: "sleep", label: "Ë¯Ãß¼ÇÂ¼" },
+        { cls: "hs-hp-diet-meal1", toggle: "meal", label: "Ôç²Í", on: true },
+        { cls: "hs-hp-diet-meal2", toggle: "meal", label: "Îç²Í" },
+        { cls: "hs-hp-diet-meal3", toggle: "meal", label: "Íí²Í" },
+        { cls: "hs-hp-diet-ate", toggle: "ate", label: "³ÔÁË", on: true },
+        { cls: "hs-hp-diet-skip", toggle: "ate", label: "Î´³ÔÕâ²Í" },
+        { cls: "hs-hp-diet-cat1", toggle: "cat", multi: true, label: "¹ÈÊíÖ÷Ê³Àà", on: true },
+        { cls: "hs-hp-diet-cat2", toggle: "cat", multi: true, label: "Êß²ËÀà" },
+        { cls: "hs-hp-diet-cat3", toggle: "cat", multi: true, label: "Ë®¹ûÀà" },
+        { cls: "hs-hp-diet-cat4", toggle: "cat", multi: true, label: "ÓãÈâµ°Àà", on: true },
+        { cls: "hs-hp-diet-cat5", toggle: "cat", multi: true, label: "ÄÌ¼°¶¹Àà", on: true },
+        { cls: "hs-hp-diet-cat6", toggle: "cat", multi: true, label: "¼á¹ûÀà" },
+        { cls: "hs-hp-diet-ex-row", to: "exercise", label: "ÔË¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-diet-voice", to: "voice", label: "ÓïÒôÕûÀí" },
+        { cls: "hs-hp-diet-save", to: "exercise", label: "±£´æ¼ÇÂ¼" },
       ],
       back: "sleep",
     },
     exercise: {
       src: "assets/works/health/proto/exercise.png",
-      title: "è¿åŠ¨å½•å…¥",
-      hint: "ç‚¹æ˜¯å¦è¿åŠ¨ã€æ´»åŠ¨ç±»å‹ï¼›ç”¨ +/- è°ƒæ—¶é•¿ï¼›ä¿å­˜ â†’ è®°å½•å®Œæˆå¼¹çª—",
+      title: "ÔË¶¯Â¼Èë",
+      hint: "µãÊÇ·ñÔË¶¯¡¢»î¶¯ÀàĞÍ£»ÓÃ +/- µ÷Ê±³¤£»±£´æ ¡ú ¼ÇÂ¼Íê³Éµ¯´°",
       spots: [
-        { cls: "hs-hp-ex-sleep-row", to: "sleep", label: "ç¡çœ è®°å½•" },
-        { cls: "hs-hp-ex-diet-row", to: "diet", label: "é¥®é£Ÿè®°å½•" },
-        { cls: "hs-hp-ex-yes", toggle: "exyes", label: "æœ‰è¿åŠ¨", on: true },
-        { cls: "hs-hp-ex-no", toggle: "exyes", label: "æš‚æ— è¿åŠ¨" },
-        { cls: "hs-hp-ex-type1", toggle: "extype", label: "æ•£æ­¥", on: true },
-        { cls: "hs-hp-ex-type2", toggle: "extype", label: "è·‘æ­¥" },
-        { cls: "hs-hp-ex-type3", toggle: "extype", label: "éª‘è¡Œ" },
-        { cls: "hs-hp-ex-type4", toggle: "extype", label: "åŠ›é‡è®­ç»ƒ" },
-        { cls: "hs-hp-ex-type5", toggle: "extype", label: "çƒç±»è¿åŠ¨" },
-        { cls: "hs-hp-ex-type6", toggle: "extype", label: "å…¶ä»–" },
-        { cls: "hs-hp-ex-minus", action: "duration", delta: -5, label: "å‡å°‘æ—¶é•¿" },
-        { cls: "hs-hp-ex-plus", action: "duration", delta: 5, label: "å¢åŠ æ—¶é•¿" },
-        { cls: "hs-hp-ex-voice", to: "voice", label: "è¯­éŸ³æ•´ç†" },
-        { cls: "hs-hp-ex-save", to: "popDone", label: "ä¿å­˜è®°å½•" },
+        { cls: "hs-hp-ex-sleep-row", to: "sleep", label: "Ë¯Ãß¼ÇÂ¼" },
+        { cls: "hs-hp-ex-diet-row", to: "diet", label: "ÒûÊ³¼ÇÂ¼" },
+        { cls: "hs-hp-ex-yes", toggle: "exyes", label: "ÓĞÔË¶¯", on: true },
+        { cls: "hs-hp-ex-no", toggle: "exyes", label: "ÔİÎŞÔË¶¯" },
+        { cls: "hs-hp-ex-type1", toggle: "extype", label: "É¢²½", on: true },
+        { cls: "hs-hp-ex-type2", toggle: "extype", label: "ÅÜ²½" },
+        { cls: "hs-hp-ex-type3", toggle: "extype", label: "ÆïĞĞ" },
+        { cls: "hs-hp-ex-type4", toggle: "extype", label: "Á¦Á¿ÑµÁ·" },
+        { cls: "hs-hp-ex-type5", toggle: "extype", label: "ÇòÀàÔË¶¯" },
+        { cls: "hs-hp-ex-type6", toggle: "extype", label: "ÆäËû" },
+        { cls: "hs-hp-ex-minus", action: "duration", delta: -5, label: "¼õÉÙÊ±³¤" },
+        { cls: "hs-hp-ex-plus", action: "duration", delta: 5, label: "Ôö¼ÓÊ±³¤" },
+        { cls: "hs-hp-ex-voice", to: "voice", label: "ÓïÒôÕûÀí" },
+        { cls: "hs-hp-ex-save", to: "popDone", label: "±£´æ¼ÇÂ¼" },
       ],
       back: "diet",
     },
     popDone: {
       src: "assets/works/health/proto/pop-done.png",
-      title: "è®°å½•å®Œæˆå¼¹çª—",
-      hint: "ç‚¹ã€ŒæŸ¥çœ‹ä»Šæ—¥æ¦‚å†µã€æˆ–ã€Œè¿”å›é¦–é¡µã€â†’ ç¬¬1å¤©å®Œæˆé¦–é¡µ",
+      title: "¼ÇÂ¼Íê³Éµ¯´°",
+      hint: "µã¡¸²é¿´½ñÈÕ¸Å¿ö¡¹»ò¡¸·µ»ØÊ×Ò³¡¹¡ú µÚ1ÌìÍê³ÉÊ×Ò³",
       spots: [
-        { cls: "hs-hp-popdone-view", to: "homeDone", label: "æŸ¥çœ‹ä»Šæ—¥æ¦‚å†µ" },
-        { cls: "hs-hp-popdone-home", to: "homeDone", label: "è¿”å›é¦–é¡µ" },
+        { cls: "hs-hp-popdone-view", to: "homeDone", label: "²é¿´½ñÈÕ¸Å¿ö" },
+        { cls: "hs-hp-popdone-home", to: "homeDone", label: "·µ»ØÊ×Ò³" },
       ],
       back: "exercise",
     },
     voice: {
       src: "assets/works/health/proto/voice.png",
-      title: "è¯­éŸ³å½•å…¥",
-      hint: "ç‚¹ã€Œç»“æŸå½•å…¥å¹¶æ ¸å¯¹ã€â†’ ç¡®è®¤é¡µï¼›å–æ¶ˆå›ç¡çœ ",
+      title: "ÓïÒôÂ¼Èë",
+      hint: "µã¡¸½áÊøÂ¼Èë²¢ºË¶Ô¡¹¡ú È·ÈÏÒ³£»È¡Ïû»ØË¯Ãß",
       spots: [
-        { cls: "hs-hp-voice-finish", to: "voiceConfirm", label: "ç»“æŸå½•å…¥å¹¶æ ¸å¯¹" },
-        { cls: "hs-hp-voice-cancel", to: "sleep", label: "å–æ¶ˆï¼Œæ”¹ç”¨æ‰‹åŠ¨å¡«å†™" },
+        { cls: "hs-hp-voice-finish", to: "voiceConfirm", label: "½áÊøÂ¼Èë²¢ºË¶Ô" },
+        { cls: "hs-hp-voice-cancel", to: "sleep", label: "È¡Ïû£¬¸ÄÓÃÊÖ¶¯ÌîĞ´" },
       ],
       back: "home",
     },
     voiceConfirm: {
       src: "assets/works/health/proto/voice-confirm.png",
-      title: "ç¡®è®¤è¯­éŸ³è®°å½•",
-      hint: "ç‚¹ã€Œç¡®è®¤å¹¶ä¿å­˜ã€â†’ å®Œæˆå¼¹çª—ï¼›ã€Œé‡æ–°å½•éŸ³ã€å›è¯­éŸ³",
+      title: "È·ÈÏÓïÒô¼ÇÂ¼",
+      hint: "µã¡¸È·ÈÏ²¢±£´æ¡¹¡ú Íê³Éµ¯´°£»¡¸ÖØĞÂÂ¼Òô¡¹»ØÓïÒô",
       spots: [
-        { cls: "hs-hp-vconfirm-diet", to: "diet", label: "è¡¥å……é¥®é£Ÿ" },
-        { cls: "hs-hp-vconfirm-retry", to: "voice", label: "é‡æ–°å½•éŸ³" },
-        { cls: "hs-hp-vconfirm-save", to: "popDone", label: "ç¡®è®¤å¹¶ä¿å­˜" },
+        { cls: "hs-hp-vconfirm-diet", to: "diet", label: "²¹³äÒûÊ³" },
+        { cls: "hs-hp-vconfirm-retry", to: "voice", label: "ÖØĞÂÂ¼Òô" },
+        { cls: "hs-hp-vconfirm-save", to: "popDone", label: "È·ÈÏ²¢±£´æ" },
       ],
       back: "voice",
     },
     homeDone: {
       src: "assets/works/health/proto/home-done.png",
-      title: "ç¬¬1å¤©å®Œæˆ",
-      hint: "ç‚¹ã€ŒæŸ¥çœ‹è¿›åº¦ã€â†’ ç”»åƒä¸è¶³ï¼›å¯ä¿®æ”¹å„è®°å½•æˆ–å›åº•æ ç”»åƒ",
+      title: "µÚ1ÌìÍê³É",
+      hint: "µã¡¸²é¿´½ø¶È¡¹¡ú »­Ïñ²»×ã£»¿ÉĞŞ¸Ä¸÷¼ÇÂ¼»ò»Øµ×À¸»­Ïñ",
       spots: [
-        { cls: "hs-hp-done-progress", to: "portraitGap", label: "æŸ¥çœ‹è¿›åº¦" },
-        { cls: "hs-hp-done-connect", to: "auth", label: "å»è¿æ¥" },
-        { cls: "hs-hp-done-sleep", to: "sleep", label: "ç¡çœ è®°å½•" },
-        { cls: "hs-hp-done-diet", to: "diet", label: "é¥®é£Ÿè®°å½•" },
-        { cls: "hs-hp-done-ex", to: "exercise", label: "è¿åŠ¨è®°å½•" },
-        { cls: "hs-hp-done-modify", to: "sleep", label: "ä¿®æ”¹ä»Šæ—¥è®°å½•" },
-        { cls: "hs-hp-done-voice", to: "voice", label: "é•¿æŒ‰è¯­éŸ³ä¿®æ”¹" },
-        { cls: "hs-hp-tab-today on", to: "homeDone", label: "ä»Šæ—¥" },
-        { cls: "hs-hp-tab-portrait", to: "portraitGap", label: "ç”»åƒ" },
-        { cls: "hs-hp-tab-mine", to: "homeDone", label: "æˆ‘çš„" },
+        { cls: "hs-hp-done-progress", to: "portraitGap", label: "²é¿´½ø¶È" },
+        { cls: "hs-hp-done-connect", to: "auth", label: "È¥Á¬½Ó" },
+        { cls: "hs-hp-done-sleep", to: "sleep", label: "Ë¯Ãß¼ÇÂ¼" },
+        { cls: "hs-hp-done-diet", to: "diet", label: "ÒûÊ³¼ÇÂ¼" },
+        { cls: "hs-hp-done-ex", to: "exercise", label: "ÔË¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-done-modify", to: "sleep", label: "ĞŞ¸Ä½ñÈÕ¼ÇÂ¼" },
+        { cls: "hs-hp-done-voice", to: "voice", label: "³¤°´ÓïÒôĞŞ¸Ä" },
+        { cls: "hs-hp-tab-today on", to: "homeDone", label: "½ñÈÕ" },
+        { cls: "hs-hp-tab-portrait", to: "portraitGap", label: "»­Ïñ" },
+        { cls: "hs-hp-tab-mine", to: "homeDone", label: "ÎÒµÄ" },
       ],
       back: "exercise",
     },
     portraitGap: {
       src: "assets/works/health/proto/portrait-gap.png",
-      title: "ç”»åƒ Â· æ•°æ®ä¸è¶³",
-      hint: "ç‚¹è¡¥å……å…¥å£å›å½•å…¥ï¼Œæˆ–ã€Œå…ˆæŸ¥çœ‹å·²æœ‰è®°å½•ã€â†’ å®Œæ•´ç”»åƒ",
+      title: "»­Ïñ ¡¤ Êı¾İ²»×ã",
+      hint: "µã²¹³äÈë¿Ú»ØÂ¼Èë£¬»ò¡¸ÏÈ²é¿´ÒÑÓĞ¼ÇÂ¼¡¹¡ú ÍêÕû»­Ïñ",
       spots: [
-        { cls: "hs-hp-gap-diet", to: "diet", label: "è¡¥å……é¥®é£Ÿ" },
-        { cls: "hs-hp-gap-sleep", to: "sleep", label: "è¡¥å……ç¡çœ æ„Ÿå—" },
-        { cls: "hs-hp-gap-cta", to: "diet", label: "è¡¥å……æ™šé¤è®°å½•" },
-        { cls: "hs-hp-gap-view", to: "portrait", label: "å…ˆæŸ¥çœ‹å·²æœ‰è®°å½•" },
-        { cls: "hs-hp-tab-today", to: "homeDone", label: "ä»Šæ—¥" },
-        { cls: "hs-hp-tab-portrait on", to: "portraitGap", label: "ç”»åƒ" },
-        { cls: "hs-hp-tab-mine", to: "portraitGap", label: "æˆ‘çš„" },
+        { cls: "hs-hp-gap-diet", to: "diet", label: "²¹³äÒûÊ³" },
+        { cls: "hs-hp-gap-sleep", to: "sleep", label: "²¹³äË¯Ãß¸ĞÊÜ" },
+        { cls: "hs-hp-gap-cta", to: "diet", label: "²¹³äÍí²Í¼ÇÂ¼" },
+        { cls: "hs-hp-gap-view", to: "portrait", label: "ÏÈ²é¿´ÒÑÓĞ¼ÇÂ¼" },
+        { cls: "hs-hp-tab-today", to: "homeDone", label: "½ñÈÕ" },
+        { cls: "hs-hp-tab-portrait on", to: "portraitGap", label: "»­Ïñ" },
+        { cls: "hs-hp-tab-mine", to: "portraitGap", label: "ÎÒµÄ" },
       ],
       back: "homeDone",
     },
     homeReady: {
       src: "assets/works/health/proto/home-ready.png",
-      title: "ä¸‰æ—¥å®Œæˆé¦–é¡µ",
-      hint: "ç‚¹ã€ŒæŸ¥çœ‹ç”»åƒã€â†’ ä¸‰æ—¥å¥åº·ç”»åƒï¼›å¯ä¿®æ”¹è®°å½•",
+      title: "ÈıÈÕÍê³ÉÊ×Ò³",
+      hint: "µã¡¸²é¿´»­Ïñ¡¹¡ú ÈıÈÕ½¡¿µ»­Ïñ£»¿ÉĞŞ¸Ä¼ÇÂ¼",
       spots: [
-        { cls: "hs-hp-ready-portrait", to: "portrait", label: "æŸ¥çœ‹ç”»åƒ" },
-        { cls: "hs-hp-ready-connect", to: "auth", label: "å»è¿æ¥" },
-        { cls: "hs-hp-ready-sleep", to: "sleep", label: "ç¡çœ è®°å½•" },
-        { cls: "hs-hp-ready-diet", to: "diet", label: "é¥®é£Ÿè®°å½•" },
-        { cls: "hs-hp-ready-ex", to: "exercise", label: "è¿åŠ¨è®°å½•" },
-        { cls: "hs-hp-ready-modify", to: "sleep", label: "ä¿®æ”¹ä»Šæ—¥è®°å½•" },
-        { cls: "hs-hp-ready-voice", to: "voice", label: "é•¿æŒ‰è¯­éŸ³ä¿®æ”¹" },
-        { cls: "hs-hp-tab-today on", to: "homeReady", label: "ä»Šæ—¥" },
-        { cls: "hs-hp-tab-portrait", to: "portrait", label: "ç”»åƒ" },
-        { cls: "hs-hp-tab-mine", to: "homeReady", label: "æˆ‘çš„" },
+        { cls: "hs-hp-ready-portrait", to: "portrait", label: "²é¿´»­Ïñ" },
+        { cls: "hs-hp-ready-connect", to: "auth", label: "È¥Á¬½Ó" },
+        { cls: "hs-hp-ready-sleep", to: "sleep", label: "Ë¯Ãß¼ÇÂ¼" },
+        { cls: "hs-hp-ready-diet", to: "diet", label: "ÒûÊ³¼ÇÂ¼" },
+        { cls: "hs-hp-ready-ex", to: "exercise", label: "ÔË¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-ready-modify", to: "sleep", label: "ĞŞ¸Ä½ñÈÕ¼ÇÂ¼" },
+        { cls: "hs-hp-ready-voice", to: "voice", label: "³¤°´ÓïÒôĞŞ¸Ä" },
+        { cls: "hs-hp-tab-today on", to: "homeReady", label: "½ñÈÕ" },
+        { cls: "hs-hp-tab-portrait", to: "portrait", label: "»­Ïñ" },
+        { cls: "hs-hp-tab-mine", to: "homeReady", label: "ÎÒµÄ" },
       ],
       back: "portraitGap",
     },
     portrait: {
       src: "assets/works/health/proto/portrait.png",
-      title: "ä¸‰æ—¥å¥åº·ç”»åƒ",
-      hint: "ç‚¹ã€Œæ¯æ—¥ç¡è§‰æé†’ã€â†’ ä½œæ¯æé†’å¼¹çª—ï¼›åº•æ å¯å›ä»Šæ—¥",
+      title: "ÈıÈÕ½¡¿µ»­Ïñ",
+      hint: "µã¡¸Ã¿ÈÕË¯¾õÌáĞÑ¡¹¡ú ×÷Ï¢ÌáĞÑµ¯´°£»µ×À¸¿É»Ø½ñÈÕ",
       spots: [
-        { cls: "hs-hp-portrait-sleep-edit", to: "sleep", label: "ç¡çœ æ‰‹åŠ¨è®°å½•" },
-        { cls: "hs-hp-portrait-ex-edit", to: "exercise", label: "è¿åŠ¨æ‰‹åŠ¨è®°å½•" },
-        { cls: "hs-hp-portrait-remind", to: "remind", label: "æ¯æ—¥ç¡è§‰æé†’" },
-        { cls: "hs-hp-tab-today", to: "homeReady", label: "ä»Šæ—¥" },
-        { cls: "hs-hp-tab-portrait on", to: "portrait", label: "ç”»åƒ" },
-        { cls: "hs-hp-tab-mine", to: "portrait", label: "æˆ‘çš„" },
+        { cls: "hs-hp-portrait-sleep-edit", to: "sleep", label: "Ë¯ÃßÊÖ¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-portrait-ex-edit", to: "exercise", label: "ÔË¶¯ÊÖ¶¯¼ÇÂ¼" },
+        { cls: "hs-hp-portrait-remind", to: "remind", label: "Ã¿ÈÕË¯¾õÌáĞÑ" },
+        { cls: "hs-hp-tab-today", to: "homeReady", label: "½ñÈÕ" },
+        { cls: "hs-hp-tab-portrait on", to: "portrait", label: "»­Ïñ" },
+        { cls: "hs-hp-tab-mine", to: "portrait", label: "ÎÒµÄ" },
       ],
       back: "homeReady",
     },
     remind: {
       src: "assets/works/health/proto/remind.png",
-      title: "è®¾ç½®ç¡å‰æé†’",
-      hint: "å¯å¼€å…³æé†’ã€ç‚¹é‡å¤æ–¹å¼ï¼›ã€Œä¿å­˜æé†’ã€æˆ–ã€Œå–æ¶ˆã€å›ç”»åƒ",
+      title: "ÉèÖÃË¯Ç°ÌáĞÑ",
+      hint: "¿É¿ª¹ØÌáĞÑ¡¢µãÖØ¸´·½Ê½£»¡¸±£´æÌáĞÑ¡¹»ò¡¸È¡Ïû¡¹»Ø»­Ïñ",
       spots: [
-        { cls: "hs-hp-remind-close", to: "portrait", label: "å…³é—­" },
-        { cls: "hs-hp-remind-toggle", toggle: "rm-on", label: "å¼€å¯æé†’", on: true },
-        { cls: "hs-hp-remind-time", toggle: "rm-time", label: "æé†’æ—¶é—´ 23:00", on: true },
-        { cls: "hs-hp-remind-rep1", toggle: "rm-rep", label: "æ¯å¤©", on: true },
-        { cls: "hs-hp-remind-rep2", toggle: "rm-rep", label: "å·¥ä½œæ—¥" },
-        { cls: "hs-hp-remind-rep3", toggle: "rm-rep", label: "è‡ªå®šä¹‰" },
-        { cls: "hs-hp-remind-set", to: "portrait", label: "ä¿å­˜æé†’" },
-        { cls: "hs-hp-remind-later", to: "portrait", label: "å–æ¶ˆ" },
+        { cls: "hs-hp-remind-close", to: "portrait", label: "¹Ø±Õ" },
+        { cls: "hs-hp-remind-toggle", toggle: "rm-on", label: "¿ªÆôÌáĞÑ", on: true },
+        { cls: "hs-hp-remind-time", toggle: "rm-time", label: "ÌáĞÑÊ±¼ä 23:00", on: true },
+        { cls: "hs-hp-remind-rep1", toggle: "rm-rep", label: "Ã¿Ìì", on: true },
+        { cls: "hs-hp-remind-rep2", toggle: "rm-rep", label: "¹¤×÷ÈÕ" },
+        { cls: "hs-hp-remind-rep3", toggle: "rm-rep", label: "×Ô¶¨Òå" },
+        { cls: "hs-hp-remind-set", to: "portrait", label: "±£´æÌáĞÑ" },
+        { cls: "hs-hp-remind-later", to: "portrait", label: "È¡Ïû" },
       ],
       back: "portrait",
     },
@@ -269,10 +269,10 @@
   let durationMin = 30;
   const toggleState = {};
 
-  const dates = ["10æœˆ11æ—¥", "10æœˆ12æ—¥", "10æœˆ13æ—¥", "10æœˆ14æ—¥", "10æœˆ15æ—¥", "10æœˆ16æ—¥", "10æœˆ17æ—¥"];
+  const dates = ["10ÔÂ11ÈÕ", "10ÔÂ12ÈÕ", "10ÔÂ13ÈÕ", "10ÔÂ14ÈÕ", "10ÔÂ15ÈÕ", "10ÔÂ16ÈÕ", "10ÔÂ17ÈÕ"];
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
   const mins = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
-  // ä¸ç¨¿é¢ä¸€è‡´ï¼šå…¥ç¡ 10æœˆ13æ—¥ 23:30 â†’ èµ·åºŠ 10æœˆ14æ—¥ 07:30 â‡’ è®°å½•æ—¶æ®µ 8å°æ—¶
+  // Óë¸åÃæÒ»ÖÂ£ºÈëË¯ 10ÔÂ13ÈÕ 23:30 ¡ú Æğ´² 10ÔÂ14ÈÕ 07:30 ? ¼ÇÂ¼Ê±¶Î 8Ğ¡Ê±
   const sleepTimes = {
     bed: { date: 2, hour: 23, min: 6 },
     wake: { date: 3, hour: 7, min: 6 },
@@ -281,15 +281,15 @@
   let timeSel = { ...sleepTimes.bed };
 
   const toMinutes = (t) => t.date * 1440 + t.hour * 60 + t.min * 5;
-  // ä¸ç¨¿é¢é»˜è®¤ä¸€è‡´ï¼š`10æœˆ13æ—¥ 23:30`ï¼ˆæ—¥æœŸä¸æ—¶é—´ä¹‹é—´å•ä¸ªç©ºæ ¼ï¼‰
+  // Óë¸åÃæÄ¬ÈÏÒ»ÖÂ£º`10ÔÂ13ÈÕ 23:30`£¨ÈÕÆÚÓëÊ±¼äÖ®¼äµ¥¸ö¿Õ¸ñ£©
   const formatSleepTime = (t) => `${dates[t.date]} ${hours[t.hour]}:${mins[t.min]}`;
   const formatSleepSpan = () => {
     let diff = toMinutes(sleepTimes.wake) - toMinutes(sleepTimes.bed);
-    if (diff <= 0) diff += 1440; // è·¨å¤©ï¼šèµ·åºŠä¸æ™šäºå…¥ç¡æ—¶æŒ‰æ¬¡æ—¥è®¡
+    if (diff <= 0) diff += 1440; // ¿çÌì£ºÆğ´²²»ÍíÓÚÈëË¯Ê±°´´ÎÈÕ¼Æ
     const h = Math.floor(diff / 60);
     const m = diff % 60;
-    // ä¸é»˜è®¤ã€Œ8å°æ—¶ã€ç›¸åŒï¼Œæ— å¤šä½™ç©ºæ ¼ï¼›æœ‰åˆ†é’Ÿæ—¶ä¸ºã€Œ7å°æ—¶30åˆ†é’Ÿã€
-    return m === 0 ? `${h}å°æ—¶` : `${h}å°æ—¶${m}åˆ†é’Ÿ`;
+    // ÓëÄ¬ÈÏ¡¸8Ğ¡Ê±¡¹ÏàÍ¬£¬ÎŞ¶àÓà¿Õ¸ñ£»ÓĞ·ÖÖÓÊ±Îª¡¸7Ğ¡Ê±30·ÖÖÓ¡¹
+    return m === 0 ? `${h}Ğ¡Ê±` : `${h}Ğ¡Ê±${m}·ÖÖÓ`;
   };
 
   const clearHotspots = () => {
@@ -298,7 +298,7 @@
       .forEach((el) => el.remove());
   };
 
-  /* é¥®é£Ÿé€‰é¡¹ï¼šæŒ‰ç¨¿é¢åƒç´ æ¡†å¯¹é½ï¼ˆ585Ã—1266ï¼‰ï¼Œé¿å…ç™¾åˆ†æ¯”/åœ†è§’è£åˆ‡é”™ä½ */
+  /* ÒûÊ³Ñ¡Ïî£º°´¸åÃæÏñËØ¿ò¶ÔÆë£¨585¡Á1266£©£¬±ÜÃâ°Ù·Ö±È/Ô²½Ç²ÃÇĞ´íÎ» */
   const DIET_NAT = { w: 585, h: 1266 };
   const DIET_BOXES = [
     ["hs-hp-diet-meal1", 55, 484, 154, 45],
@@ -342,7 +342,7 @@
     "hs-hp-diet-cat5": "diet-cat5-on.png",
     "hs-hp-diet-cat6": "diet-cat6-on.png",
   };
-  const DIET_FACE_VER = "20261103z5";
+  const DIET_FACE_VER = "20261103z6";
 
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
@@ -414,7 +414,7 @@
         e.stopPropagation();
         durationMin = Math.max(5, Math.min(180, durationMin + (spot.delta || 0)));
         const badge = screen.querySelector(".hp-duration-badge");
-        if (badge) badge.textContent = `${durationMin} åˆ†é’Ÿ`;
+        if (badge) badge.textContent = `${durationMin} ·ÖÖÓ`;
       });
     } else if (spot.action === "confirmTime") {
       btn.addEventListener("click", (e) => {
@@ -550,7 +550,7 @@
   const updateTimeSummary = () => {
     const el = screen.querySelector(".hp-time-summary");
     if (!el) return;
-    el.textContent = `å·²é€‰æ‹©ï¼š${dates[timeSel.date]} ${hours[timeSel.hour]}:${mins[timeSel.min]}`;
+    el.textContent = `ÒÑÑ¡Ôñ£º${dates[timeSel.date]} ${hours[timeSel.hour]}:${mins[timeSel.min]}`;
   };
 
   const mountTimePicker = () => {
@@ -587,7 +587,7 @@
   const mountDurationBadge = () => {
     const badge = document.createElement("div");
     badge.className = "hp-duration-badge";
-    badge.textContent = `${durationMin} åˆ†é’Ÿ`;
+    badge.textContent = `${durationMin} ·ÖÖÓ`;
     screen.appendChild(badge);
   };
 
@@ -613,13 +613,13 @@
     img.src = m.src;
     img.alt = m.title;
     const spanHint =
-      id === "sleep" ? `ï¼ˆå½“å‰ ${formatSleepSpan()}ï¼‰` : "";
-    hint.innerHTML = `å½“å‰ï¼š<b>${m.title}</b> â€” ${m.hint}${spanHint}`;
+      id === "sleep" ? `£¨µ±Ç° ${formatSleepSpan()}£©` : "";
+    hint.innerHTML = `µ±Ç°£º<b>${m.title}</b> ¡ª ${m.hint}${spanHint}`;
     steps.forEach((btn) => {
       btn.classList.toggle("on", btn.dataset.screen === id);
     });
     clearHotspots();
-    if (m.back) addHotspot({ cls: "hs-back", to: m.back, label: "è¿”å›ä¸Šä¸€å±" });
+    if (m.back) addHotspot({ cls: "hs-back", to: m.back, label: "·µ»ØÉÏÒ»ÆÁ" });
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
     if (id === "sleep") mountSleepValues();
