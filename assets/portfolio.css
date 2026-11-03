@@ -663,6 +663,27 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-remind-edit { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 .hs-hp-remind-later { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 
+/* 时间弹窗标题：随入睡/起床入口切换 */
+.hp-time-title {
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  top: 60.1%;
+  height: 2.9%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: "Noto Sans SC", "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1a1a22;
+  background: #fff;
+  pointer-events: none;
+}
+
 /* 时间滚轮（叠在弹窗滚轮区，可滚动/拖拽/点击） */
 .hp-time-picker {
   position: absolute;

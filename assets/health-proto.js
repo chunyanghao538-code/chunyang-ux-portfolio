@@ -77,8 +77,8 @@
       title: "睡眠记录",
       hint: "点入睡/起床时间打开选择器；点睡眠感受标签切换；保存 → 饮食",
       spots: [
-        { cls: "hs-hp-sleep-bedtime", to: "popTime", label: "入睡时间" },
-        { cls: "hs-hp-sleep-wake", to: "popTime", label: "起床时间" },
+        { cls: "hs-hp-sleep-bedtime", to: "popTime", timeTitle: "入睡时间", label: "入睡时间" },
+        { cls: "hs-hp-sleep-wake", to: "popTime", timeTitle: "起床时间", label: "起床时间" },
         { cls: "hs-hp-sleep-feel1", toggle: "feel", label: "有精神" },
         { cls: "hs-hp-sleep-feel2", toggle: "feel", label: "一般", on: true },
         { cls: "hs-hp-sleep-feel3", toggle: "feel", label: "疲惫" },
@@ -92,7 +92,7 @@
     popTime: {
       src: "assets/works/health/proto/pop-time.png",
       title: "时间选择弹窗",
-      hint: "滚动日期/小时/分钟滚轮选择，再点「确认时间」回睡眠记录",
+      hint: "标题随入口显示「入睡时间」或「起床时间」；滚动滚轮后点「确认时间」回睡眠记录",
       spots: [
         { cls: "hs-hp-time-cancel", to: "sleep", label: "取消" },
         { cls: "hs-hp-time-confirm", to: "sleep", label: "确认时间" },
@@ -273,9 +273,12 @@
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
   const mins = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
   let timeSel = { date: 2, hour: 23, min: 6 };
+  let timeTitle = "入睡时间";
 
   const clearHotspots = () => {
-    screen.querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge").forEach((el) => el.remove());
+    screen
+      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-time-title, .hp-duration-badge")
+      .forEach((el) => el.remove());
   };
 
   const go = (id) => {
@@ -331,6 +334,7 @@
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (spot.timeTitle) timeTitle = spot.timeTitle;
         go(spot.to);
       });
     }
@@ -422,11 +426,22 @@
   };
 
   const mountTimePicker = () => {
+    const title = document.createElement("div");
+    title.className = "hp-time-title";
+    title.textContent = timeTitle;
+    screen.appendChild(title);
+
     const wrap = document.createElement("div");
     wrap.className = "hp-time-picker";
     wrap.innerHTML =
       '<div class="hp-wheels"><div class="hp-wheel-hi" aria-hidden="true"></div></div><p class="hp-time-summary"></p>';
     const wheels = wrap.querySelector(".hp-wheels");
+    // 起床默认偏早晨，入睡默认偏夜间
+    if (timeTitle === "起床时间" && timeSel.hour >= 18) {
+      timeSel = { date: timeSel.date, hour: 7, min: 6 };
+    } else if (timeTitle === "入睡时间" && timeSel.hour < 12) {
+      timeSel = { date: timeSel.date, hour: 23, min: 6 };
+    }
     wheels.appendChild(
       buildWheel(dates, timeSel.date, (i) => {
         timeSel.date = i;
