@@ -526,53 +526,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   display: none !important;
 }
 
-/* 睡眠感受三选一：未选描边，选中态对齐默认「一般」 */
-.tone-health .phone-hotspot.hs-hp-sleep-feel1,
-.tone-health .phone-hotspot.hs-hp-sleep-feel2,
-.tone-health .phone-hotspot.hs-hp-sleep-feel3 {
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3.4% 0 4.2%;
-  border-radius: 12px;
-  background: #fff !important;
-  box-shadow: inset 0 0 0 1.5px #cfd3eb !important;
-  color: #6a7370;
-  font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
-  font-size: 3.25cqw;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1;
-}
-.tone-health .phone-hotspot.hs-hp-sleep-feel1::after,
-.tone-health .phone-hotspot.hs-hp-sleep-feel2::after,
-.tone-health .phone-hotspot.hs-hp-sleep-feel3::after {
-  content: "" !important;
-  display: block !important;
-  width: 4.4cqw;
-  height: 4.4cqw;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 1.5px solid #c5c9d4;
-  background: transparent;
-}
-.tone-health .phone-hotspot.hs-hp-sleep-feel1.is-on,
-.tone-health .phone-hotspot.hs-hp-sleep-feel2.is-on,
-.tone-health .phone-hotspot.hs-hp-sleep-feel3.is-on {
-  background: #eee6ff !important;
-  box-shadow: inset 0 0 0 2px #512393 !important;
-  color: #6b3bb2 !important;
-  font-weight: 600;
-}
-.tone-health .phone-hotspot.hs-hp-sleep-feel1.is-on::after,
-.tone-health .phone-hotspot.hs-hp-sleep-feel2.is-on::after,
-.tone-health .phone-hotspot.hs-hp-sleep-feel3.is-on::after {
-  border: none;
-  background: #512393
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.2l3 3 6-6.5'/%3E%3C/svg%3E")
-    center / 68% 68% no-repeat;
-}
+/* 睡眠感受：热区保持透明，外观用稿面原图；切换时用叠图还原选中/未选 */
 
 /* Hotspots — percentages measured from Figma PNG pixel scans */
 .hs-back { left: 0; top: 4.6%; width: 12%; height: 4.8%; }
@@ -625,9 +579,20 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 .hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.8%; height: 6.4%; border-radius: 14px; }
 .hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.2%; height: 6.4%; border-radius: 14px; }
-.hs-hp-sleep-feel1 { left: 8.5%; width: 25.5%; top: 57.15%; height: 3.5%; border-radius: 12px; }
-.hs-hp-sleep-feel2 { left: 36.2%; width: 27.2%; top: 57.15%; height: 3.5%; border-radius: 12px; }
-.hs-hp-sleep-feel3 { left: 65.8%; width: 25.6%; top: 57.15%; height: 3.5%; border-radius: 12px; }
+.hs-hp-sleep-feel1 { left: 8.55%; width: 25.47%; top: 57.03%; height: 2.76%; border-radius: 12px; }
+.hs-hp-sleep-feel2 { left: 36.24%; width: 27.52%; top: 57.03%; height: 2.76%; border-radius: 12px; }
+.hs-hp-sleep-feel3 { left: 65.98%; width: 25.64%; top: 57.03%; height: 2.76%; border-radius: 12px; }
+/* 叠在原按钮上的选中/未选图，尺寸与热区一致 */
+.hp-feel-overlay {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: fill;
+  border-radius: 12px;
+}
+.hp-feel-overlay.feel1 { left: 8.55%; width: 25.47%; top: 57.03%; height: 2.76%; }
+.hp-feel-overlay.feel2 { left: 36.24%; width: 27.52%; top: 57.03%; height: 2.76%; }
+.hp-feel-overlay.feel3 { left: 65.98%; width: 25.64%; top: 57.03%; height: 2.76%; }
 .hs-hp-record-diet-row { left: 4.5%; right: 4.5%; top: 66%; height: 7%; border-radius: 16px; }
 .hs-hp-record-ex-row { left: 4.5%; right: 4.5%; top: 74.5%; height: 7%; border-radius: 16px; }
 .hs-hp-record-voice { left: 4.5%; right: 4.5%; top: 82.5%; height: 4.5%; border-radius: 999px; }

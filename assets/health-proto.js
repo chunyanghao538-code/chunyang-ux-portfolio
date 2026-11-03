@@ -294,8 +294,36 @@
 
   const clearHotspots = () => {
     screen
-      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val")
+      .querySelectorAll(
+        ".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val, .hp-feel-overlay"
+      )
       .forEach((el) => el.remove());
+  };
+
+  const syncFeelOverlays = () => {
+    screen.querySelectorAll(".hp-feel-overlay").forEach((el) => el.remove());
+    const feel = toggleState.feel || {};
+    const selected = Object.keys(feel).find((k) => feel[k]) || "hs-hp-sleep-feel2";
+    // 稿面默认「一般」已是选中态；仅在选中其他项时叠图，保持原有形式
+    if (selected === "hs-hp-sleep-feel2") return;
+    const off2 = document.createElement("img");
+    off2.className = "hp-feel-overlay feel2";
+    off2.src = "assets/works/health/proto/feel-2-off.png";
+    off2.alt = "";
+    screen.appendChild(off2);
+    if (selected === "hs-hp-sleep-feel1") {
+      const on1 = document.createElement("img");
+      on1.className = "hp-feel-overlay feel1";
+      on1.src = "assets/works/health/proto/feel-1-on.png";
+      on1.alt = "";
+      screen.appendChild(on1);
+    } else if (selected === "hs-hp-sleep-feel3") {
+      const on3 = document.createElement("img");
+      on3.className = "hp-feel-overlay feel3";
+      on3.src = "assets/works/health/proto/feel-3-on.png";
+      on3.alt = "";
+      screen.appendChild(on3);
+    }
   };
 
   const go = (id) => {
@@ -326,20 +354,19 @@
       btn.dataset.toggle = group;
       btn.dataset.key = key;
       btn.classList.toggle("is-on", !!toggleState[group][key]);
-      if (group === "feel") btn.textContent = spot.label;
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         if (spot.multi) {
           toggleState[group][key] = !toggleState[group][key];
         } else {
-          // 单选：三选一，始终保留一个选中
           Object.keys(toggleState[group]).forEach((k) => {
             toggleState[group][k] = false;
           });
           toggleState[group][key] = true;
         }
         syncToggleVisual();
+        if (group === "feel") syncFeelOverlays();
       });
     } else if (spot.action === "duration") {
       btn.addEventListener("click", (e) => {
@@ -555,7 +582,10 @@
     if (m.back) addHotspot({ cls: "hs-back", to: m.back, label: "返回上一屏" });
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
-    if (id === "sleep") mountSleepValues();
+    if (id === "sleep") {
+      mountSleepValues();
+      syncFeelOverlays();
+    }
     if (id === "exercise") mountDurationBadge();
   };
 
