@@ -600,34 +600,10 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-popdone-home { left: 28%; right: 28%; top: 93.2%; height: 3.4%; }
 
 .hs-hp-diet-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7.5%; border-radius: 16px; }
-/* 餐次 Tab：与稿面胶囊分段对齐（约 y=483） */
+/* 饮食可选项：位置由 JS 按 585×1266 像素对齐；选中态整图铺满热区，不用圆角裁切以免错位 */
 .hs-hp-diet-meal1,
 .hs-hp-diet-meal2,
-.hs-hp-diet-meal3 {
-  width: 27.009%;
-  height: 3.791%;
-  top: 38.152%;
-  border-radius: 12px;
-  z-index: 4;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.hs-hp-diet-meal1 { left: 9.231%; }
-.hs-hp-diet-meal2 { left: 38.12%; }
-.hs-hp-diet-meal3 { left: 67.009%; }
-.tone-health .hs-hp-diet-meal1.is-on {
-  background: url("works/health/proto/diet-meal1-on.png?v=20261103y") center / 100% 100% no-repeat !important;
-  box-shadow: none !important;
-}
-.tone-health .hs-hp-diet-meal2.is-on {
-  background: url("works/health/proto/diet-meal2-on.png?v=20261103y") center / 100% 100% no-repeat !important;
-  box-shadow: none !important;
-}
-.tone-health .hs-hp-diet-meal3.is-on {
-  background: url("works/health/proto/diet-meal3-on.png?v=20261103y") center / 100% 100% no-repeat !important;
-  box-shadow: none !important;
-}
-/* 饮食选项热区：与稿面 234×53@585×1266 像素对齐（同一元素铺选中图，不错位） */
+.hs-hp-diet-meal3,
 .hs-hp-diet-ate,
 .hs-hp-diet-skip,
 .hs-hp-diet-cat1,
@@ -636,63 +612,56 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-diet-cat4,
 .hs-hp-diet-cat5,
 .hs-hp-diet-cat6 {
-  width: 40%;
-  height: 4.186%;
-  border-radius: 5.13% / 22.64%;
   z-index: 4;
+  border-radius: 0;
+  overflow: visible;
   box-sizing: border-box;
-  overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
 }
-.hs-hp-diet-ate,
-.hs-hp-diet-cat1,
-.hs-hp-diet-cat3,
-.hs-hp-diet-cat5 { left: 8.718%; }
-.hs-hp-diet-skip,
-.hs-hp-diet-cat2,
-.hs-hp-diet-cat4,
-.hs-hp-diet-cat6 { left: 51.453%; }
-.hs-hp-diet-ate,
-.hs-hp-diet-skip { top: 45.893%; }
-.hs-hp-diet-cat1,
-.hs-hp-diet-cat2 { top: 54.186%; }
-.hs-hp-diet-cat3,
-.hs-hp-diet-cat4 { top: 58.531%; }
-.hs-hp-diet-cat5,
-.hs-hp-diet-cat6 { top: 65.403%; }
-/* 选中：热区自身铺完整选中态（底色+描边+文字+勾选），与稿面默认选中一致 */
+.tone-health .hs-hp-diet-meal1.is-on {
+  background: url("works/health/proto/diet-meal1-on.png?v=20261103z") center / 100% 100% no-repeat !important;
+  box-shadow: none !important;
+}
+.tone-health .hs-hp-diet-meal2.is-on {
+  background: url("works/health/proto/diet-meal2-on.png?v=20261103z") center / 100% 100% no-repeat !important;
+  box-shadow: none !important;
+}
+.tone-health .hs-hp-diet-meal3.is-on {
+  background: url("works/health/proto/diet-meal3-on.png?v=20261103z") center / 100% 100% no-repeat !important;
+  box-shadow: none !important;
+}
 .tone-health .hs-hp-diet-ate.is-on {
-  background: url("works/health/proto/diet-ate-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-ate-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-skip.is-on {
-  background: url("works/health/proto/diet-skip-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-skip-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat1.is-on {
-  background: url("works/health/proto/diet-cat1-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat1-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat2.is-on {
-  background: url("works/health/proto/diet-cat2-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat2-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat3.is-on {
-  background: url("works/health/proto/diet-cat3-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat3-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat4.is-on {
-  background: url("works/health/proto/diet-cat4-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat4-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat5.is-on {
-  background: url("works/health/proto/diet-cat5-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat5-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .tone-health .hs-hp-diet-cat6.is-on {
-  background: url("works/health/proto/diet-cat6-on.png?v=20261103x") center / 100% 100% no-repeat !important;
+  background: url("works/health/proto/diet-cat6-on.png?v=20261103z") center / 100% 100% no-repeat !important;
   box-shadow: none !important;
 }
 .hs-hp-diet-ex-row { left: 4.5%; right: 4.5%; top: 78%; height: 6.5%; border-radius: 16px; }

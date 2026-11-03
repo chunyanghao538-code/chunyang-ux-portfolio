@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103y",
+      src: "assets/works/health/proto/diet.png?v=20261103z",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -296,6 +296,36 @@
     screen
       .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val")
       .forEach((el) => el.remove());
+  };
+
+  /* 饮食选项：按稿面像素框对齐（585×1266），避免百分比/圆角裁切错位 */
+  const DIET_NAT = { w: 585, h: 1266 };
+  const DIET_BOXES = [
+    ["hs-hp-diet-meal1", 55, 484, 154, 45],
+    ["hs-hp-diet-meal2", 217, 484, 154, 45],
+    ["hs-hp-diet-meal3", 376, 484, 154, 45],
+    ["hs-hp-diet-ate", 51, 581, 234, 53],
+    ["hs-hp-diet-skip", 301, 581, 234, 53],
+    ["hs-hp-diet-cat1", 51, 686, 234, 53],
+    ["hs-hp-diet-cat2", 301, 686, 234, 53],
+    ["hs-hp-diet-cat3", 51, 741, 234, 53],
+    ["hs-hp-diet-cat4", 301, 741, 234, 53],
+    ["hs-hp-diet-cat5", 51, 828, 234, 53],
+    ["hs-hp-diet-cat6", 301, 828, 234, 53],
+  ];
+
+  const layoutDietHotspots = () => {
+    if (current !== "diet") return;
+    const sx = screen.clientWidth / DIET_NAT.w;
+    const sy = screen.clientHeight / DIET_NAT.h;
+    DIET_BOXES.forEach(([cls, x, y, w, h]) => {
+      const el = screen.querySelector(`.${cls}`);
+      if (!el) return;
+      el.style.left = `${(x * sx).toFixed(2)}px`;
+      el.style.top = `${(y * sy).toFixed(2)}px`;
+      el.style.width = `${(w * sx).toFixed(2)}px`;
+      el.style.height = `${(h * sy).toFixed(2)}px`;
+    });
   };
 
   const go = (id) => {
@@ -555,6 +585,12 @@
     if (m.timePicker) mountTimePicker();
     if (id === "sleep") mountSleepValues();
     if (id === "exercise") mountDurationBadge();
+    if (id === "diet") {
+      const apply = () => layoutDietHotspots();
+      if (img.complete) apply();
+      else img.addEventListener("load", apply, { once: true });
+      requestAnimationFrame(apply);
+    }
   };
 
   steps.forEach((btn) => {
@@ -567,6 +603,12 @@
     if (e.key === "ArrowRight" && i < order.length - 1) show(order[i + 1]);
     if (e.key === "ArrowLeft" && i > 0) show(order[i - 1]);
   });
+
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(() => layoutDietHotspots()).observe(screen);
+  } else {
+    window.addEventListener("resize", layoutDietHotspots);
+  }
 
   show("onboarding");
 })();
