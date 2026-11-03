@@ -75,7 +75,7 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "记录时段 = 起床 − 入睡；点入睡/起床打开选择器，确认后时段自动更新",
+      hint: "睡眠感受三选一（默认「一般」）；记录时段随入睡/起床更新",
       spots: [
         { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
         { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
@@ -326,12 +326,14 @@
       btn.dataset.toggle = group;
       btn.dataset.key = key;
       btn.classList.toggle("is-on", !!toggleState[group][key]);
+      if (group === "feel") btn.textContent = spot.label;
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         if (spot.multi) {
           toggleState[group][key] = !toggleState[group][key];
         } else {
+          // 单选：三选一，始终保留一个选中
           Object.keys(toggleState[group]).forEach((k) => {
             toggleState[group][k] = false;
           });

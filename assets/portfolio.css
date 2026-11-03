@@ -511,7 +511,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   box-shadow: inset 0 0 0 2px #7a5cff;
   background: color-mix(in srgb, #7a5cff 16%, transparent);
 }
-/* 健康伙伴：热区全程透明，不出现绿色/调试色块 */
+/* 健康伙伴：热区默认透明，不出现绿色/调试色块 */
 .tone-health .phone-hotspot,
 .tone-health .phone-hotspot:hover,
 .tone-health .phone-hotspot:focus-visible,
@@ -524,6 +524,54 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .tone-health .phone-hotspot::after {
   content: none !important;
   display: none !important;
+}
+
+/* 睡眠感受三选一：未选描边，选中态对齐默认「一般」 */
+.tone-health .phone-hotspot.hs-hp-sleep-feel1,
+.tone-health .phone-hotspot.hs-hp-sleep-feel2,
+.tone-health .phone-hotspot.hs-hp-sleep-feel3 {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3.4% 0 4.2%;
+  border-radius: 12px;
+  background: #fff !important;
+  box-shadow: inset 0 0 0 1.5px #cfd3eb !important;
+  color: #6a7370;
+  font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+  font-size: 3.25cqw;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.tone-health .phone-hotspot.hs-hp-sleep-feel1::after,
+.tone-health .phone-hotspot.hs-hp-sleep-feel2::after,
+.tone-health .phone-hotspot.hs-hp-sleep-feel3::after {
+  content: "" !important;
+  display: block !important;
+  width: 4.4cqw;
+  height: 4.4cqw;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1.5px solid #c5c9d4;
+  background: transparent;
+}
+.tone-health .phone-hotspot.hs-hp-sleep-feel1.is-on,
+.tone-health .phone-hotspot.hs-hp-sleep-feel2.is-on,
+.tone-health .phone-hotspot.hs-hp-sleep-feel3.is-on {
+  background: #eee6ff !important;
+  box-shadow: inset 0 0 0 2px #512393 !important;
+  color: #6b3bb2 !important;
+  font-weight: 600;
+}
+.tone-health .phone-hotspot.hs-hp-sleep-feel1.is-on::after,
+.tone-health .phone-hotspot.hs-hp-sleep-feel2.is-on::after,
+.tone-health .phone-hotspot.hs-hp-sleep-feel3.is-on::after {
+  border: none;
+  background: #512393
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.2l3 3 6-6.5'/%3E%3C/svg%3E")
+    center / 68% 68% no-repeat;
 }
 
 /* Hotspots — percentages measured from Figma PNG pixel scans */
@@ -577,9 +625,9 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 .hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.8%; height: 6.4%; border-radius: 14px; }
 .hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.2%; height: 6.4%; border-radius: 14px; }
-.hs-hp-sleep-feel1 { left: 8%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
-.hs-hp-sleep-feel2 { left: 36.5%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
-.hs-hp-sleep-feel3 { left: 65%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
+.hs-hp-sleep-feel1 { left: 8.5%; width: 25.5%; top: 57.15%; height: 3.5%; border-radius: 12px; }
+.hs-hp-sleep-feel2 { left: 36.2%; width: 27.2%; top: 57.15%; height: 3.5%; border-radius: 12px; }
+.hs-hp-sleep-feel3 { left: 65.8%; width: 25.6%; top: 57.15%; height: 3.5%; border-radius: 12px; }
 .hs-hp-record-diet-row { left: 4.5%; right: 4.5%; top: 66%; height: 7%; border-radius: 16px; }
 .hs-hp-record-ex-row { left: 4.5%; right: 4.5%; top: 74.5%; height: 7%; border-radius: 16px; }
 .hs-hp-record-voice { left: 4.5%; right: 4.5%; top: 82.5%; height: 4.5%; border-radius: 999px; }
