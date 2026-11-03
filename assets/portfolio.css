@@ -481,11 +481,10 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .phone-screen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: high-quality;
+  image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -512,7 +511,19 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 }
 .tone-health .phone-hotspot.is-on {
   box-shadow: inset 0 0 0 2.5px #5aa000;
-  background: color-mix(in srgb, #b8e600 38%, transparent);
+  background: color-mix(in srgb, #b8e600 42%, transparent);
+}
+.tone-health .phone-hotspot[data-toggle].is-on::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: #5aa000;
+  box-shadow: 0 0 0 2px rgba(184, 230, 0, 0.45);
 }
 .tone-health .phone-hotspot[data-toggle]:hover,
 .tone-health .phone-hotspot[data-toggle]:focus-visible {
@@ -557,7 +568,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-auth-skip { left: 5.1%; right: 5.1%; top: 84.2%; height: 5.2%; border-radius: 999px; }
 
 /* 查看进度：绿卡右下「查看进度 >」像素校准 */
-.hs-hp-home-progress { left: 69%; right: 2.5%; top: 35.2%; height: 3.9%; }
+.hs-hp-home-progress { left: 64%; right: 3%; top: 37.2%; height: 4%; }
 .hs-hp-home-connect { left: 68%; right: 4%; top: 49.2%; height: 3.6%; }
 .hs-hp-home-sleep-card { left: 4.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
 .hs-hp-home-diet-card { left: 35.5%; width: 29%; top: 55.5%; height: 17%; border-radius: 16px; }
@@ -581,9 +592,9 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 /* 弹窗：时间选择 / 记录完成 / 睡前提醒（手机全宽底栏 sheet） */
 .hs-hp-time-cancel { left: 4%; width: 14%; top: 56.8%; height: 3.6%; }
-.hs-hp-time-confirm { left: 5%; right: 5%; top: 91.5%; height: 5.2%; border-radius: 999px; }
-.hs-hp-popdone-view { left: 5.6%; right: 5.6%; top: 85.5%; height: 5.9%; border-radius: 999px; }
-.hs-hp-popdone-home { left: 28%; right: 28%; top: 93%; height: 3.4%; }
+.hs-hp-time-confirm { left: 5%; right: 5%; top: 91.8%; height: 5.2%; border-radius: 999px; }
+.hs-hp-popdone-view { left: 5%; right: 5%; top: 85.8%; height: 5.8%; border-radius: 999px; }
+.hs-hp-popdone-home { left: 28%; right: 28%; top: 93.2%; height: 3.4%; }
 
 .hs-hp-diet-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7.5%; border-radius: 16px; }
 .hs-hp-diet-meal1 { left: 6%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
@@ -648,31 +659,32 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-vconfirm-retry { left: 5%; width: 32%; top: 89.2%; height: 5.7%; border-radius: 999px; }
 .hs-hp-vconfirm-save { left: 39%; right: 5%; top: 89.2%; height: 5.7%; border-radius: 999px; }
 
-.hs-hp-remind-close { right: 4%; top: 58%; width: 10%; height: 4%; }
-.hs-hp-remind-toggle { left: 72%; width: 18%; top: 65%; height: 5%; border-radius: 999px; }
-.hs-hp-remind-time { left: 8%; right: 8%; top: 72%; height: 5%; border-radius: 14px; }
-.hs-hp-remind-rep1 { left: 8%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
-.hs-hp-remind-rep2 { left: 37%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
-.hs-hp-remind-rep3 { left: 66%; width: 26%; top: 78.5%; height: 4.5%; border-radius: 999px; }
-.hs-hp-remind-set { left: 5%; right: 5%; top: 88.7%; height: 4.2%; border-radius: 999px; }
+.hs-hp-remind-close { right: 4%; top: 57.2%; width: 10%; height: 4%; }
+.hs-hp-remind-toggle { left: 72%; width: 18%; top: 64.5%; height: 5%; border-radius: 999px; }
+.hs-hp-remind-time { left: 8%; right: 8%; top: 71.5%; height: 5%; border-radius: 14px; }
+.hs-hp-remind-rep1 { left: 8%; width: 26%; top: 78%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-rep2 { left: 37%; width: 26%; top: 78%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-rep3 { left: 66%; width: 26%; top: 78%; height: 4.5%; border-radius: 999px; }
+.hs-hp-remind-set { left: 5%; right: 5%; top: 88.5%; height: 4.5%; border-radius: 999px; }
 .hs-hp-remind-edit { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 .hs-hp-remind-later { left: 28%; right: 28%; top: 93.5%; height: 3.4%; }
 
 /* 时间滚轮（叠在弹窗滚轮区，可滚动/点击） */
 .hp-time-picker {
   position: absolute;
-  left: 4%;
-  right: 4%;
-  top: 62%;
-  height: 26%;
+  left: 5%;
+  right: 5%;
+  top: 61%;
+  height: 24%;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   border-radius: 18px;
   padding: 8px 6px 4px;
-  box-shadow: 0 8px 24px rgba(20, 20, 40, 0.08);
+  box-shadow: 0 8px 24px rgba(20, 20, 40, 0.1);
   pointer-events: auto;
+  touch-action: pan-y;
 }
 .hp-wheels {
   flex: 1;
