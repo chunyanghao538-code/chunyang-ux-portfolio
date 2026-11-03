@@ -75,7 +75,7 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "睡眠感受三选一（默认「一般」）；选中仅加紫描边与浅紫底",
+      hint: "睡眠感受三选一（默认「一般」）；选中样式与「一般」一致",
       spots: [
         { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
         { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
@@ -304,19 +304,22 @@
     screen.querySelectorAll(".hp-feel-overlay").forEach((el) => el.remove());
     const feel = toggleState.feel || {};
     const selected = Object.keys(feel).find((k) => feel[k]) || "hs-hp-sleep-feel2";
-    // 底图三钮均为未选；选中仅叠「紫色描边 + 浅紫底」，文字/空心圆不变
-    const map = {
-      "hs-hp-sleep-feel1": { cls: "feel1", src: "assets/works/health/proto/feel-1-on.png" },
-      "hs-hp-sleep-feel2": { cls: "feel2", src: "assets/works/health/proto/feel-2-on.png" },
-      "hs-hp-sleep-feel3": { cls: "feel3", src: "assets/works/health/proto/feel-3-on.png" },
-    };
-    const spec = map[selected];
-    if (!spec) return;
-    const imgEl = document.createElement("img");
-    imgEl.className = `hp-feel-overlay ${spec.cls}`;
-    imgEl.src = spec.src;
-    imgEl.alt = "";
-    screen.appendChild(imgEl);
+    // 默认底图「一般」已是选中原样；切到其他项时：一般盖未选图，当前项盖与「一般」同款选中图
+    if (selected === "hs-hp-sleep-feel2") return;
+    const off2 = document.createElement("img");
+    off2.className = "hp-feel-overlay feel2";
+    off2.src = "assets/works/health/proto/feel-2-off.png";
+    off2.alt = "";
+    screen.appendChild(off2);
+    const onSpec =
+      selected === "hs-hp-sleep-feel1"
+        ? { cls: "feel1", src: "assets/works/health/proto/feel-1-on.png" }
+        : { cls: "feel3", src: "assets/works/health/proto/feel-3-on.png" };
+    const onEl = document.createElement("img");
+    onEl.className = `hp-feel-overlay ${onSpec.cls}`;
+    onEl.src = onSpec.src;
+    onEl.alt = "";
+    screen.appendChild(onEl);
   };
 
   const go = (id) => {

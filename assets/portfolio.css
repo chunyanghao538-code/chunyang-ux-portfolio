@@ -526,7 +526,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   display: none !important;
 }
 
-/* 睡眠感受：底图为未选原样；选中仅叠紫色描边+浅紫底 */
+/* 睡眠感受：默认用稿面；切选时叠与「一般」同款选中/未选图 */
 
 /* Hotspots — percentages measured from Figma PNG pixel scans */
 .hs-back { left: 0; top: 4.6%; width: 12%; height: 4.8%; }
