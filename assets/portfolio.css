@@ -769,6 +769,41 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   pointer-events: none;
 }
 
+/* 睡眠页：入睡 / 起床 / 记录时段（起床 − 入睡）实时文案 */
+.hp-sleep-val {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.hp-sleep-bed-val,
+.hp-sleep-wake-val {
+  left: 20.5%;
+  width: 48%;
+  height: 2.8%;
+  padding: 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a22;
+  background: #fafafa;
+}
+.hp-sleep-bed-val { top: 34.05%; }
+.hp-sleep-wake-val { top: 41.55%; }
+.hp-sleep-span-val {
+  left: 22.2%;
+  width: 22%;
+  top: 48.55%;
+  height: 2.3%;
+  font-size: 18px;
+  font-weight: 800;
+  color: #7342c6;
+  background: #fff;
+  letter-spacing: 0.01em;
+}
+
 .proto-hint {
   font-size: 13px; color: var(--text-2); text-align: center;
   max-width: 340px; line-height: 1.55;

@@ -75,10 +75,10 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "点入睡/起床时间打开选择器；点睡眠感受标签切换；保存 → 饮食",
+      hint: "记录时段 = 起床 − 入睡；点入睡/起床打开选择器，确认后时段自动更新",
       spots: [
-        { cls: "hs-hp-sleep-bedtime", to: "popTime", label: "入睡时间" },
-        { cls: "hs-hp-sleep-wake", to: "popTime", label: "起床时间" },
+        { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
+        { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
         { cls: "hs-hp-sleep-feel1", toggle: "feel", label: "有精神" },
         { cls: "hs-hp-sleep-feel2", toggle: "feel", label: "一般", on: true },
         { cls: "hs-hp-sleep-feel3", toggle: "feel", label: "疲惫" },
@@ -95,7 +95,7 @@
       hint: "滚动滚轮选择日期与时间，点「确认时间」回睡眠记录",
       spots: [
         { cls: "hs-hp-time-cancel", to: "sleep", label: "取消" },
-        { cls: "hs-hp-time-confirm", to: "sleep", label: "确认时间" },
+        { cls: "hs-hp-time-confirm", action: "confirmTime", label: "确认时间" },
       ],
       back: "sleep",
       timePicker: true,
@@ -272,10 +272,28 @@
   const dates = ["10月11日", "10月12日", "10月13日", "10月14日", "10月15日", "10月16日", "10月17日"];
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
   const mins = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
-  let timeSel = { date: 2, hour: 23, min: 6 };
+  // 与稿面一致：入睡 10月13日 23:30 → 起床 10月14日 07:30 ⇒ 记录时段 8小时
+  const sleepTimes = {
+    bed: { date: 2, hour: 23, min: 6 },
+    wake: { date: 3, hour: 7, min: 6 },
+  };
+  let timeField = "bed";
+  let timeSel = { ...sleepTimes.bed };
+
+  const toMinutes = (t) => t.date * 1440 + t.hour * 60 + t.min * 5;
+  const formatSleepTime = (t) => `${dates[t.date]} ${hours[t.hour]}:${mins[t.min]}`;
+  const formatSleepSpan = () => {
+    let diff = toMinutes(sleepTimes.wake) - toMinutes(sleepTimes.bed);
+    if (diff <= 0) diff += 1440; // 跨天：起床不晚于入睡时按次日计
+    const h = Math.floor(diff / 60);
+    const m = diff % 60;
+    return m === 0 ? `${h}小时` : `${h}小时${m}分钟`;
+  };
 
   const clearHotspots = () => {
-    screen.querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge").forEach((el) => el.remove());
+    screen
+      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val")
+      .forEach((el) => el.remove());
   };
 
   const go = (id) => {
@@ -327,10 +345,21 @@
         const badge = screen.querySelector(".hp-duration-badge");
         if (badge) badge.textContent = `${durationMin} 分钟`;
       });
+    } else if (spot.action === "confirmTime") {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sleepTimes[timeField] = { ...timeSel };
+        go("sleep");
+      });
     } else {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (spot.timeField) {
+          timeField = spot.timeField;
+          timeSel = { ...sleepTimes[timeField] };
+        }
         go(spot.to);
       });
     }
@@ -491,13 +520,30 @@
     screen.appendChild(badge);
   };
 
+  const mountSleepValues = () => {
+    const specs = [
+      { cls: "hp-sleep-bed-val", text: formatSleepTime(sleepTimes.bed) },
+      { cls: "hp-sleep-wake-val", text: formatSleepTime(sleepTimes.wake) },
+      { cls: "hp-sleep-span-val", text: formatSleepSpan() },
+    ];
+    specs.forEach(({ cls, text }) => {
+      const el = document.createElement("div");
+      el.className = `hp-sleep-val ${cls}`;
+      el.textContent = text;
+      el.setAttribute("aria-hidden", "true");
+      screen.appendChild(el);
+    });
+  };
+
   const show = (id) => {
     if (!meta[id]) return;
     current = id;
     const m = meta[id];
     img.src = m.src;
     img.alt = m.title;
-    hint.innerHTML = `当前：<b>${m.title}</b> — ${m.hint}`;
+    const spanHint =
+      id === "sleep" ? `（当前 ${formatSleepSpan()}）` : "";
+    hint.innerHTML = `当前：<b>${m.title}</b> — ${m.hint}${spanHint}`;
     steps.forEach((btn) => {
       btn.classList.toggle("on", btn.dataset.screen === id);
     });
@@ -505,6 +551,7 @@
     if (m.back) addHotspot({ cls: "hs-back", to: m.back, label: "返回上一屏" });
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
+    if (id === "sleep") mountSleepValues();
     if (id === "exercise") mountDurationBadge();
   };
 
