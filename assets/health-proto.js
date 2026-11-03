@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103z6",
+      src: "assets/works/health/proto/diet.png?v=20261103z7",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -316,14 +316,19 @@
 
   const layoutDietHotspots = () => {
     if (current !== "diet") return;
-    const sx = screen.clientWidth / DIET_NAT.w;
-    const sy = screen.clientHeight / DIET_NAT.h;
-    if (!(sx > 0) || !(sy > 0)) return;
+    // Map boxes through the painted proto image rect (handles fill stretch / subpixel AR drift)
+    const ir = img.getBoundingClientRect();
+    const sr = screen.getBoundingClientRect();
+    if (!(ir.width > 0) || !(ir.height > 0)) return;
+    const sx = ir.width / DIET_NAT.w;
+    const sy = ir.height / DIET_NAT.h;
+    const ox = ir.left - sr.left;
+    const oy = ir.top - sr.top;
     DIET_BOXES.forEach(([cls, x, y, w, h]) => {
       const el = screen.querySelector(`.${cls}`);
       if (!el) return;
-      el.style.setProperty("left", `${(x * sx).toFixed(2)}px`, "important");
-      el.style.setProperty("top", `${(y * sy).toFixed(2)}px`, "important");
+      el.style.setProperty("left", `${(ox + x * sx).toFixed(2)}px`, "important");
+      el.style.setProperty("top", `${(oy + y * sy).toFixed(2)}px`, "important");
       el.style.setProperty("width", `${(w * sx).toFixed(2)}px`, "important");
       el.style.setProperty("height", `${(h * sy).toFixed(2)}px`, "important");
     });
@@ -342,7 +347,7 @@
     "hs-hp-diet-cat5": "diet-cat5-on.png",
     "hs-hp-diet-cat6": "diet-cat6-on.png",
   };
-  const DIET_FACE_VER = "20261103z6";
+  const DIET_FACE_VER = "20261103z7";
 
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
