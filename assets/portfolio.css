@@ -574,8 +574,8 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-tab-portrait { left: 38%; width: 24%; top: 91%; height: 7%; }
 .hs-hp-tab-mine { left: 68%; width: 24%; top: 91%; height: 7%; }
 
-.hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 31.8%; height: 5.2%; border-radius: 14px; }
-.hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.8%; height: 5.2%; border-radius: 14px; }
+.hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.8%; height: 6.4%; border-radius: 14px; }
+.hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.2%; height: 6.4%; border-radius: 14px; }
 .hs-hp-sleep-feel1 { left: 8%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-sleep-feel2 { left: 36.5%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-sleep-feel3 { left: 65%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
