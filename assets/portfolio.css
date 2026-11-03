@@ -595,7 +595,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-diet-meal1 { left: 6%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
 .hs-hp-diet-meal2 { left: 36%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
 .hs-hp-diet-meal3 { left: 66%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
-/* 饮食选项热区：与稿面圆角卡片对齐（含描边） */
+/* 饮食选项热区：与稿面 234×53 卡片像素对齐 */
 .hs-hp-diet-ate,
 .hs-hp-diet-skip,
 .hs-hp-diet-cat1,
@@ -605,51 +605,40 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-diet-cat5,
 .hs-hp-diet-cat6 {
   width: 40%;
-  height: 4.19%;
-  border-radius: 12px;
+  height: 4.186%;
+  /* 对应稿面约 12px 圆角，随热区宽高缩放 */
+  border-radius: 5.13% / 22.64%;
   z-index: 4;
+  box-sizing: border-box;
 }
 .hs-hp-diet-ate,
 .hs-hp-diet-cat1,
 .hs-hp-diet-cat3,
-.hs-hp-diet-cat5 { left: 8.72%; }
+.hs-hp-diet-cat5 { left: 8.718%; }
 .hs-hp-diet-skip,
 .hs-hp-diet-cat2,
 .hs-hp-diet-cat4,
-.hs-hp-diet-cat6 { left: 51.45%; }
+.hs-hp-diet-cat6 { left: 51.453%; }
 .hs-hp-diet-ate,
-.hs-hp-diet-skip { top: 45.89%; }
+.hs-hp-diet-skip { top: 45.893%; }
 .hs-hp-diet-cat1,
-.hs-hp-diet-cat2 { top: 54.19%; }
+.hs-hp-diet-cat2 { top: 54.186%; }
 .hs-hp-diet-cat3,
-.hs-hp-diet-cat4 { top: 58.53%; }
+.hs-hp-diet-cat4 { top: 58.531%; }
 .hs-hp-diet-cat5,
-.hs-hp-diet-cat6 { top: 65.4%; }
-/* 选中叠图：浅橙底+描边，圆角与热区一致 */
-.hp-diet-chip {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  object-fit: fill;
-  border-radius: 12px;
-  overflow: hidden;
+.hs-hp-diet-cat6 { top: 65.403%; }
+/* 选中：仅热区内浅橙底+描边，不改字体、不超出热区 */
+.tone-health .hs-hp-diet-ate.is-on,
+.tone-health .hs-hp-diet-skip.is-on,
+.tone-health .hs-hp-diet-cat1.is-on,
+.tone-health .hs-hp-diet-cat2.is-on,
+.tone-health .hs-hp-diet-cat3.is-on,
+.tone-health .hs-hp-diet-cat4.is-on,
+.tone-health .hs-hp-diet-cat5.is-on,
+.tone-health .hs-hp-diet-cat6.is-on {
+  background: rgba(255, 240, 225, 0.82) !important;
+  box-shadow: inset 0 0 0 1.5px rgb(210, 130, 70) !important;
 }
-.hp-diet-chip.ate,
-.hp-diet-chip.cat1,
-.hp-diet-chip.cat3,
-.hp-diet-chip.cat5 { left: 8.72%; width: 40%; }
-.hp-diet-chip.skip,
-.hp-diet-chip.cat2,
-.hp-diet-chip.cat4,
-.hp-diet-chip.cat6 { left: 51.45%; width: 40%; }
-.hp-diet-chip.ate,
-.hp-diet-chip.skip { top: 45.89%; height: 4.19%; }
-.hp-diet-chip.cat1,
-.hp-diet-chip.cat2 { top: 54.19%; height: 4.19%; }
-.hp-diet-chip.cat3,
-.hp-diet-chip.cat4 { top: 58.53%; height: 4.19%; }
-.hp-diet-chip.cat5,
-.hp-diet-chip.cat6 { top: 65.4%; height: 4.19%; }
 .hs-hp-diet-ex-row { left: 4.5%; right: 4.5%; top: 78%; height: 6.5%; border-radius: 16px; }
 .hs-hp-diet-voice { left: 4.8%; right: 5%; top: 85.8%; height: 3.9%; border-radius: 999px; }
 .hs-hp-diet-save { left: 5.6%; right: 2.8%; top: 92.1%; height: 4.9%; border-radius: 999px; }
