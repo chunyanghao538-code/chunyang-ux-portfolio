@@ -579,20 +579,9 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 .hs-hp-sleep-bedtime { left: 5%; right: 5%; top: 29.8%; height: 6.4%; border-radius: 14px; }
 .hs-hp-sleep-wake { left: 5%; right: 5%; top: 38.2%; height: 6.4%; border-radius: 14px; }
-.hs-hp-sleep-feel1 { left: 8.55%; width: 25.47%; top: 57.03%; height: 2.76%; border-radius: 12px; }
-.hs-hp-sleep-feel2 { left: 36.24%; width: 27.52%; top: 57.03%; height: 2.76%; border-radius: 12px; }
-.hs-hp-sleep-feel3 { left: 65.98%; width: 25.64%; top: 57.03%; height: 2.76%; border-radius: 12px; }
-/* 叠在原按钮上的选中/未选图，尺寸与热区一致 */
-.hp-feel-overlay {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
-  object-fit: fill;
-  border-radius: 12px;
-}
-.hp-feel-overlay.feel1 { left: 8.55%; width: 25.47%; top: 57.03%; height: 2.76%; }
-.hp-feel-overlay.feel2 { left: 36.24%; width: 27.52%; top: 57.03%; height: 2.76%; }
-.hp-feel-overlay.feel3 { left: 65.98%; width: 25.64%; top: 57.03%; height: 2.76%; }
+.hs-hp-sleep-feel1 { left: 8%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
+.hs-hp-sleep-feel2 { left: 36.5%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
+.hs-hp-sleep-feel3 { left: 65%; width: 27%; top: 48.5%; height: 6%; border-radius: 999px; }
 .hs-hp-record-diet-row { left: 4.5%; right: 4.5%; top: 66%; height: 7%; border-radius: 16px; }
 .hs-hp-record-ex-row { left: 4.5%; right: 4.5%; top: 74.5%; height: 7%; border-radius: 16px; }
 .hs-hp-record-voice { left: 4.5%; right: 4.5%; top: 82.5%; height: 4.5%; border-radius: 999px; }

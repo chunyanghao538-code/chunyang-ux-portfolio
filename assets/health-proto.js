@@ -75,7 +75,7 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "点睡眠感受三选一，选中样式与「一般」一致",
+      hint: "记录时段 = 起床 − 入睡；点入睡/起床打开选择器，确认后时段自动更新",
       spots: [
         { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
         { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
@@ -294,32 +294,8 @@
 
   const clearHotspots = () => {
     screen
-      .querySelectorAll(
-        ".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val, .hp-feel-overlay"
-      )
+      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val")
       .forEach((el) => el.remove());
-  };
-
-  const syncFeelOverlays = () => {
-    screen.querySelectorAll(".hp-feel-overlay").forEach((el) => el.remove());
-    const feel = toggleState.feel || {};
-    const selected = Object.keys(feel).find((k) => feel[k]) || "hs-hp-sleep-feel2";
-    // 默认底图「一般」已是选中原样；切到其他项时：一般盖未选图，当前项盖与「一般」同款选中图
-    if (selected === "hs-hp-sleep-feel2") return;
-    const off2 = document.createElement("img");
-    off2.className = "hp-feel-overlay feel2";
-    off2.src = "assets/works/health/proto/feel-2-off.png";
-    off2.alt = "";
-    screen.appendChild(off2);
-    const onSpec =
-      selected === "hs-hp-sleep-feel1"
-        ? { cls: "feel1", src: "assets/works/health/proto/feel-1-on.png" }
-        : { cls: "feel3", src: "assets/works/health/proto/feel-3-on.png" };
-    const onEl = document.createElement("img");
-    onEl.className = `hp-feel-overlay ${onSpec.cls}`;
-    onEl.src = onSpec.src;
-    onEl.alt = "";
-    screen.appendChild(onEl);
   };
 
   const go = (id) => {
@@ -362,7 +338,6 @@
           toggleState[group][key] = true;
         }
         syncToggleVisual();
-        if (group === "feel") syncFeelOverlays();
       });
     } else if (spot.action === "duration") {
       btn.addEventListener("click", (e) => {
@@ -578,10 +553,7 @@
     if (m.back) addHotspot({ cls: "hs-back", to: m.back, label: "返回上一屏" });
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
-    if (id === "sleep") {
-      mountSleepValues();
-      syncFeelOverlays();
-    }
+    if (id === "sleep") mountSleepValues();
     if (id === "exercise") mountDurationBadge();
   };
 
