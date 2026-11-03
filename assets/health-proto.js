@@ -75,7 +75,7 @@
     sleep: {
       src: "assets/works/health/proto/sleep.png",
       title: "睡眠记录",
-      hint: "记录时段 = 起床 ? 入睡；点入睡/起床打开选择器，确认后时段自动更新",
+      hint: "记录时段 = 起床 − 入睡；点入睡/起床打开选择器，确认后时段自动更新",
       spots: [
         { cls: "hs-hp-sleep-bedtime", to: "popTime", timeField: "bed", label: "入睡时间" },
         { cls: "hs-hp-sleep-wake", to: "popTime", timeField: "wake", label: "起床时间" },
@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103z11",
+      src: "assets/works/health/proto/diet.png?v=20261103r948",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -272,7 +272,7 @@
   const dates = ["10月11日", "10月12日", "10月13日", "10月14日", "10月15日", "10月16日", "10月17日"];
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
   const mins = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
-  // 与稿面一致：入睡 10月13日 23:30 → 起床 10月14日 07:30 ? 记录时段 8小时
+  // 与稿面一致：入睡 10月13日 23:30 → 起床 10月14日 07:30 ⇒ 记录时段 8小时
   const sleepTimes = {
     bed: { date: 2, hour: 23, min: 6 },
     wake: { date: 3, hour: 7, min: 6 },
@@ -316,58 +316,16 @@
 
   const layoutDietHotspots = () => {
     if (current !== "diet") return;
-    // Map boxes through the painted proto image rect (handles fill stretch / subpixel AR drift)
-    const ir = img.getBoundingClientRect();
-    const sr = screen.getBoundingClientRect();
-    if (!(ir.width > 0) || !(ir.height > 0)) return;
-    const sx = ir.width / DIET_NAT.w;
-    const sy = ir.height / DIET_NAT.h;
-    const ox = ir.left - sr.left;
-    const oy = ir.top - sr.top;
+    const sx = screen.clientWidth / DIET_NAT.w;
+    const sy = screen.clientHeight / DIET_NAT.h;
+    if (!(sx > 0) || !(sy > 0)) return;
     DIET_BOXES.forEach(([cls, x, y, w, h]) => {
       const el = screen.querySelector(`.${cls}`);
       if (!el) return;
-      el.style.setProperty("left", `${(ox + x * sx).toFixed(2)}px`, "important");
-      el.style.setProperty("top", `${(oy + y * sy).toFixed(2)}px`, "important");
-      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`, "important");
-      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`, "important");
-    });
-  };
-
-  const DIET_FACE = {
-    "hs-hp-diet-meal1": "diet-meal1-on.png",
-    "hs-hp-diet-meal2": "diet-meal2-on.png",
-    "hs-hp-diet-meal3": "diet-meal3-on.png",
-    "hs-hp-diet-ate": "diet-ate-on.png",
-    "hs-hp-diet-skip": "diet-skip-on.png",
-    "hs-hp-diet-cat1": "diet-cat1-on.png",
-    "hs-hp-diet-cat2": "diet-cat2-on.png",
-    "hs-hp-diet-cat3": "diet-cat3-on.png",
-    "hs-hp-diet-cat4": "diet-cat4-on.png",
-    "hs-hp-diet-cat5": "diet-cat5-on.png",
-    "hs-hp-diet-cat6": "diet-cat6-on.png",
-  };
-  const DIET_FACE_VER = "20261103z11";
-
-  const syncDietFaces = () => {
-    Object.keys(DIET_FACE).forEach((cls) => {
-      const el = screen.querySelector(`.${cls}`);
-      if (!el) return;
-      const on = el.classList.contains("is-on");
-      let face = el.querySelector("img.hp-diet-face");
-      if (on) {
-        if (!face) {
-          face = document.createElement("img");
-          face.className = "hp-diet-face";
-          face.alt = "";
-          face.draggable = false;
-          el.appendChild(face);
-        }
-        const src = `assets/works/health/proto/${DIET_FACE[cls]}?v=${DIET_FACE_VER}`;
-        if (face.getAttribute("src") !== src) face.src = src;
-      } else if (face) {
-        face.remove();
-      }
+      el.style.setProperty("left", `${(x * sx).toFixed(2)}px`);
+      el.style.setProperty("top", `${(y * sy).toFixed(2)}px`);
+      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`);
+      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`);
     });
   };
 
@@ -382,7 +340,6 @@
       const on = toggleState[group] && toggleState[group][key];
       el.classList.toggle("is-on", !!on);
     });
-    syncDietFaces();
   };
 
   const addHotspot = (spot) => {
@@ -631,19 +588,8 @@
     if (id === "exercise") mountDurationBadge();
     if (id === "diet") {
       layoutDietHotspots();
-      syncDietFaces();
-      requestAnimationFrame(() => {
-        layoutDietHotspots();
-        syncDietFaces();
-      });
-      img.addEventListener(
-        "load",
-        () => {
-          layoutDietHotspots();
-          syncDietFaces();
-        },
-        { once: true }
-      );
+      requestAnimationFrame(layoutDietHotspots);
+      img.addEventListener("load", layoutDietHotspots, { once: true });
     }
   };
 
