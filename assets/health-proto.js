@@ -244,10 +244,11 @@
     remind: {
       src: "assets/works/health/proto/remind.png",
       title: "设置睡前提醒",
-      hint: "点「保存提醒」或「取消」回画像；可切换提醒开关与重复方式",
+      hint: "可开关提醒、点重复方式；「保存提醒」或「取消」回画像",
       spots: [
         { cls: "hs-hp-remind-close", to: "portrait", label: "关闭" },
         { cls: "hs-hp-remind-toggle", toggle: "rm-on", label: "开启提醒", on: true },
+        { cls: "hs-hp-remind-time", toggle: "rm-time", label: "提醒时间 23:00", on: true },
         { cls: "hs-hp-remind-rep1", toggle: "rm-rep", label: "每天", on: true },
         { cls: "hs-hp-remind-rep2", toggle: "rm-rep", label: "工作日" },
         { cls: "hs-hp-remind-rep3", toggle: "rm-rep", label: "自定义" },
