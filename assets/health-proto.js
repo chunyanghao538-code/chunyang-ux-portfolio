@@ -77,8 +77,8 @@
       title: "睡眠记录",
       hint: "点入睡/起床时间打开选择器；点睡眠感受标签切换；保存 → 饮食",
       spots: [
-        { cls: "hs-hp-sleep-bedtime", to: "popTime", timeTitle: "入睡时间", label: "入睡时间" },
-        { cls: "hs-hp-sleep-wake", to: "popTime", timeTitle: "起床时间", label: "起床时间" },
+        { cls: "hs-hp-sleep-bedtime", to: "popTime", label: "入睡时间" },
+        { cls: "hs-hp-sleep-wake", to: "popTime", label: "起床时间" },
         { cls: "hs-hp-sleep-feel1", toggle: "feel", label: "有精神" },
         { cls: "hs-hp-sleep-feel2", toggle: "feel", label: "一般", on: true },
         { cls: "hs-hp-sleep-feel3", toggle: "feel", label: "疲惫" },
@@ -91,9 +91,8 @@
     },
     popTime: {
       src: "assets/works/health/proto/pop-time.png",
-      srcWake: "assets/works/health/proto/pop-time-wake.png",
-      title: "时间选择弹窗",
-      hint: "点入睡/起床会打开对应标题弹窗；滚动滚轮（加粗项对齐紫框）后点「确认时间」",
+      title: "时间选择",
+      hint: "滚动滚轮选择日期与时间，点「确认时间」回睡眠记录",
       spots: [
         { cls: "hs-hp-time-cancel", to: "sleep", label: "取消" },
         { cls: "hs-hp-time-confirm", to: "sleep", label: "确认时间" },
@@ -274,7 +273,6 @@
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
   const mins = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
   let timeSel = { date: 2, hour: 23, min: 6 };
-  let timeTitle = "入睡时间";
 
   const clearHotspots = () => {
     screen.querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge").forEach((el) => el.remove());
@@ -333,7 +331,6 @@
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (spot.timeTitle) timeTitle = spot.timeTitle;
         go(spot.to);
       });
     }
@@ -463,12 +460,6 @@
       '<div class="hp-wheels"><div class="hp-wheel-hi" aria-hidden="true"></div></div><p class="hp-time-summary"></p>';
     const wheels = wrap.querySelector(".hp-wheels");
     const hiEl = wrap.querySelector(".hp-wheel-hi");
-    // 起床默认偏早晨，入睡默认偏夜间
-    if (timeTitle === "起床时间") {
-      timeSel = { date: timeSel.date, hour: 7, min: 6 };
-    } else {
-      timeSel = { date: timeSel.date, hour: 23, min: 6 };
-    }
     const getItemH = () => Math.max(28, Math.round(wheels.clientHeight / 5));
     const mk = (arr, sel, set) =>
       buildWheel(arr, sel, set, getItemH, hiEl);
@@ -504,12 +495,9 @@
     if (!meta[id]) return;
     current = id;
     const m = meta[id];
-    // 起床入口用带「起床时间」顶栏标题的弹窗图；入睡用默认图
-    const useWake = id === "popTime" && timeTitle === "起床时间" && m.srcWake;
-    img.src = useWake ? m.srcWake : m.src;
-    img.alt = id === "popTime" ? timeTitle : m.title;
-    const titleLabel = id === "popTime" ? timeTitle : m.title;
-    hint.innerHTML = `当前：<b>${titleLabel}</b> — ${m.hint}`;
+    img.src = m.src;
+    img.alt = m.title;
+    hint.innerHTML = `当前：<b>${m.title}</b> — ${m.hint}`;
     steps.forEach((btn) => {
       btn.classList.toggle("on", btn.dataset.screen === id);
     });
