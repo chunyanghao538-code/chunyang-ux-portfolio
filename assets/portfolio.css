@@ -476,6 +476,7 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   overflow: hidden;
   background: #f5f5f5;
   aspect-ratio: 390 / 844;
+  container-type: size;
 }
 .phone-screen img {
   width: 100%;
@@ -769,39 +770,44 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   pointer-events: none;
 }
 
-/* 睡眠页：入睡 / 起床 / 记录时段（起床 − 入睡）实时文案 */
+/* 睡眠页：入睡 / 起床 / 记录时段 — 位置字号字距对齐稿面默认 */
 .hp-sleep-val {
   position: absolute;
   z-index: 3;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   pointer-events: none;
   white-space: nowrap;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+  line-height: 1;
 }
 .hp-sleep-bed-val,
 .hp-sleep-wake-val {
-  left: 20.5%;
-  width: 48%;
-  height: 2.8%;
-  padding: 0 4px;
-  font-size: 14px;
-  font-weight: 600;
+  left: 20.68%;
+  width: 30%;
+  height: 1.9%;
+  font-size: 3.42cqw; /* ≈ 稿面 20px / 585 */
+  font-weight: 500;
   color: #1a1a22;
   background: #fafafa;
 }
-.hp-sleep-bed-val { top: 34.05%; }
-.hp-sleep-wake-val { top: 41.55%; }
+.hp-sleep-bed-val { top: 34.0%; }
+.hp-sleep-wake-val { top: 42.9%; }
+/* 只盖紫色「8小时」，左侧留出与「记录时段」的原有间距 */
 .hp-sleep-span-val {
-  left: 22.2%;
-  width: 22%;
-  top: 48.55%;
-  height: 2.3%;
-  font-size: 18px;
-  font-weight: 800;
+  left: 26.67%;
+  width: 24%;
+  top: 48.34%;
+  height: 2.45%;
+  font-size: 5.3cqw; /* ≈ 稿面 31px / 585 */
+  font-weight: 700;
   color: #7342c6;
   background: #fff;
-  letter-spacing: 0.01em;
 }
 
 .proto-hint {

@@ -281,12 +281,14 @@
   let timeSel = { ...sleepTimes.bed };
 
   const toMinutes = (t) => t.date * 1440 + t.hour * 60 + t.min * 5;
+  // 与稿面默认一致：`10月13日 23:30`（日期与时间之间单个空格）
   const formatSleepTime = (t) => `${dates[t.date]} ${hours[t.hour]}:${mins[t.min]}`;
   const formatSleepSpan = () => {
     let diff = toMinutes(sleepTimes.wake) - toMinutes(sleepTimes.bed);
     if (diff <= 0) diff += 1440; // 跨天：起床不晚于入睡时按次日计
     const h = Math.floor(diff / 60);
     const m = diff % 60;
+    // 与默认「8小时」相同，无多余空格；有分钟时为「7小时30分钟」
     return m === 0 ? `${h}小时` : `${h}小时${m}分钟`;
   };
 
