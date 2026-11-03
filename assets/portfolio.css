@@ -510,26 +510,19 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   box-shadow: inset 0 0 0 2px #7a5cff;
   background: color-mix(in srgb, #7a5cff 16%, transparent);
 }
+/* 健康伙伴：热区全程透明，不出现绿色/调试色块 */
+.tone-health .phone-hotspot,
+.tone-health .phone-hotspot:hover,
+.tone-health .phone-hotspot:focus-visible,
+.tone-health .phone-hotspot:active,
 .tone-health .phone-hotspot.is-on {
-  box-shadow: inset 0 0 0 2.5px #5aa000;
-  background: color-mix(in srgb, #b8e600 42%, transparent);
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
-.tone-health .phone-hotspot[data-toggle].is-on::after {
-  content: "";
-  position: absolute;
-  right: 8%;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  margin-top: -3.5px;
-  border-radius: 50%;
-  background: #5aa000;
-  box-shadow: 0 0 0 2px rgba(184, 230, 0, 0.45);
-}
-.tone-health .phone-hotspot[data-toggle]:hover,
-.tone-health .phone-hotspot[data-toggle]:focus-visible {
-  background: color-mix(in srgb, #b8e600 18%, transparent);
-  box-shadow: inset 0 0 0 2px #8fd000;
+.tone-health .phone-hotspot::after {
+  content: none !important;
+  display: none !important;
 }
 
 /* Hotspots — percentages measured from Figma PNG pixel scans */
