@@ -606,10 +606,20 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 /* 饮食选项叠图：尺寸与热区一致，选中态对齐稿面「吃了」等 */
 .hp-diet-chip {
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
   object-fit: fill;
   border-radius: 14px;
+}
+.tone-health .phone-hotspot.hs-hp-diet-ate,
+.tone-health .phone-hotspot.hs-hp-diet-skip,
+.tone-health .phone-hotspot.hs-hp-diet-cat1,
+.tone-health .phone-hotspot.hs-hp-diet-cat2,
+.tone-health .phone-hotspot.hs-hp-diet-cat3,
+.tone-health .phone-hotspot.hs-hp-diet-cat4,
+.tone-health .phone-hotspot.hs-hp-diet-cat5,
+.tone-health .phone-hotspot.hs-hp-diet-cat6 {
+  z-index: 4;
 }
 .hp-diet-chip.ate { left: 8.89%; width: 39.66%; top: 46.05%; height: 3.63%; }
 .hp-diet-chip.skip { left: 51.62%; width: 39.66%; top: 46.05%; height: 3.63%; }
