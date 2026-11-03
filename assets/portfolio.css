@@ -526,8 +526,6 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   display: none !important;
 }
 
-/* 睡眠感受：默认用稿面；切选时叠与「一般」同款选中/未选图 */
-
 /* Hotspots — percentages measured from Figma PNG pixel scans */
 .hs-back { left: 0; top: 4.6%; width: 12%; height: 4.8%; }
 /* 额度中心 · 立即借款（白底胶囊，卡内底部） */
@@ -597,14 +595,30 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 .hs-hp-diet-meal1 { left: 6%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
 .hs-hp-diet-meal2 { left: 36%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
 .hs-hp-diet-meal3 { left: 66%; width: 28%; top: 22.6%; height: 3.6%; border-radius: 999px; }
-.hs-hp-diet-ate { left: 6%; width: 43%; top: 42.5%; height: 3.6%; border-radius: 14px; }
-.hs-hp-diet-skip { left: 51%; width: 43%; top: 42.5%; height: 3.6%; border-radius: 14px; }
-.hs-hp-diet-cat1 { left: 6%; width: 43%; top: 46%; height: 3.8%; border-radius: 14px; }
-.hs-hp-diet-cat2 { left: 51%; width: 43%; top: 46%; height: 3.8%; border-radius: 14px; }
-.hs-hp-diet-cat3 { left: 6%; width: 43%; top: 50%; height: 3.8%; border-radius: 14px; }
-.hs-hp-diet-cat4 { left: 51%; width: 43%; top: 50%; height: 3.8%; border-radius: 14px; }
-.hs-hp-diet-cat5 { left: 6%; width: 43%; top: 54%; height: 4.4%; border-radius: 14px; }
-.hs-hp-diet-cat6 { left: 51%; width: 43%; top: 54%; height: 4.4%; border-radius: 14px; }
+.hs-hp-diet-ate { left: 8.89%; width: 39.66%; top: 46.05%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-skip { left: 51.62%; width: 39.66%; top: 46.05%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat1 { left: 8.89%; width: 39.66%; top: 54.34%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat2 { left: 51.62%; width: 39.66%; top: 54.34%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat3 { left: 8.89%; width: 39.66%; top: 58.69%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat4 { left: 51.62%; width: 39.66%; top: 58.69%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat5 { left: 8.89%; width: 39.66%; top: 65.56%; height: 3.63%; border-radius: 14px; }
+.hs-hp-diet-cat6 { left: 51.62%; width: 39.66%; top: 65.56%; height: 3.63%; border-radius: 14px; }
+/* 饮食选项叠图：尺寸与热区一致，选中态对齐稿面「吃了」等 */
+.hp-diet-chip {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: fill;
+  border-radius: 14px;
+}
+.hp-diet-chip.ate { left: 8.89%; width: 39.66%; top: 46.05%; height: 3.63%; }
+.hp-diet-chip.skip { left: 51.62%; width: 39.66%; top: 46.05%; height: 3.63%; }
+.hp-diet-chip.cat1 { left: 8.89%; width: 39.66%; top: 54.34%; height: 3.63%; }
+.hp-diet-chip.cat2 { left: 51.62%; width: 39.66%; top: 54.34%; height: 3.63%; }
+.hp-diet-chip.cat3 { left: 8.89%; width: 39.66%; top: 58.69%; height: 3.63%; }
+.hp-diet-chip.cat4 { left: 51.62%; width: 39.66%; top: 58.69%; height: 3.63%; }
+.hp-diet-chip.cat5 { left: 8.89%; width: 39.66%; top: 65.56%; height: 3.63%; }
+.hp-diet-chip.cat6 { left: 51.62%; width: 39.66%; top: 65.56%; height: 3.63%; }
 .hs-hp-diet-ex-row { left: 4.5%; right: 4.5%; top: 78%; height: 6.5%; border-radius: 16px; }
 .hs-hp-diet-voice { left: 4.8%; right: 5%; top: 85.8%; height: 3.9%; border-radius: 999px; }
 .hs-hp-diet-save { left: 5.6%; right: 2.8%; top: 92.1%; height: 4.9%; border-radius: 999px; }

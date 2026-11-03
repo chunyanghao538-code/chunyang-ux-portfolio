@@ -103,7 +103,7 @@
     diet: {
       src: "assets/works/health/proto/diet.png",
       title: "饮食记录",
-      hint: "点早/午/晚餐切换；点「吃了」与食物类别多选；保存 → 运动",
+      hint: "「吃了」与谷薯/鱼肉蛋/奶豆默认选中；点选项切换，类别可多选；保存 → 运动",
       spots: [
         { cls: "hs-hp-diet-sleep-row", to: "sleep", label: "睡眠记录" },
         { cls: "hs-hp-diet-meal1", toggle: "meal", label: "早餐", on: true },
@@ -111,7 +111,7 @@
         { cls: "hs-hp-diet-meal3", toggle: "meal", label: "晚餐" },
         { cls: "hs-hp-diet-ate", toggle: "ate", label: "吃了", on: true },
         { cls: "hs-hp-diet-skip", toggle: "ate", label: "未吃这餐" },
-        { cls: "hs-hp-diet-cat1", toggle: "cat", multi: true, label: "谷薯主食", on: true },
+        { cls: "hs-hp-diet-cat1", toggle: "cat", multi: true, label: "谷薯主食类", on: true },
         { cls: "hs-hp-diet-cat2", toggle: "cat", multi: true, label: "蔬菜类" },
         { cls: "hs-hp-diet-cat3", toggle: "cat", multi: true, label: "水果类" },
         { cls: "hs-hp-diet-cat4", toggle: "cat", multi: true, label: "鱼肉蛋类", on: true },
@@ -294,8 +294,33 @@
 
   const clearHotspots = () => {
     screen
-      .querySelectorAll(".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val")
+      .querySelectorAll(
+        ".phone-hotspot, .hp-time-picker, .hp-duration-badge, .hp-sleep-val, .hp-diet-chip"
+      )
       .forEach((el) => el.remove());
+  };
+
+  const dietChipMap = [
+    { key: "hs-hp-diet-ate", group: "ate", cls: "ate", base: "diet-ate" },
+    { key: "hs-hp-diet-skip", group: "ate", cls: "skip", base: "diet-skip" },
+    { key: "hs-hp-diet-cat1", group: "cat", cls: "cat1", base: "diet-cat1" },
+    { key: "hs-hp-diet-cat2", group: "cat", cls: "cat2", base: "diet-cat2" },
+    { key: "hs-hp-diet-cat3", group: "cat", cls: "cat3", base: "diet-cat3" },
+    { key: "hs-hp-diet-cat4", group: "cat", cls: "cat4", base: "diet-cat4" },
+    { key: "hs-hp-diet-cat5", group: "cat", cls: "cat5", base: "diet-cat5" },
+    { key: "hs-hp-diet-cat6", group: "cat", cls: "cat6", base: "diet-cat6" },
+  ];
+
+  const syncDietChips = () => {
+    screen.querySelectorAll(".hp-diet-chip").forEach((el) => el.remove());
+    dietChipMap.forEach((chip) => {
+      const on = !!(toggleState[chip.group] && toggleState[chip.group][chip.key]);
+      const imgEl = document.createElement("img");
+      imgEl.className = `hp-diet-chip ${chip.cls}`;
+      imgEl.src = `assets/works/health/proto/${chip.base}-${on ? "on" : "off"}.png`;
+      imgEl.alt = "";
+      screen.appendChild(imgEl);
+    });
   };
 
   const go = (id) => {
@@ -338,6 +363,7 @@
           toggleState[group][key] = true;
         }
         syncToggleVisual();
+        if (group === "ate" || group === "cat") syncDietChips();
       });
     } else if (spot.action === "duration") {
       btn.addEventListener("click", (e) => {
@@ -554,6 +580,7 @@
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
     if (id === "sleep") mountSleepValues();
+    if (id === "diet") syncDietChips();
     if (id === "exercise") mountDurationBadge();
   };
 
