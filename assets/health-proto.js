@@ -124,9 +124,9 @@
       back: "sleep",
     },
     exercise: {
-      src: "assets/works/health/proto/exercise.png",
+      src: "assets/works/health/proto/exercise-v2.png?v=20261104e",
       title: "运动录入",
-      hint: "点是否运动、活动类型；用 +/- 调时长；保存 → 记录完成弹窗",
+      hint: "「有运动 / 暂无运动」二选一（同饮食「吃了」）；再选活动类型，+/- 调时长；保存 → 完成弹窗",
       spots: [
         { cls: "hs-hp-ex-sleep-row", to: "sleep", label: "睡眠记录" },
         { cls: "hs-hp-ex-diet-row", to: "diet", label: "饮食记录" },
@@ -350,6 +350,37 @@
   };
   const DIET_FACE_VER = "20261104d";
 
+  /* 运动「有运动 / 暂无运动」：与饮食「吃了 / 未吃这餐」同交互 */
+  const EX_NAT = { w: 585, h: 1266 };
+  const EX_BOXES = [
+    ["hs-hp-ex-yes", 51, 606, 234, 53],
+    ["hs-hp-ex-no", 301, 606, 234, 53],
+  ];
+  const EX_FACE = {
+    "hs-hp-ex-yes": "ex-yes",
+    "hs-hp-ex-no": "ex-no",
+  };
+  const EX_FACE_VER = "20261104e";
+
+  const layoutExHotspots = () => {
+    if (current !== "exercise") return;
+    const ir = img.getBoundingClientRect();
+    const sr = screen.getBoundingClientRect();
+    if (!(ir.width > 0) || !(ir.height > 0)) return;
+    const sx = ir.width / EX_NAT.w;
+    const sy = ir.height / EX_NAT.h;
+    const ox = ir.left - sr.left;
+    const oy = ir.top - sr.top;
+    EX_BOXES.forEach(([cls, x, y, w, h]) => {
+      const el = screen.querySelector(`.${cls}`);
+      if (!el) return;
+      el.style.setProperty("left", `${(ox + x * sx).toFixed(2)}px`, "important");
+      el.style.setProperty("top", `${(oy + y * sy).toFixed(2)}px`, "important");
+      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`, "important");
+      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`, "important");
+    });
+  };
+
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
       const el = screen.querySelector(`.${cls}`);
@@ -369,6 +400,25 @@
     });
   };
 
+  const syncExFaces = () => {
+    Object.keys(EX_FACE).forEach((cls) => {
+      const el = screen.querySelector(`.${cls}`);
+      if (!el) return;
+      const on = el.classList.contains("is-on");
+      let face = el.querySelector("img.hp-diet-face");
+      if (!face) {
+        face = document.createElement("img");
+        face.className = "hp-diet-face";
+        face.alt = "";
+        face.draggable = false;
+        el.appendChild(face);
+      }
+      const file = `${EX_FACE[cls]}-${on ? "on" : "off"}.png`;
+      const src = `assets/works/health/proto/${file}?v=${EX_FACE_VER}`;
+      if (face.getAttribute("src") !== src) face.src = src;
+    });
+  };
+
   const go = (id) => {
     if (meta[id]) show(id);
   };
@@ -381,6 +431,7 @@
       el.classList.toggle("is-on", !!on);
     });
     syncDietFaces();
+    syncExFaces();
   };
 
   const addHotspot = (spot) => {
@@ -626,7 +677,13 @@
     (m.spots || []).forEach((s) => addHotspot(s));
     if (m.timePicker) mountTimePicker();
     if (id === "sleep") mountSleepValues();
-    if (id === "exercise") mountDurationBadge();
+    if (id === "exercise") {
+      mountDurationBadge();
+      syncExFaces();
+      layoutExHotspots();
+      requestAnimationFrame(layoutExHotspots);
+      img.addEventListener("load", layoutExHotspots, { once: true });
+    }
     if (id === "diet") {
       syncDietFaces();
       layoutDietHotspots();
@@ -647,9 +704,15 @@
   });
 
   if (typeof ResizeObserver !== "undefined") {
-    new ResizeObserver(() => layoutDietHotspots()).observe(screen);
+    new ResizeObserver(() => {
+      layoutDietHotspots();
+      layoutExHotspots();
+    }).observe(screen);
   } else {
-    window.addEventListener("resize", layoutDietHotspots);
+    window.addEventListener("resize", () => {
+      layoutDietHotspots();
+      layoutExHotspots();
+    });
   }
 
   show("onboarding");
