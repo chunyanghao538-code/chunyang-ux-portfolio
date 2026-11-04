@@ -960,23 +960,59 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
     line-height: 1.45;
     padding: 10px 12px;
   }
-  .work-item.featured { min-height: 320px; }
-  .work-item.compact { min-height: 230px; }
-  .work-item .body { padding: 16px 16px 18px; }
-  .work-item h3 { font-size: 20px; }
-  .work-item.featured h3 { font-size: 24px; }
+  /* 手机：封面与文案分层，提案封面完整可读、说明不被压暗裁切 */
+  .work-item.featured,
+  .work-item.compact {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+  .work-item .thumb {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2.35 / 1;
+    flex: 0 0 auto;
+    background-position: center center;
+    transform: none;
+  }
+  .work-item:hover .thumb { transform: none; }
+  .work-item[data-tone="b"] .thumb { aspect-ratio: 16 / 10; }
+  .work-item[data-tone="health"] .thumb { aspect-ratio: 4 / 5; }
+  .work-item .veil { display: none; }
+  .work-item .body {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 14px 16px 16px;
+    color: var(--navy);
+  }
+  .work-item h3 {
+    font-size: 18px;
+    color: var(--navy);
+  }
+  .work-item.featured h3 { font-size: 22px; }
   .work-item p {
-    font-size: 12.5px;
+    font-size: 13px;
+    color: var(--text-2);
     max-width: none;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
+    overflow: visible;
   }
-  .work-item .veil {
-    background: linear-gradient(180deg, transparent 18%, rgba(11,31,51,0.9) 100%);
+  .work-item .go {
+    margin-top: 10px;
+    color: var(--blue);
   }
-  .work-item .thumb { background-position: center center; }
+  .work-item .tag { backdrop-filter: none; }
+  .phone-shell {
+    width: min(100%, 360px);
+    border-radius: 34px;
+    padding: 9px;
+  }
+  .phone-screen { border-radius: 26px; }
   .related { padding-bottom: 40px; }
   .pf-foot {
     padding: 22px 16px;
@@ -985,4 +1021,10 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
     gap: 10px;
   }
   .proto-hint { padding: 0 16px; font-size: 12.5px; }
+  .proto-rail h3 { font-size: 15px; }
+  .case-cover img,
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+  }
 }

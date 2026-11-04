@@ -950,11 +950,35 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
     border-radius: 12px;
     order: -1;
   }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .section { padding: 40px 16px; }
   .section-head h2 { font-size: clamp(22px, 6vw, 28px); }
   .section-head p { font-size: 14px; }
   .core-banner { border-radius: 16px; flex-direction: column; align-items: flex-start; }
-  .demo-flows { grid-template-columns: 1fr; }
+  .demo-flows {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .demo-flows::-webkit-scrollbar { display: none; }
+  .flow-chip {
+    flex: 0 0 auto;
+    min-width: 148px;
+    padding: 10px 12px;
+  }
+  .flow-chip span {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .demo-guide ol { flex-direction: column; }
   .page-gallery { gap: 14px; }
   .page-gallery figcaption {
@@ -967,6 +991,19 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
     padding: 22px 16px;
     flex-direction: column;
     align-items: flex-start;
+  }
+  .fos-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .fos-side button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  table.fos-table { min-width: 560px; }
+  .fos-main,
+  .fos-drawer {
+    -webkit-overflow-scrolling: touch;
   }
 }
 
