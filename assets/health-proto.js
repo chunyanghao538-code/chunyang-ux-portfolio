@@ -334,20 +334,21 @@
     });
   };
 
+  /* on/off 都走同一张热区内嵌图，避免取消后露底图带来的亚像素错位 */
   const DIET_FACE = {
-    "hs-hp-diet-meal1": "diet-meal1-on.png",
-    "hs-hp-diet-meal2": "diet-meal2-on.png",
-    "hs-hp-diet-meal3": "diet-meal3-on.png",
-    "hs-hp-diet-ate": "diet-ate-on.png",
-    "hs-hp-diet-skip": "diet-skip-on.png",
-    "hs-hp-diet-cat1": "diet-cat1-on.png",
-    "hs-hp-diet-cat2": "diet-cat2-on.png",
-    "hs-hp-diet-cat3": "diet-cat3-on.png",
-    "hs-hp-diet-cat4": "diet-cat4-on.png",
-    "hs-hp-diet-cat5": "diet-cat5-on.png",
-    "hs-hp-diet-cat6": "diet-cat6-on.png",
+    "hs-hp-diet-meal1": "diet-meal1",
+    "hs-hp-diet-meal2": "diet-meal2",
+    "hs-hp-diet-meal3": "diet-meal3",
+    "hs-hp-diet-ate": "diet-ate",
+    "hs-hp-diet-skip": "diet-skip",
+    "hs-hp-diet-cat1": "diet-cat1",
+    "hs-hp-diet-cat2": "diet-cat2",
+    "hs-hp-diet-cat3": "diet-cat3",
+    "hs-hp-diet-cat4": "diet-cat4",
+    "hs-hp-diet-cat5": "diet-cat5",
+    "hs-hp-diet-cat6": "diet-cat6",
   };
-  const DIET_FACE_VER = "20261104a";
+  const DIET_FACE_VER = "20261104b";
 
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
@@ -355,19 +356,16 @@
       if (!el) return;
       const on = el.classList.contains("is-on");
       let face = el.querySelector("img.hp-diet-face");
-      if (on) {
-        if (!face) {
-          face = document.createElement("img");
-          face.className = "hp-diet-face";
-          face.alt = "";
-          face.draggable = false;
-          el.appendChild(face);
-        }
-        const src = `assets/works/health/proto/${DIET_FACE[cls]}?v=${DIET_FACE_VER}`;
-        if (face.getAttribute("src") !== src) face.src = src;
-      } else if (face) {
-        face.remove();
+      if (!face) {
+        face = document.createElement("img");
+        face.className = "hp-diet-face";
+        face.alt = "";
+        face.draggable = false;
+        el.appendChild(face);
       }
+      const file = `${DIET_FACE[cls]}-${on ? "on" : "off"}.png`;
+      const src = `assets/works/health/proto/${file}?v=${DIET_FACE_VER}`;
+      if (face.getAttribute("src") !== src) face.src = src;
     });
   };
 
