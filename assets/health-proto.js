@@ -124,7 +124,7 @@
       back: "sleep",
     },
     exercise: {
-      src: "assets/works/health/proto/exercise-v2.png?v=20261104f",
+      src: "assets/works/health/proto/exercise-v2.png?v=20261104g",
       title: "运动录入",
       hint: "是否运动二选一；活动类型可多选（同饮食类别）；+/- 调时长；保存 → 完成弹窗",
       spots: [
@@ -357,10 +357,10 @@
     ["hs-hp-ex-no", 301, 606, 234, 53],
     ["hs-hp-ex-type1", 51, 708, 234, 53],
     ["hs-hp-ex-type2", 301, 708, 234, 53],
-    ["hs-hp-ex-type3", 51, 762, 234, 53],
-    ["hs-hp-ex-type4", 301, 762, 234, 53],
-    ["hs-hp-ex-type5", 51, 816, 234, 53],
-    ["hs-hp-ex-type6", 301, 816, 234, 53],
+    ["hs-hp-ex-type3", 51, 770, 234, 53],
+    ["hs-hp-ex-type4", 301, 770, 234, 53],
+    ["hs-hp-ex-type5", 51, 831, 234, 53],
+    ["hs-hp-ex-type6", 301, 831, 234, 53],
   ];
   const EX_FACE = {
     "hs-hp-ex-yes": "ex-yes",
@@ -372,7 +372,7 @@
     "hs-hp-ex-type5": "ex-type5",
     "hs-hp-ex-type6": "ex-type6",
   };
-  const EX_FACE_VER = "20261104f";
+  const EX_FACE_VER = "20261104g";
 
   const layoutExHotspots = () => {
     if (current !== "exercise") return;
