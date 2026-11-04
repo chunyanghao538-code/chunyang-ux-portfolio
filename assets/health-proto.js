@@ -124,20 +124,20 @@
       back: "sleep",
     },
     exercise: {
-      src: "assets/works/health/proto/exercise-v2.png?v=20261104e",
+      src: "assets/works/health/proto/exercise-v2.png?v=20261104f",
       title: "运动录入",
-      hint: "「有运动 / 暂无运动」二选一（同饮食「吃了」）；再选活动类型，+/- 调时长；保存 → 完成弹窗",
+      hint: "是否运动二选一；活动类型可多选（同饮食类别）；+/- 调时长；保存 → 完成弹窗",
       spots: [
         { cls: "hs-hp-ex-sleep-row", to: "sleep", label: "睡眠记录" },
         { cls: "hs-hp-ex-diet-row", to: "diet", label: "饮食记录" },
         { cls: "hs-hp-ex-yes", toggle: "exyes", label: "有运动", on: true },
         { cls: "hs-hp-ex-no", toggle: "exyes", label: "暂无运动" },
-        { cls: "hs-hp-ex-type1", toggle: "extype", label: "散步", on: true },
-        { cls: "hs-hp-ex-type2", toggle: "extype", label: "跑步" },
-        { cls: "hs-hp-ex-type3", toggle: "extype", label: "骑行" },
-        { cls: "hs-hp-ex-type4", toggle: "extype", label: "力量训练" },
-        { cls: "hs-hp-ex-type5", toggle: "extype", label: "球类运动" },
-        { cls: "hs-hp-ex-type6", toggle: "extype", label: "其他" },
+        { cls: "hs-hp-ex-type1", toggle: "extype", multi: true, label: "散步", on: true },
+        { cls: "hs-hp-ex-type2", toggle: "extype", multi: true, label: "跑步" },
+        { cls: "hs-hp-ex-type3", toggle: "extype", multi: true, label: "骑行" },
+        { cls: "hs-hp-ex-type4", toggle: "extype", multi: true, label: "力量训练" },
+        { cls: "hs-hp-ex-type5", toggle: "extype", multi: true, label: "球类运动" },
+        { cls: "hs-hp-ex-type6", toggle: "extype", multi: true, label: "其他" },
         { cls: "hs-hp-ex-minus", action: "duration", delta: -5, label: "减少时长" },
         { cls: "hs-hp-ex-plus", action: "duration", delta: 5, label: "增加时长" },
         { cls: "hs-hp-ex-voice", to: "voice", label: "语音整理" },
@@ -355,12 +355,24 @@
   const EX_BOXES = [
     ["hs-hp-ex-yes", 51, 606, 234, 53],
     ["hs-hp-ex-no", 301, 606, 234, 53],
+    ["hs-hp-ex-type1", 51, 708, 234, 53],
+    ["hs-hp-ex-type2", 301, 708, 234, 53],
+    ["hs-hp-ex-type3", 51, 762, 234, 53],
+    ["hs-hp-ex-type4", 301, 762, 234, 53],
+    ["hs-hp-ex-type5", 51, 816, 234, 53],
+    ["hs-hp-ex-type6", 301, 816, 234, 53],
   ];
   const EX_FACE = {
     "hs-hp-ex-yes": "ex-yes",
     "hs-hp-ex-no": "ex-no",
+    "hs-hp-ex-type1": "ex-type1",
+    "hs-hp-ex-type2": "ex-type2",
+    "hs-hp-ex-type3": "ex-type3",
+    "hs-hp-ex-type4": "ex-type4",
+    "hs-hp-ex-type5": "ex-type5",
+    "hs-hp-ex-type6": "ex-type6",
   };
-  const EX_FACE_VER = "20261104e";
+  const EX_FACE_VER = "20261104f";
 
   const layoutExHotspots = () => {
     if (current !== "exercise") return;

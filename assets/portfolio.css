@@ -642,9 +642,15 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
 
 .hs-hp-ex-sleep-row { left: 4.5%; right: 4.5%; top: 14.5%; height: 7%; border-radius: 16px; }
 .hs-hp-ex-diet-row { left: 4.5%; right: 4.5%; top: 22.5%; height: 7%; border-radius: 16px; }
-/* 有运动/暂无运动：位置由 JS 像素写入；选中态热区内嵌 face，交互同饮食「吃了」 */
+/* 有运动/暂无运动 + 活动类型：位置由 JS 像素写入；face 切换同饮食类别 */
 .hs-hp-ex-yes,
-.hs-hp-ex-no {
+.hs-hp-ex-no,
+.hs-hp-ex-type1,
+.hs-hp-ex-type2,
+.hs-hp-ex-type3,
+.hs-hp-ex-type4,
+.hs-hp-ex-type5,
+.hs-hp-ex-type6 {
   z-index: 4;
   border-radius: 0 !important;
   overflow: hidden;
@@ -653,12 +659,6 @@ body.tone-b .btn.primary:hover { background: #1558c7; }
   background: transparent !important;
   box-shadow: none !important;
 }
-.hs-hp-ex-type1 { left: 6%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
-.hs-hp-ex-type2 { left: 36%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
-.hs-hp-ex-type3 { left: 66%; width: 28%; top: 47.8%; height: 4%; border-radius: 14px; }
-.hs-hp-ex-type4 { left: 6%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
-.hs-hp-ex-type5 { left: 36%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
-.hs-hp-ex-type6 { left: 66%; width: 28%; top: 51.8%; height: 4%; border-radius: 14px; }
 .hs-hp-ex-minus { left: 18%; width: 14%; top: 61%; height: 4.2%; border-radius: 999px; }
 .hs-hp-ex-plus { left: 68%; width: 14%; top: 61%; height: 4.2%; border-radius: 999px; }
 .hs-hp-ex-voice { left: 5.3%; right: 5%; top: 85.5%; height: 3.8%; border-radius: 999px; }
