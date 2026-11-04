@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261103r948",
+      src: "assets/works/health/proto/diet.png?v=20261104a",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -316,16 +316,58 @@
 
   const layoutDietHotspots = () => {
     if (current !== "diet") return;
-    const sx = screen.clientWidth / DIET_NAT.w;
-    const sy = screen.clientHeight / DIET_NAT.h;
-    if (!(sx > 0) || !(sy > 0)) return;
+    // Map boxes through the painted proto image rect (handles fill stretch / subpixel AR)
+    const ir = img.getBoundingClientRect();
+    const sr = screen.getBoundingClientRect();
+    if (!(ir.width > 0) || !(ir.height > 0)) return;
+    const sx = ir.width / DIET_NAT.w;
+    const sy = ir.height / DIET_NAT.h;
+    const ox = ir.left - sr.left;
+    const oy = ir.top - sr.top;
     DIET_BOXES.forEach(([cls, x, y, w, h]) => {
       const el = screen.querySelector(`.${cls}`);
       if (!el) return;
-      el.style.setProperty("left", `${(x * sx).toFixed(2)}px`);
-      el.style.setProperty("top", `${(y * sy).toFixed(2)}px`);
-      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`);
-      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`);
+      el.style.setProperty("left", `${(ox + x * sx).toFixed(2)}px`, "important");
+      el.style.setProperty("top", `${(oy + y * sy).toFixed(2)}px`, "important");
+      el.style.setProperty("width", `${(w * sx).toFixed(2)}px`, "important");
+      el.style.setProperty("height", `${(h * sy).toFixed(2)}px`, "important");
+    });
+  };
+
+  const DIET_FACE = {
+    "hs-hp-diet-meal1": "diet-meal1-on.png",
+    "hs-hp-diet-meal2": "diet-meal2-on.png",
+    "hs-hp-diet-meal3": "diet-meal3-on.png",
+    "hs-hp-diet-ate": "diet-ate-on.png",
+    "hs-hp-diet-skip": "diet-skip-on.png",
+    "hs-hp-diet-cat1": "diet-cat1-on.png",
+    "hs-hp-diet-cat2": "diet-cat2-on.png",
+    "hs-hp-diet-cat3": "diet-cat3-on.png",
+    "hs-hp-diet-cat4": "diet-cat4-on.png",
+    "hs-hp-diet-cat5": "diet-cat5-on.png",
+    "hs-hp-diet-cat6": "diet-cat6-on.png",
+  };
+  const DIET_FACE_VER = "20261104a";
+
+  const syncDietFaces = () => {
+    Object.keys(DIET_FACE).forEach((cls) => {
+      const el = screen.querySelector(`.${cls}`);
+      if (!el) return;
+      const on = el.classList.contains("is-on");
+      let face = el.querySelector("img.hp-diet-face");
+      if (on) {
+        if (!face) {
+          face = document.createElement("img");
+          face.className = "hp-diet-face";
+          face.alt = "";
+          face.draggable = false;
+          el.appendChild(face);
+        }
+        const src = `assets/works/health/proto/${DIET_FACE[cls]}?v=${DIET_FACE_VER}`;
+        if (face.getAttribute("src") !== src) face.src = src;
+      } else if (face) {
+        face.remove();
+      }
     });
   };
 
@@ -340,6 +382,7 @@
       const on = toggleState[group] && toggleState[group][key];
       el.classList.toggle("is-on", !!on);
     });
+    syncDietFaces();
   };
 
   const addHotspot = (spot) => {
@@ -587,6 +630,7 @@
     if (id === "sleep") mountSleepValues();
     if (id === "exercise") mountDurationBadge();
     if (id === "diet") {
+      syncDietFaces();
       layoutDietHotspots();
       requestAnimationFrame(layoutDietHotspots);
       img.addEventListener("load", layoutDietHotspots, { once: true });
