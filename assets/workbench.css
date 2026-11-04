@@ -932,11 +932,42 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
   .fos-main, .fos-drawer { max-height: none; }
 }
 @media (max-width: 720px) {
-  .hero { padding-top: 28px; }
+  .hero {
+    padding: 24px 16px 28px;
+    gap: 18px;
+  }
+  .hero h1 { font-size: clamp(36px, 12vw, 52px); }
+  .hero-sub { font-size: 18px; }
+  .hero-lead { font-size: 14px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-meta {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .hero-visual {
+    border-radius: 12px;
+    order: -1;
+  }
   .section { padding: 40px 16px; }
+  .section-head h2 { font-size: clamp(22px, 6vw, 28px); }
+  .section-head p { font-size: 14px; }
   .core-banner { border-radius: 16px; flex-direction: column; align-items: flex-start; }
   .demo-flows { grid-template-columns: 1fr; }
   .demo-guide ol { flex-direction: column; }
+  .page-gallery { gap: 14px; }
+  .page-gallery figcaption {
+    font-size: 12.5px;
+    line-height: 1.45;
+    padding: 10px 12px;
+  }
+  .rationale { grid-template-columns: 1fr; }
+  .site-foot {
+    padding: 22px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .pill-tabs button:hover { border-color: #91caff; color: #1677ff; }
