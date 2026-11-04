@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261104b",
+      src: "assets/works/health/proto/diet.png?v=20261104c",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -306,12 +306,12 @@
     ["hs-hp-diet-meal3", 376, 484, 154, 45],
     ["hs-hp-diet-ate", 51, 581, 234, 53],
     ["hs-hp-diet-skip", 301, 581, 234, 53],
-    ["hs-hp-diet-cat1", 51, 686, 234, 53],
-    ["hs-hp-diet-cat2", 301, 686, 234, 53],
-    ["hs-hp-diet-cat3", 51, 741, 234, 53],
-    ["hs-hp-diet-cat4", 301, 741, 234, 53],
-    ["hs-hp-diet-cat5", 51, 828, 234, 53],
-    ["hs-hp-diet-cat6", 301, 828, 234, 53],
+    ["hs-hp-diet-cat1", 51, 687, 234, 53],
+    ["hs-hp-diet-cat2", 301, 687, 234, 53],
+    ["hs-hp-diet-cat3", 51, 761, 234, 53],
+    ["hs-hp-diet-cat4", 301, 761, 234, 53],
+    ["hs-hp-diet-cat5", 51, 834, 234, 53],
+    ["hs-hp-diet-cat6", 301, 834, 234, 53],
   ];
 
   const layoutDietHotspots = () => {
@@ -348,7 +348,7 @@
     "hs-hp-diet-cat5": "diet-cat5",
     "hs-hp-diet-cat6": "diet-cat6",
   };
-  const DIET_FACE_VER = "20261104b";
+  const DIET_FACE_VER = "20261104c";
 
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
