@@ -124,7 +124,7 @@
       back: "sleep",
     },
     exercise: {
-      src: "assets/works/health/proto/exercise-v2.png?v=20261104g",
+      src: "assets/works/health/proto/exercise-v2.png?v=20261104h",
       title: "运动录入",
       hint: "是否运动二选一；活动类型可多选（同饮食类别）；+/- 调时长；保存 → 完成弹窗",
       spots: [
