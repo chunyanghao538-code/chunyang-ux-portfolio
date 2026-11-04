@@ -154,6 +154,24 @@ em { font-style: normal; color: var(--orange); }
   margin-top: 22px; border-radius: 16px; overflow: hidden;
   border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff;
 }
+.page-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-gallery .page-pan {
+  overflow: hidden;
+  background: #f4f7fb;
+}
+.page-gallery .page-pan-link {
+  display: block;
+}
+.page-gallery .page-pan img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .chain {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px;
@@ -907,6 +925,13 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
   padding: 12px 16px; font-size: 13px; color: var(--text-2);
   border-top: 1px solid var(--border);
 }
+#pages,
+#demo,
+#background,
+#summary,
+#hero {
+  scroll-margin-top: 120px;
+}
 
 .site-foot {
   margin-top: 20px; padding: 28px;
@@ -986,6 +1011,41 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
     line-height: 1.45;
     padding: 10px 12px;
   }
+  .page-gallery figcaption::after {
+    content: " · 左右滑动查看，点击可打开大图";
+    color: var(--text-3);
+  }
+  /* 完整案例页：手机端保留可读宽度，可横向/纵向拖动查看 */
+  .page-gallery .page-pan {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    max-height: min(72vh, 560px);
+    touch-action: pan-x pan-y;
+  }
+  .page-gallery .page-pan img {
+    width: 920px;
+    max-width: none;
+    height: auto;
+  }
+  .page-shot {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    max-height: min(72vh, 560px);
+  }
+  .page-shot img {
+    width: 920px;
+    max-width: none;
+    height: auto;
+  }
+  #pages,
+  #demo,
+  #background,
+  #summary,
+  #hero {
+    scroll-margin-top: 160px;
+  }
   .rationale { grid-template-columns: 1fr; }
   .site-foot {
     padding: 22px 16px;
@@ -995,14 +1055,19 @@ table.fos-table { width: 100%; border-collapse: collapse; min-width: 860px; }
   .fos-side {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
+    max-height: none;
   }
   .fos-side button {
     font-size: 12px;
     padding: 8px 10px;
   }
   table.fos-table { min-width: 560px; }
+  .fos-body { min-height: 0; }
+  /* 限制演示区高度，避免挡住下方完整案例页 */
   .fos-main,
   .fos-drawer {
+    max-height: min(68vh, 620px) !important;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
 }
