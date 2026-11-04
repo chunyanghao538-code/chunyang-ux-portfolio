@@ -101,7 +101,7 @@
       timePicker: true,
     },
     diet: {
-      src: "assets/works/health/proto/diet.png?v=20261104c",
+      src: "assets/works/health/proto/diet.png?v=20261104d",
       title: "饮食记录",
       hint: "早餐/午/晚可切换；「吃了」与谷薯/鱼肉蛋/奶豆默认选中；类别可多选；保存 → 运动",
       spots: [
@@ -348,7 +348,7 @@
     "hs-hp-diet-cat5": "diet-cat5",
     "hs-hp-diet-cat6": "diet-cat6",
   };
-  const DIET_FACE_VER = "20261104c";
+  const DIET_FACE_VER = "20261104d";
 
   const syncDietFaces = () => {
     Object.keys(DIET_FACE).forEach((cls) => {
