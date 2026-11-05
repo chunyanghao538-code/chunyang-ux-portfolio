@@ -19,6 +19,17 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@media (max-width: 980px), (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+.pf-section,
+.section,
+.case-gallery figure,
+.page-gallery figure,
+.related {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
+}
 body {
   font-family: var(--sans);
   color: var(--text);
